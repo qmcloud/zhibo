@@ -1,0 +1,70 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="off">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>Youst视频直播交友平台 - 主播代理管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/dialog.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/dialog.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/hotkeys.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.sgallery.js"></script>
+<script type="text/javascript">
+function ResumeError() { 
+	return true; 
+} 
+window.onerror = ResumeError;
+</script>
+</head>
+<body scroll="no">
+<div id="dvLockScreen" class="ScreenLock" style="display:none">
+    <div id="dvLockScreenWin" class="inputpwd">
+    <h5><b class="ico ico-info"></b><span id="lock_tips">锁屏状态，请输入密码解锁</span></h5>
+    <div class="input">
+    	<label class="lb">密码：</label><input type="password" id="lock_password" class="input-text" size="24">
+        <input type="submit" class="submit" value="&nbsp;" name="dosubmit" onclick="check_screenlock();return false;">
+    </div></div>
+</div>
+<div class="header">
+	<div class="logo_ea lf" style="width:300px;"><a href="#" target="_blank"><span class="invisible">Youst手机媒资平台</span></a></div>
+
+    <div class="col-auto" style="overflow: visible">
+    	<div class="log white cut_line">您好！{$_SESSION['username']}  [主播代理]<span>|</span><a href="__URL__/logout/">[退出]</a><span>|</span>
+    		<a href="/" target="_blank" id="site_homepage">站点首页</a>
+    	</div>
+        <ul class="nav white" id="top_menu">
+        
+        </ul>
+    </div>
+</div>
+<div id="content">
+	<div class="col-left left_menu">
+    	<div id="leftMain"></div>
+        <a href="javascript:;" id="openClose" style="outline-style: none; outline-color: invert; outline-width: medium;" hideFocus="hidefocus" class="open" title="展开与关闭"><span class="hidden">展开</span></a>
+    </div>
+	<div class="col-1 lf cat-menu" id="display_center_id" style="display:none" height="100%">
+	<div class="content">
+        	<iframe name="center_frame" id="center_frame" src="" frameborder="false" scrolling="auto" style="border:none" width="100%" height="auto" allowtransparency="true"></iframe>
+            </div>
+        </div>
+    <div class="col-auto mr8">
+
+    	<div class="col-1">
+        	<div class="content" style="position:relative; overflow:hidden">
+                <iframe name="right" id="rightMain" src="__URL__/mainFrame/" frameborder="false" scrolling="auto" style="border:none; margin-bottom:30px" width="100%" height="auto" allowtransparency="true"></iframe>
+                
+        	</div>
+        </div>
+    </div>
+</div>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_index_ea.js"></script>
+</body>
+</html>
