@@ -1,0 +1,171 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=7" /> 
+<title>你的APP - 后台管理中心</title> 
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" /> 
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" /> 
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" /> 
+<link href="__PUBLIC__/statics/css/dialog.css" rel="stylesheet" type="text/css" /> 
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/dialog.js"></script> 
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" /> 
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" /> 
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" /> 
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" /> 
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script> 
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script> 
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script> 
+
+</head> 
+<body> 
+<style type="text/css"> 
+	html{_overflow-y:scroll}
+</style><div id="closeParentTime" style="display:none"></div> 
+<div class="pad-10"> 
+<div class="content-menu ib-a blue line-x"> 
+<a class="add fb" href="__URL__/add_user/"><em>添加用户</em></a><span>|</span> 
+ <a href="javascript:;" onclick="javascript:$('#searchid').css('display','');"><em>搜索</em></a> 
+</div> 
+<div id="searchid" style="display:none"> 
+<form name="searchform" action="" method="get" > 
+<table width="100%" cellspacing="0" class="search-form"> 
+    <tbody> 
+		<tr> 
+		<td> 
+		<div class="explain-col"> 
+ 
+				注册时间：
+				<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/js/calendar/jscal2.css"/> 
+			<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/js/calendar/border-radius.css"/> 
+			<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/js/calendar/win2k.css"/> 
+			<script type="text/javascript" src="__PUBLIC__/statics/js/calendar/calendar.js"></script> 
+			<script type="text/javascript" src="__PUBLIC__/statics/js/calendar/lang/en.js"></script><input type="text" name="start_time" id="start_time" value="{$_GET['start_time']}" size="10" class="date" readonly>&nbsp;<script type="text/javascript"> 
+			Calendar.setup({
+			weekNumbers: false,
+		    inputField : "start_time",
+		    trigger    : "start_time",
+		    dateFormat: "%Y-%m-%d",
+		    showTime: false,
+		    minuteStep: 1,
+		    onSelect   : function() {this.hide();}
+			});
+        </script>- &nbsp;<input type="text" name="end_time" id="end_time" value="{$_GET['end_time']}" size="10" class="date" readonly>&nbsp;<script type="text/javascript"> 
+			Calendar.setup({
+			weekNumbers: false,
+		    inputField : "end_time",
+		    trigger    : "end_time",
+		    dateFormat: "%Y-%m-%d",
+		    showTime: false,
+		    minuteStep: 1,
+		    onSelect   : function() {this.hide();}
+			});
+        </script>				
+				 
+				
+				<input name="keyword" type="text" class="input-text" onfocus="if(this.value='请输入用户ID或用户名')this.value=''" value="<if condition = "$_GET['keyword'] eq ''">请输入用户ID或用户名<else />{$_GET['keyword']}</if>" /> 
+				<input type="submit" name="search" class="button" value="搜索" /> 
+	</div> 
+		</td> 
+		</tr> 
+    </tbody> 
+</table> 
+</form> 
+</div> 
+<form name="myform" id="myform" action="__URL__/opt_user/" method="post" > 
+<div class="table-list"> 
+    <table width="100%"> 
+        <thead> 
+            <tr> 
+			 <th width="16"><input type="checkbox" value="" id="check_box" onclick="selectall('ids[]');"></th> 
+			<th width="40">ID</th> 
+            <th width="100">头像</th> 
+			<th width="100">用户名</th> 
+			<th width="100">昵称</th> 
+			<th width="100">所在地</th> 
+            <th width="40">年龄</th> 
+			<th width="40">性别</th> 
+			<th width="100">秀币</th> 
+            <th width="80">秀豆</th> 
+            <th width="118">注册时间</th>
+			<th width="50">状态</th>
+			<th>管理操作</th> 
+            </tr> 
+        </thead> 
+<tbody> 
+	<volist name="members" id="vo">
+	<tr> 
+		<td align="center"><input class="inputcheckbox " name="ids[]" value="{$vo['id']}" type="checkbox"></td> 
+		<td align='center' >{$vo['id']}</td> 
+        <td align="center" width="100"><img src="/passport/avatar.php?uid={$vo['ucuid']}&size=middle" onerror="this.src='__PUBLIC__/statics/images/noavator.jpg'" style='max-height:100px; _height:expression(this.height>100?"100px":"atuo"); max-width:100px; _width:expression(this.width>100?"100px":"atuo"); '></td> 
+		<td align='center'><span style="" >{$vo['username']}</span></td> 
+		<td align='center'>
+			{$vo['nickname']}
+		</td>
+		<td align='center'>
+			<if condition = "$vo['province'] neq '请选择...'">{$vo['province']}</if>-<if condition = "$vo['city'] neq '请选择...'">{$vo['city']}</if>
+		</td>
+		<td align='center'>
+		<?php
+		$birthdayArr = explode("年", $vo['birthday']);
+		if($birthdayArr[0] != ''){
+			echo date('Y',time()) - $birthdayArr[0];
+		}
+		?>
+		岁
+ 		</td> 
+		<td align='center'>
+			<switch name="vo['sex']">
+				<case value="0">男</case>
+				<case value="1">女</case>
+			</switch>
+		</td> 
+		<td align='center'>{$vo['coinbalance']}</td> 
+		<td align='center'>{$vo['beanbalance']}</td> 
+		<td align='center'>{$vo['regtime']|fDate}</td> 
+		<td align='center'>
+			<switch name="vo['isaudit']">
+				<case value="y">已审核</case>
+				<case value="n"><font color="#FF6600">未审核</font></case>
+			</switch><br>
+			<switch name="vo['sign']">
+				<case value="y">已签约</case>
+				<case value="n">未签约</case>
+				<case value="i"><font color="#FF6600">审核中</font></case>
+			</switch>
+		</td> 
+		<td align='center'>
+			<switch name="vo['isaudit']">
+				<case value="y"><a href="__URL__/opt_user/action/disaudit/userid/{$vo['id']}/return/{$_SERVER["REQUEST_URI"]|base64_encode}">禁用</a></case>
+				<case value="n"><a href="__URL__/opt_user/action/audit/userid/{$vo['id']}/return/{$_SERVER["REQUEST_URI"]|base64_encode}">启用</a></case>
+			</switch> | 
+			<a href="javascript:edit({$vo['id']}, '{$vo['username']}')">修改</a> | <a href="javascript:confirmurl('__URL__/opt_user/action/restore/userid/{$vo['id']}/return/{$_SERVER["REQUEST_URI"]|base64_encode}', '是否恢复该用户?')">恢复</a>
+			</td> 
+	</tr> 
+	</volist>
+             
+     </tbody> 
+     </table> 
+    <div class="btn"><label for="check_box">全选/取消</label> 
+		<input type="button" class="button" value="恢复" onclick="myform.action='__URL__/opt_user/action/restorebat/';return confirm_restore()"/> 
+		
+	</div> 
+    <div id="pages">{$page}</div> 
+</div> 
+<input type="hidden" id="return" name="return" value="{$_SERVER["REQUEST_URI"]|base64_encode}" >
+</form>
+</div> 
+<script type="text/javascript"> 
+<!--
+function confirm_restore(){
+	if(confirm('确认恢复吗？')) $('#myform').submit();
+}
+	function edit(id, name) {
+		window.top.art.dialog({title:'修改--'+name, id:'edit', iframe:'__URL__/edit_user/userid/'+id ,width:'500px',height:'400px'}, 	function(){var d = window.top.art.dialog({id:'edit'}).data.iframe;
+		var form = d.document.getElementById('dosubmit');form.click();return false;}, function(){window.top.art.dialog({id:'edit'}).close()});
+	}
+//-->
+</script> 
+</body> 
+</html>

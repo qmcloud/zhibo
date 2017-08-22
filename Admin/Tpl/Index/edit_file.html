@@ -1,0 +1,46 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script type="text/javascript">
+	window.focus();
+</script>
+</head>
+<body>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><style type="text/css">
+	html{_overflow:hidden}
+	.frmaa{float:left;width:80%; min-width: 870px; _width:870px;}
+	.rraa{float: right; width:230px;}
+	.pt{margin-top: 4px;}
+	
+</style>
+<body style="overflow:hidden">
+<div class="pad-10" style="padding-bottom:0px">
+
+<div class="frmaa">
+<form action="__URL__/do_edit_file/" method="post" name="myform" id="myform">
+<input type='hidden' name='wdir' value='{$_GET['wdir']|base64_decode}'>
+<input type='hidden' name='file' value='{$_GET['file']|base64_decode}'>
+<textarea name="str" id="str" style="height: 450px;width:99%; visibility:inherit">{$contents}</textarea>
+<div class="bk10"></div>
+<input type="submit" id="dosubmit" class="button pt" name="dosubmit" value="提交" />
+</form>
+</div>
+</div>
+</body>
+</html>

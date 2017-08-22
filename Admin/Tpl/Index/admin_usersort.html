@@ -1,0 +1,86 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script type="text/javascript">
+	window.focus();
+	</script>
+</head>
+<body>
+<div class="subnav">
+    <div class="content-menu ib-a blue line-x">
+        <a href='javascript:;' class="on"><em>管理类别</em></a><span>|</span><a href='__URL__/add_usersort/' ><em>添加类别</em></a>
+	</div>
+</div>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><form name="myform" action="__URL__/usersortlistorder/" method="post">
+<div class="pad_10">
+<div class="explain-col">
+温馨提示：请在添加、修改类别全部完成后，<a href="__APP__/Index/cache_all/">更新缓存</a>
+</div>
+<div class="bk10"></div>
+<div class="table-list">
+    <table width="100%" cellspacing="0" >
+        <thead>
+            <tr>
+            <th width="38">排序</th>
+            <th width="30">ID</th>
+            <th >类别名称</th>
+            <th align='left' width="50">上级类别</th>
+            
+            <th width="120">添加时间</th>
+			<th >管理操作</th>
+            </tr>
+        </thead>
+		<tbody>
+			<volist name="usersorts" id="vo">
+			<tr>
+				<td><input type="hidden" name="id[]" value="{$vo['id']}" /><input name='orderno[]' type='text' size='3' value='{$vo['orderno']}' class='input-text-c'></td>
+				<td align='center'>{$vo['id']}</td>
+				<td align='center'>{$vo['sortname']}</td>
+				<td></td>
+				
+				<td align='center'>{$vo['addtime'],2|fDate}</td>
+				<td align='center' ><a href="__URL__/add_usersort/pid/{$vo['id']}">添加子类别</a> | <a href="__URL__/edit_usersort/sid/{$vo['id']}">修改</a> | <a href="javascript:confirmurl('__URL__/del_usersort/sid/{$vo['id']}','确认要删除 『 {$vo['channelstr']} 』 吗？')">删除</a> </td>
+			</tr>
+				<volist name="vo['voo']" id="sub">
+				<tr>
+					<td><input type="hidden" name="id[]" value="{$sub['id']}" /><input name='orderno[]' type='text' size='3' value='{$sub['orderno']}' class='input-text-c'></td>
+					<td align='center'>{$sub['id']}</td>
+					<td align='center'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ {$sub['sortname']}</td>
+					<td>{$vo['sortname']}</td>
+					
+					<td align='center'>{$sub['addtime'],2|fDate}</td>
+					<td align='center' ><a href="__URL__/edit_usersort/sid/{$sub['id']}">修改</a> | <a href="javascript:confirmurl('__URL__/del_usersort/sid/{$sub['id']}/type/sub','确认要删除 『 {$sub['sortname']} 』 吗？')">删除</a> </td>
+				</tr>
+				</volist>
+			</volist>
+		</tbody>
+    </table>
+
+    <div class="btn">
+	<input type="submit" class="button" name="dosubmit" value="排序" /></div>  </div>
+</div>
+</div>
+</form>
+<script language="JavaScript">
+<!--
+	window.top.$('#display_center_id').css('display','none');
+//-->
+</script>
+</body>
+</html>

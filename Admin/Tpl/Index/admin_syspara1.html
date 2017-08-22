@@ -1,0 +1,203 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript">
+	window.focus();
+</script>
+</head>
+<body>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><script type="text/javascript">
+<!--
+	$(function(){
+		SwapTab('setting','on','',4,1);
+		$.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){window.top.art.dialog({content:msg,lock:true,width:'200',height:'50'}, function(){this.close();$(obj).focus();})}});		
+		$("#sitelogo").formValidator({onshow:"请输入网站LOGO路径",onfocus:"请输入网站LOGO路径",oncorrect:"输入正确"}).inputValidator({min:1,onerror:"请输入网站LOGO路径"});
+		$("#sitename").formValidator({onshow:"请输入网站名称",onfocus:"请输入网站名称",oncorrect:"输入正确"}).inputValidator({min:1,onerror:"请输入网站名称"});
+		
+
+	})
+//-->
+</script>
+<form action="__URL__/save_syspara/" method="post" id="myform">
+<input type="hidden" name="id" value="1"></input>
+<div class="pad-10">
+<div class="col-tab">
+<ul class="tabBut cu-li">
+            <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',4,1);">基本配置</li>
+			<li id="tab_setting_2" onclick="SwapTab('setting','on','',4,2);">SEO相关设置</li>
+			<li id="tab_setting_3" onclick="SwapTab('setting','on','',4,3);">注册相关</li>
+			<li id="tab_setting_4" onclick="SwapTab('setting','on','',4,4);">直播相关</li>
+
+</ul>
+<div id="div_setting_1" class="contentList pad-10">
+
+<table width="100%"  class="table_form">
+  <tr>
+    <th width="120">关闭站点</th>
+    <td class="y-bg">
+    <input name="siteclosed" value="y" type="radio" <if condition = "$siteconfig['siteclosed'] eq 'y'">checked</if>> 是&nbsp;&nbsp;&nbsp;&nbsp;
+	<input name="siteclosed" value="n" type="radio" <if condition = "$siteconfig['siteclosed'] eq 'n'">checked</if>> 否&nbsp;&nbsp;&nbsp;&nbsp;<font color="gray">管理员可访问前台及后台</font></td>
+  </tr> 
+  <tr>
+    <th width="120">关站提示</th>
+    <td class="y-bg">
+    <input type="text" class="input-text" name="closereason" id="closereason" size="50" value="{$siteconfig['closereason']}" />&nbsp;&nbsp;&nbsp;&nbsp;<font color="gray">关闭站点前台访问提示</font></td>
+  </tr> 	
+  <tr>
+    <th width="120">网站LOGO路径</th>
+    <td class="y-bg"><input type="text" class="input-text" name="sitelogo" id="sitelogo" size="50" value="{$siteconfig['sitelogo']}" /></td>
+  </tr>
+  <tr>
+    <th width="120">网站名称</th>
+    <td class="y-bg"><input type="text" class="input-text" name="sitename" id="sitename" size="50" value="{$siteconfig['sitename']}"/></td>
+  </tr> 
+  <tr>
+    <th width="120">网站标题</th>
+    <td class="y-bg"><input type="text" class="input-text" name="sitetitle" id="sitetitle" size="50" value="{$siteconfig['sitetitle']}" /></td>
+  </tr>
+  <tr>
+    <th width="120">网站URL</th>
+    <td class="y-bg"><input type="text" class="input-text" name="siteurl" id="siteurl" size="50" value="{$siteconfig['siteurl']}" /></td>
+  </tr>
+  <tr>
+    <th width="120">网站域名根</th>
+    <td class="y-bg"><input type="text" class="input-text" name="domainroot" id="domainroot" size="50" value="{$siteconfig['domainroot']}" /></td>
+  </tr>
+  <tr>
+    <th width="120">页脚版权信息</th>
+    <td class="y-bg"><textarea name="footinfo" id="footinfo" style="height: 60px;width:310px;; visibility:inherit">{$siteconfig['footinfo']}</textarea>&nbsp;&nbsp;&nbsp;&nbsp;<font color="gray">页脚版权信息,支持HTML</font></td>
+  </tr>       
+</table>
+</div>
+<div id="div_setting_2" class="contentList pad-10 hidden">
+	<table width="100%"  class="table_form">
+  <tr>
+    <th width="120">网站标题后缀</th>
+    <td class="y-bg"><input type="text" class="input-text" name="titleattach" id="titleattach" size="50" value="{$siteconfig['titleattach']}" /></td>
+  </tr>
+  <tr>
+    <th width="120">META关键字</th>
+    <td class="y-bg"><input type="text" class="input-text" name="metakeyword" id="metakeyword" size="50" value="{$siteconfig['metakeyword']}" /></td>
+  </tr>
+  <tr>
+    <th width="120">META描述</th>
+    <td class="y-bg"><textarea name="metadesp" id="metadesp" style="height: 60px;width:310px;; visibility:inherit">{$siteconfig['metadesp']}</textarea></td>
+  </tr> 
+</table>
+</div>
+<div id="div_setting_3" class="contentList pad-10 hidden">
+	<table width="100%"  class="table_form">
+  <tr>
+    <th width="120">开放注册</th>
+    <td class="y-bg">
+    <input name="openreg" value="y" type="radio" <if condition = "$siteconfig['openreg'] eq 'y'">checked</if>> 是&nbsp;&nbsp;&nbsp;&nbsp;
+	<input name="openreg" value="n" type="radio" <if condition = "$siteconfig['openreg'] eq 'n'">checked</if>> 否</td>
+  </tr>
+  <tr>
+    <th width="120">注册默认审核</th>
+    <td class="y-bg">
+    <input name="regaudit" value="y" type="radio" <if condition = "$siteconfig['regaudit'] eq 'y'">checked</if>> 是&nbsp;&nbsp;&nbsp;&nbsp;
+	<input name="regaudit" value="n" type="radio" <if condition = "$siteconfig['regaudit'] eq 'n'">checked</if>> 否</td>
+  </tr>
+  <tr>
+    <th width="120">禁止注册用户名</th>
+    <td class="y-bg"><textarea name="denyusername" id="denyusername" style="height: 60px;width:310px;; visibility:inherit">{$siteconfig['denyusername']}</textarea>&nbsp;&nbsp;&nbsp;&nbsp;<font color="gray">多个用户名以逗号‘,’分隔</font></td>
+  </tr>
+  <tr>
+    <th width="120">UC访问地址</th>
+    <td class="y-bg"><input type="text" class="input-text" name="ucurl" id="ucurl" size="50" value="{$siteconfig['ucurl']}" /></td>
+  </tr>
+</table>
+</div>
+<div id="div_setting_4" class="contentList pad-10 hidden">
+	<table width="100%"  class="table_form">
+  <tr>
+    <th width="120">默认直播权限</th>
+    <td class="y-bg">
+    <input name="canlive" value="y" type="radio" <if condition = "$siteconfig['canlive'] eq 'y'">checked</if>> 有&nbsp;&nbsp;&nbsp;&nbsp;
+	<input name="canlive" value="n" type="radio" <if condition = "$siteconfig['canlive'] eq 'n'">checked</if>> 无</td>
+  </tr>
+  <tr>
+    <th width="120">人民币与虚拟币比例</th>
+    <td class="y-bg">1:<input type="text" class="input-text" name="ratio" id="ratio" size="5" value="{$siteconfig['ratio']}"/> 修改比例时请确保当前主播及代理的各项款项已结清</td>
+  </tr> 
+  <tr>
+    <th width="120">CDN地址</th>
+    <td class="y-bg"><input type="text" class="input-text" name="cdn" id="cdn" size="20" value="{$siteconfig['cdn']}"> </td>
+  </tr> 
+   <tr>
+    <th width="120">cdn拉流地址</th>
+    <td class="y-bg"><input type="text" class="input-text" name="cdnl" id="cdnl" size="20" value="{$siteconfig['cdnl']}">主播视频流拉流 </td>
+  </tr> 
+  <tr>
+    <th width="120">fps</th>
+    <td class="y-bg"><input type="text" class="input-text" name="fps" id="fps" size="5" value="{$siteconfig['fps']}"> </td>
+  </tr>
+  <tr>
+    <th width="120">最大比特率</th>
+    <td class="y-bg"><input type="text" class="input-text" name="zddk" id="zddk" size="5" value="{$siteconfig['zddk']}"> </td>
+  </tr>
+  <tr>
+    <th width="120">品质</th>
+    <td class="y-bg"><input type="text" class="input-text" name="pz" id="pz" size="20" value="{$siteconfig['pz']}"> </td>
+  </tr>
+   <th width="120">关键帧间隔</th>
+    <td class="y-bg"><input type="text" class="input-text" name="zjg" id="zjg" size="20" value="{$siteconfig['zjg']}"> </td>
+  </tr>
+  <tr>
+</table>
+</div>
+
+<div class="bk15"></div>
+<input name="dosubmit" type="submit" value="提交" class="button">
+</div>
+</div>
+</form>
+</body>
+<script type="text/javascript">
+
+function SwapTab(name,cls_show,cls_hide,cnt,cur){
+    for(i=1;i<=cnt;i++){
+		if(i==cur){
+			 $('#div_'+name+'_'+i).show();
+			 $('#tab_'+name+'_'+i).attr('class',cls_show);
+		}else{
+			 $('#div_'+name+'_'+i).hide();
+			 $('#tab_'+name+'_'+i).attr('class',cls_hide);
+		}
+	}
+}
+
+function showsmtp(obj,hiddenid){
+	hiddenid = hiddenid ? hiddenid : 'smtpcfg';
+	var status = $(obj).val();
+	if(status == 1) $("#"+hiddenid).show();
+	else  $("#"+hiddenid).hide();
+}
+function test_mail() {
+	var mail_type = $('input[checkbox=mail_type][checked]').val();
+    $.post('?m=admin&c=setting&a=public_test_mail&mail_to='+$('#mail_to').val(),{mail_type:mail_type,mail_server:$('#mail_server').val(),mail_port:$('#mail_port').val(),mail_user:$('#mail_user').val(),mail_password:$('#mail_password').val(),mail_auth:$('#mail_auth').val(),mail_auth:$('#mail_auth').val(),mail_from:$('#mail_from').val()}, function(data){
+	alert(data);
+	});
+}
+
+</script>
+</html>

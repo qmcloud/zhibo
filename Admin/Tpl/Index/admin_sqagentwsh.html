@@ -1,0 +1,82 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=7" /> 
+<title>你的APP - 后台管理中心</title> 
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" /> 
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" /> 
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" /> 
+<link href="__PUBLIC__/statics/css/dialog.css" rel="stylesheet" type="text/css" /> 
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/dialog.js"></script> 
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" /> 
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" /> 
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" /> 
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" /> 
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script> 
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script> 
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script> 
+
+</head> 
+<body> 
+<style type="text/css"> 
+	html{_overflow-y:scroll}
+</style><div id="closeParentTime" style="display:none"></div> 
+<div class="pad-10"> 
+
+
+<form name="myform" id="myform" action="__URL__/opt_announce/" method="post" > 
+<div class="table-list"> 
+    <table width="100%"> 
+        <thead> 
+            <tr> 
+			 <th width="16"><input type="checkbox" value="" id="check_box" onclick="selectall('ids[]');"></th> 
+			<th width="40">ID</th> 
+			<th align="">申请人</th> 
+			<th align="40">申请人等级</th> 
+			<th align="">家族名称</th> 
+            <th width="120">申请时间</th> 
+            <th width="120">状态</th> 
+			<th width="120">管理操作</th> 
+            </tr> 
+        </thead> 
+<tbody> 
+	<volist name="lists" id="vo">
+	<tr> 
+		<td align="center"><input class="inputcheckbox " name="ids[]" value="{$vo['id']}" type="checkbox"></td> 
+		<td align='center'>{$vo['id']}</td> 
+		<td align="center">{$vo.nickname}</td> 
+        <td align="center">{$vo['emceelevel'][0]['levelname']}</td> 
+        <td align='center'>{$vo['familyname']}</td>
+		<td align='center'>{$vo['sqtime']|fDate}</td> 
+		<td align="center">{$vo['zhuangtai']}</td> 
+		<td align='center'>
+			<a href="__URL__/edit_sqagent/sqid/{$vo['id']}">点击审核</a> 
+			<!--| <a href="javascript:confirmurl('__URL__/del_announce/annid/{$vo['id']}/return/{$_SERVER["REQUEST_URI"]|base64_encode}', '是否删除该公告?')">删除</a>*/-->
+			</td> 
+	</tr> 
+	</volist>
+             
+     </tbody> 
+     </table> 
+    <div class="btn"><label for="check_box">全选/取消</label> 
+		<input type="button" class="button" value="删除" onclick="myform.action='__URL__/opt_announce/action/del/';return confirm_delete()"/> 
+		
+	</div> 
+    <div id="pages">{$page}</div> 
+</div> 
+<input type="hidden" id="return" name="return" value="{$_SERVER["REQUEST_URI"]|base64_encode}" >
+</form>
+</div> 
+<script type="text/javascript"> 
+<!--
+function confirm_delete(){
+	if(confirm('确认删除吗？')) $('#myform').submit();
+}
+
+
+//-->
+</script> 
+</body> 
+</html>

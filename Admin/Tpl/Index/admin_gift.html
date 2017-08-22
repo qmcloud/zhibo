@@ -1,0 +1,99 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script type="text/javascript">
+	window.focus();
+	</script>
+</head>
+<body>
+<div class="subnav">
+    <div class="content-menu ib-a blue line-x">
+        <a href='javascript:;' class="on"><em>所有礼物列表</em></a>
+	</div>
+</div>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><form name="myform" action="__URL__/save_gift/" method="post" enctype="multipart/form-data">
+<div class="pad_10">
+
+<div class="bk10"></div>
+<div class="table-list">
+    <table width="100%" cellspacing="0" >
+        <thead>
+            <tr>
+			 <th width="16"><input type="checkbox" value="" id="check_box" onclick="selectall('ids[]');"></th> 
+            <th width="38">分类</th>
+            <th width="150">礼物名称</th>
+            <th width="50">价格</th>
+            <th width="150">小图(25*25)</th>
+			<th width="150">大图(50*50)</th>
+			<th width="150">flash</th>
+			<th>添加时间</th> 
+            </tr>
+        </thead>
+		<tbody>
+			<volist name="gifts" id="vo">
+			<tr>
+				<td align="center"><input class="inputcheckbox " name="ids[]" value="{$vo['id']}" type="checkbox"></td> 
+				<td>
+					<input type="hidden" name="id[]" value="{$vo['id']}" />
+					<select name="sid[]">
+						<volist name="giftsorts" id="voo">
+						<option value="{$voo['id']}" <if condition = "$voo['id'] eq $vo['sid']">selected</if>>{$voo['sortname']}</option>
+						</volist>
+					</select>
+				</td>
+				<td><input name='giftname[]' type='text' value='{$vo['giftname']}' class='input-text-c' style="width:150px;"></td>
+				<td><input name='needcoin[]' type='text' value='{$vo['needcoin']}' class='input-text-c' style="width:50px;"></td>
+				<td><input name='giftIcon_25[]' type='text' value='{$vo['giftIcon_25']}' class='input-text-c' style="width:150px;"></td>
+				<td><input name='giftIcon[]' type='text' value='{$vo['giftIcon']}' class='input-text-c' style="width:150px;"></td>
+				<td><input name='giftSwf[]' type='text' value='{$vo['giftSwf']}' class='input-text-c' style="width:150px;"></td>
+				<td>{$vo['addtime'],2|fDate}</td>
+			</tr>
+			</volist>
+			<tr>
+				<td align="center">增加</td> 
+				<td>
+					<select name="add_sid">
+						<volist name="giftsorts" id="vo">
+						<option value="{$vo['id']}">{$vo['sortname']}</option>
+						</volist>
+					</select>
+				</td>
+				<td><input name='add_giftname' type='text' class='input-text-c' style="width:150px;"></td>
+				<td><input name='add_needcoin' type='text' class='input-text-c' style="width:50px;"></td>
+				<td><input type="file" name="pic1" id="pic1" style="width:150px;height:25px"></td>
+				<td><input type="file" name="pic2" id="pic2" style="width:150px;height:25px"></td>
+				<td><input type="file" name="pic3" id="pic3" style="width:150px;height:25px"></td>
+				<td></td>
+			</tr>
+		</tbody>
+    </table>
+
+    <div class="btn">
+	<label for="check_box">全选/取消</label> 
+	<input type="submit" class="button" name="dosubmit" value="保存" /></div>  </div>
+</div>
+</div>
+</form>
+<script language="JavaScript">
+<!--
+	window.top.$('#display_center_id').css('display','none');
+//-->
+</script>
+</body>
+</html>

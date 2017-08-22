@@ -1,0 +1,103 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="off">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/dialog.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/dialog.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/hotkeys.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.sgallery.js"></script>
+<script type="text/javascript">
+function ResumeError() { 
+	return true; 
+} 
+window.onerror = ResumeError;
+</script>
+</head>
+<body scroll="no">
+<div id="dvLockScreen" class="ScreenLock" style="display:none">
+    <div id="dvLockScreenWin" class="inputpwd">
+    <h5><b class="ico ico-info"></b><span id="lock_tips">锁屏状态，请输入密码解锁</span></h5>
+    <div class="input">
+    	<label class="lb">密码：</label><input type="password" id="lock_password" class="input-text" size="24">
+        <input type="submit" class="submit" value="&nbsp;" name="dosubmit" onclick="check_screenlock();return false;">
+    </div></div>
+</div>
+<div class="header">
+	<div class="logo lf"><a href="http://你的url" target="_blank"><span class="invisible">你的APP</span></a></div>
+    <div class="rt">
+    	<div class="tab_style white cut_line text-r"><a href="javascript:;" onclick="lock_screen()"><img src="__PUBLIC__/statics/images/icon/lockscreen.png"> 锁屏</a><span>|</span><a href="http://你的url" target="_blank">官方网站</a><span>|</span><a href="http://你的url/news/class/?79.html" target="_blank">帮助？</a>
+    <ul id="Skin">
+		<li class="s1 styleswitch" rel="styles1"></li>
+		<li class="s2 styleswitch" rel="styles2"></li>
+		<li class="s3 styleswitch" rel="styles3"></li>
+        <li class="s4 styleswitch" rel="styles4"></li>
+	</ul>
+        </div>
+        <div class="style_but"></div>
+    </div>
+    <div class="col-auto" style="overflow: visible">
+    	<div class="log white cut_line">您好！{$_SESSION['adminname']}  [超级管理员]<span>|</span><a href="__URL__/logout/">[退出]</a><span>|</span>
+    		<a href="/" target="_blank" id="site_homepage">站点首页</a>
+    	</div>
+        <ul class="nav white" id="top_menu">
+        <li id="_M1" class="on top_menu"><a href="javascript:_M(1,'')" hidefocus="true" style="outline:none;">我的面板</a></li>
+		<li id="_M2" class="top_menu"><a href="javascript:_M(2,'')"  hidefocus="true" style="outline:none;">设置</a></li>
+		<li id="_M3" class="top_menu"><a href="javascript:_M(3,'')"  hidefocus="true" style="outline:none;">直播</a></li>
+		<li id="_M4" class="top_menu"><a href="javascript:_M(4,'')"  hidefocus="true" style="outline:none;">财务</a></li>
+		<li id="_M5" class="top_menu"><a href="javascript:_M(5,'')"  hidefocus="true" style="outline:none;">界面</a></li>
+		<li id="_M6" class="top_menu"><a href="javascript:_M(6,'')"  hidefocus="true" style="outline:none;">数据库</a></li>
+		<li id="_M7" class="top_menu"><a href="javascript:_M(7,'')"  hidefocus="true" style="outline:none;">投票</a></li>
+		<li id="_M8" class="top_menu"><a href="javascript:_M(72,'')"  hidefocus="true" style="outline:none;">活动</a></li>
+		<li id="_M8" class="top_menu"><a href="javascript:_M(79,'')"  hidefocus="true" style="outline:none;">家族</a></li>
+        </ul>
+    </div>
+</div>
+<div id="content">
+	<div class="col-left left_menu">
+    	<div id="leftMain"></div>
+        <a href="javascript:;" id="openClose" style="outline-style: none; outline-color: invert; outline-width: medium;" hideFocus="hidefocus" class="open" title="展开与关闭"><span class="hidden">展开</span></a>
+    </div>
+	<div class="col-1 lf cat-menu" id="display_center_id" style="display:none" height="100%">
+	<div class="content">
+        	<iframe name="center_frame" id="center_frame" src="" frameborder="false" scrolling="auto" style="border:none" width="100%" height="auto" allowtransparency="true"></iframe>
+            </div>
+        </div>
+    <div class="col-auto mr8">
+    <div class="crumbs">
+    <div class="shortcut cu-span"><a href="__URL__/cache_all/" target="right"><span>更新缓存</span></a><a href="javascript:art.dialog({id:'map',iframe:'__URL__/public_map/', title:'后台地图', width:'700', height:'500', lock:true});void(0);"><span>后台地图</span></a></div>
+    当前位置：<span id="current_pos"></span></div>
+    	<div class="col-1">
+        	<div class="content" style="position:relative; overflow:hidden">
+                <iframe name="right" id="rightMain" src="__URL__/mainFrame/" frameborder="false" scrolling="auto" style="border:none; margin-bottom:30px" width="100%" height="auto" allowtransparency="true"></iframe>
+                <div class="fav-nav">
+					<div id="panellist">
+						<volist name="adminqmenus" id="vo">
+						<span>
+							<a onclick="paneladdclass(this);" target="right" href="{$vo['url']}">{$vo['menuname']}</a>
+							<a class="panel-delete" href="javascript:delete_panel({$vo['menuid']}, this);"></a>
+						</span>
+						</volist>
+					</div>
+					<div id="paneladd"></div>
+					<input type="hidden" id="menuid" value="">
+					<input type="hidden" id="bigid" value="" />
+                    <div id="help" class="fav-help"></div>
+				</div>
+        	</div>
+        </div>
+    </div>
+</div>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_index.js"></script>
+</body>
+</html>

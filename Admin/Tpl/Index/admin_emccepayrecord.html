@@ -1,0 +1,146 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=7" /> 
+<title>你的APP - 后台管理中心</title> 
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" /> 
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" /> 
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" /> 
+<link href="__PUBLIC__/statics/css/dialog.css" rel="stylesheet" type="text/css" /> 
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/dialog.js"></script> 
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" /> 
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" /> 
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" /> 
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" /> 
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script> 
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script> 
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script> 
+
+</head> 
+<body> 
+<style type="text/css"> 
+	html{_overflow-y:scroll}
+</style><div id="closeParentTime" style="display:none"></div> 
+<div class="pad-10"> 
+<div class="content-menu ib-a blue line-x"> 
+<a href="javascript:;" onclick="javascript:$('#searchid').css('display','');"><em>搜索</em></a> 
+</div> 
+<div id="searchid" style="display:none"> 
+<form name="searchform" action="" method="get" > 
+<table width="100%" cellspacing="0" class="search-form"> 
+    <tbody> 
+		<tr> 
+		<td> 
+		<div class="explain-col"> 
+ 
+				操作时间：
+				<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/js/calendar/jscal2.css"/> 
+			<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/js/calendar/border-radius.css"/> 
+			<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/js/calendar/win2k.css"/> 
+			<script type="text/javascript" src="__PUBLIC__/statics/js/calendar/calendar.js"></script> 
+			<script type="text/javascript" src="__PUBLIC__/statics/js/calendar/lang/en.js"></script><input type="text" name="start_time" id="start_time" value="{$_GET['start_time']}" size="10" class="date" readonly>&nbsp;<script type="text/javascript"> 
+			Calendar.setup({
+			weekNumbers: false,
+		    inputField : "start_time",
+		    trigger    : "start_time",
+		    dateFormat: "%Y-%m-%d",
+		    showTime: false,
+		    minuteStep: 1,
+		    onSelect   : function() {this.hide();}
+			});
+        </script>- &nbsp;<input type="text" name="end_time" id="end_time" value="{$_GET['end_time']}" size="10" class="date" readonly>&nbsp;<script type="text/javascript"> 
+			Calendar.setup({
+			weekNumbers: false,
+		    inputField : "end_time",
+		    trigger    : "end_time",
+		    dateFormat: "%Y-%m-%d",
+		    showTime: false,
+		    minuteStep: 1,
+		    onSelect   : function() {this.hide();}
+			});
+        </script>				
+				 
+				
+				用户名：<input name="keyword" type="text" class="input-text" onfocus="if(this.value='请输入用户名')this.value=''" value="<if condition = "$_GET['keyword'] eq ''">请输入用户名<else />{$_GET['keyword']}</if>" style="width:80px;" /> 
+				<input type="submit" name="search" class="button" value="搜索" /> 
+	</div> 
+		</td> 
+		</tr> 
+    </tbody> 
+</table> 
+</form> 
+<script>
+$('#searchid').css('display','');
+</script>
+</div> 
+<form name="myform" id="myform" action="__URL__/opt_emccepayrecord/" method="post" >
+<div class="table-list"> 
+    <table width="100%"> 
+        <thead> 
+            <tr> 
+			 <th width="16"><input type="checkbox" value="" id="check_box" onclick="selectall('ids[]');"></th> 
+
+			<th width="150">用户</th> 
+
+            <th width="100">豆</th> 
+			<th width="100">人民币（元）</th> 
+			<th width="100">状态</th> 
+			<th>备注</th> 
+			<th width="150">操作时间</th> 
+			<th width="100">操作</th> 
+            </tr> 
+        </thead> 
+<tbody> 
+	<volist name="details" id="vo">
+	<tr> 
+		<td align="center"><input class="inputcheckbox " name="ids[]" value="{$vo['id']}" type="checkbox"></td> 
+
+		<volist name="vo['voo']" id="sub">
+        <td align="center">ID：{$vo['uid']}<br><a href="/{$sub['curroomnum']}" target="_blank">{$sub['username']}（{$sub['curroomnum']}）</a></td> 
+		</volist>
+
+		<td align='center'>{$vo['bean']}</td> 
+		<td align='center'><?php echo round(($vo['bean'] / 100),2); ?></td> 
+		<td align='center'>
+			<if condition = "$vo['status'] eq ''">
+			<font color="#FF6600">未处理</font>
+			<else />
+			{$vo['status']}
+			</if>
+		</td> 
+		<td align='center'>{$vo['remark']}</td> 
+		<td align='center'>{$vo['addtime']|fDate}</td> 
+		<td align='center'>
+			<a href="javascript:edit({$vo['id']}, '')">修改</a> |
+			<a href="javascript:confirmurl('__URL__/del_emccepayrecord/recordid/{$vo['id']}/return/{$_SERVER["REQUEST_URI"]|base64_encode}', '是否删除该记录?')">删除</a>
+			</td>
+	</tr> 
+	</volist>
+             
+     </tbody> 
+     </table> 
+	<div class="btn"><label for="check_box">全选/取消</label> 
+		<input type="button" class="button" value="删除" onclick="myform.action='__URL__/opt_emccepayrecord/action/del/';return confirm_delete()"/> 
+		
+	</div> 
+    <div id="pages">{$page}</div> 
+</div> 
+<input type="hidden" id="return" name="return" value="{$_SERVER["REQUEST_URI"]|base64_encode}" >
+</form>
+</div> 
+<script type="text/javascript"> 
+<!--
+function confirm_delete(){
+	if(confirm('确认删除吗？')) $('#myform').submit();
+}
+	function edit(id, name) {
+		window.top.art.dialog({title:'修改结算记录'+name, id:'edit', iframe:'__URL__/edit_emccepayrecord/recordid/'+id ,width:'500px',height:'400px'}, 	function(){var d = window.top.art.dialog({id:'edit'}).data.iframe;
+		var form = d.document.getElementById('dosubmit');form.click();return false;}, function(){window.top.art.dialog({id:'edit'}).close()});
+	}
+
+//-->
+</script>
+</body> 
+</html>

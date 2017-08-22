@@ -1,0 +1,86 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>Youst视频直播交友平台 - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript">
+	window.focus();
+</script>
+</head>
+<body>
+<div class="subnav">
+    <div class="content-menu ib-a blue line-x">
+        <a href='__URL__/admin_votechannel/' ><em>管理类别</em></a><span>|</span><a href='javascript:;' class="on"><em>添加类别</em></a>
+	</div>
+</div>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><script type="text/javascript"> 
+<!--
+	$(function(){
+		$.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){window.top.art.dialog({content:msg,lock:true,width:'200',height:'50'}, function(){this.close();$(obj).focus();})}});
+		$("#channelstr").formValidator({onshow:"请输入类别名称",onfocus:"请输入类别名称",oncorrect:"输入正确"}).inputValidator({min:1,onerror:"请输入类别名称"});
+	})
+//-->
+</script>
+
+<form name="myform" id="myform" action="__URL__/do_add_votechannel/" method="post">
+<div class="pad-10">
+<div class="col-tab">
+<ul class="tabBut cu-li">
+<li id="tab_setting_1" class="on">基本选项</li>
+</ul>
+<div id="div_setting_1" class="contentList pad-10">
+
+<table width="100%" class="table_form ">
+      <tr>
+        <th width="200">上级类别：</th>
+        <td>
+			<select name="parentid">
+				<option value="0">≡ 作为一级类别 ≡</option>
+				<volist name="channels" id="vo">
+				<option value="{$vo['id']}" <if condition = "$vo['id'] eq $_GET['pid']">selected</if>>{$vo['channelstr']}</option>
+				</volist>
+			</select>
+		</td>
+      </tr>
+      <tr>
+        <th>类别名称：</th>
+        <td>
+			<input type="text" name="channelstr" id="channelstr" class="input-text" value="">
+		</td>
+      </tr>
+	
+</table>
+</div>
+
+ <div class="bk15"></div>
+    <input name="dosubmit" type="submit" value="提交" class="button">
+
+</form>
+</div>
+
+</div>
+<!--table_form_off-->
+</div>
+
+<script language="JavaScript">
+<!--
+	window.top.$('#display_center_id').css('display','none');
+
+	//-->
+</script>

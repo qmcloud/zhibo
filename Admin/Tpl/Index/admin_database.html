@@ -1,0 +1,72 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script type="text/javascript">
+	window.focus();
+</script>
+</head>
+<body>
+<div class="subnav">
+    <div class="content-menu ib-a blue line-x">
+    <a href='javascript:;' class="on"><em>浏览数据库</em></a>    </div>
+</div>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style>
+<div class="pad-lr-10">
+	<div class="table-list">
+		<table width="100%" cellspacing="0">
+			<thead>
+			<tr>
+				<th width="150">表名</th>
+				<th>大小</th>
+				<th>碎片</th>
+				<th width="150">管理操作</th>
+			</tr>
+			</thead>
+			<tbody>
+			<volist name="list" id="vo">
+			<tr>
+				<td width="150" align="center"><?php echo $vo->Name.'('.$vo->Rows.')'; ?></td>
+				<td align="center"><?php echo $vo->Data_length; ?>&nbsp;<font color="red">K</font></td>
+				<td align="center"><?php echo $vo->Data_free; ?>&nbsp;<font color="red">字节</font></td>
+				<td align="center"  width="150"><a href="__URL__/repair_table/name/<?php echo $vo->Name; ?>/">[修复]</a> | <a href="__URL__/optimize_table/name/<?php echo $vo->Name; ?>/">[优化]</a></td>
+			</tr>
+			</volist>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="subnav">
+    <div class="content-menu ib-a blue line-x">
+    <a href='javascript:;' class="on"><em>运行SQL</em></a>    </div>
+</div>
+<div class="pad-lr-10">
+	<div class="table-list">
+		<div class="frmaa">
+			<form action="__URL__/exec_sql/" method="post" name="myform" id="myform">
+				<textarea name="sqlquery" id="sqlquery" style="height: 150px;width:98%; visibility:inherit">{$contents}</textarea>
+				<div class="bk10"></div>
+				<input type='hidden' name='dopost' id='dopost' value='query'>
+				<input type="submit" id="dosubmit" class="button pt" name="dosubmit" value="提交" />
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script type="text/javascript">
+	window.focus();
+</script>
+</head>
+<body>
+<div class="subnav">
+    <div class="content-menu ib-a blue line-x">
+        <a href='javascript:;' class="on"><em>管理员管理</em></a><span>|</span><a href='__URL__/add_adminuser/' ><em>添加管理员</em></a>    </div>
+</div>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><div class="pad_10">
+<div class="table-list">
+<form name="myform" action="" method="post">
+    <table width="100%" cellspacing="0">
+        <thead>
+		<tr>
+		<th width="10%">序号</th>
+		<th width="10%" align="left" >用户名</th>
+		<th width="10%" align="left" >所属角色</th>
+		<th width="10%"  align="left" >最后登录IP</th>
+		<th width="20%"  align="left" >最后登录时间</th>
+		<th width="15%" >管理操作</th>
+		<th></th>
+		</tr>
+        </thead>
+        <tbody>
+<volist name="adminusers" id="vo">
+<tr>
+<td width="10%" align="center">{$vo['id']}</td>
+<td width="10%" >{$vo['adminname']}</td>
+<td width="10%" >超级管理员</td>
+<td width="10%" >{$vo['lastlogip']}</td>
+<td width="20%"  >{$vo['lastlogtime']|fDate}</td>
+<td width="15%"  align="center">
+<a href="javascript:edit({$vo['id']}, '{$vo['adminname']}')">修改</a> | 
+<if condition = "$vo['id'] eq $_SESSION['adminid']">
+<font color="#cccccc">删除</font>
+<else />
+<a href="javascript:confirmurl('__URL__/del_adminuser/adminid/{$vo['id']}', '是否删除该管理员?')">删除</a>
+</if>
+</td>
+<td></td>
+</tr>
+</volist>
+</tbody>
+</table>
+ <div id="pages"> </div>
+</form>
+</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+<!--
+	function edit(id, name) {
+		window.top.art.dialog({title:'修改--'+name, id:'edit', iframe:'__URL__/edit_adminuser/adminid/'+id ,width:'500px',height:'400px'}, 	function(){var d = window.top.art.dialog({id:'edit'}).data.iframe;
+		var form = d.document.getElementById('dosubmit');form.click();return false;}, function(){window.top.art.dialog({id:'edit'}).close()});
+	}
+//-->
+</script>

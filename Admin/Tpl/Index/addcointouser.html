@@ -1,0 +1,60 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="http://localhost:88/phpcmsv9/statics/js/formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript">
+	window.focus();
+</script>
+</head>
+<body>
+<div class="subnav">
+    <div class="content-menu ib-a blue line-x">
+        <a href='__URL__/admin_chargerecord/' ><em>用户充值记录</em></a><span>|</span><a href='javascript:;' class="on"><em>手动加值</em></a>    </div>
+</div>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><script type="text/javascript">
+<!--
+$(function(){
+	$.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+	$("#username").formValidator({onshow:"请输入用户名",onfocus:"请输入用户名"}).inputValidator({min:2,max:20,onerror:"请输入用户名"});
+	$("#addcoin").formValidator({onshow:"请输入加值额",onfocus:"请输入加值额"}).inputValidator({min:2,max:20,onerror:"请输入加值额"});
+})
+//-->
+</script>
+<div class="pad_10">
+<div class="common-form">
+<form name="myform" action="__URL__/do_addcointouser/" method="post" id="myform">
+<table width="100%" class="table_form contentWrap">
+<tr>
+<td width="80">用户名</td> 
+<td><input type="text" name="username"  class="input-text" id="username"></input></td>
+</tr>
+<tr>
+<td width="80">加值额</td> 
+<td><select name="math"><option value="plus">+</option><option value="subtract">-</option></select><input type="text" name="addcoin"  class="input-text" id="addcoin" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onpaste="return false"></input>币</td>
+</tr>
+</table>
+    <div class="bk15"></div>
+    <input name="dosubmit" type="submit" value="提交" class="button">
+</form>
+</div>
+</div>
+</body>
+</html>
+

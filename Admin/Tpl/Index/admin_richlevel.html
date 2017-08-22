@@ -1,0 +1,80 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script type="text/javascript">
+	window.focus();
+	</script>
+</head>
+<body>
+<div class="subnav">
+    <div class="content-menu ib-a blue line-x">
+        <a href='javascript:;' class="on"><em>富豪等级设置</em></a>
+	</div>
+</div>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><form name="myform" action="__URL__/save_richlevel/" method="post">
+<div class="pad_10">
+
+<div class="bk10"></div>
+<div class="table-list">
+    <table width="100%" cellspacing="0" >
+        <thead>
+            <tr>
+			 <th width="16"><input type="checkbox" value="" id="check_box" onclick="selectall('ids[]');"></th> 
+            <th width="38">等级ID</th>
+            <th width="150">等级名称</th>
+            <th width="150">花费下限</th>
+            <th width="150">花费上限</th>
+			<th> </th> 
+            </tr>
+        </thead>
+		<tbody>
+			<volist name="richlevels" id="vo">
+			<tr>
+				<td align="center"><input class="inputcheckbox " name="ids[]" value="{$vo['id']}" type="checkbox"></td> 
+				<td><input type="hidden" name="id[]" value="{$vo['id']}" /><input name='levelid[]' type='text' size='3' value='{$vo['levelid']}' class='input-text-c'></td>
+				<td><input name='levelname[]' type='text' value='{$vo['levelname']}' class='input-text-c' style="width:150px;"></td>
+				<td><input name='spendcoin_low[]' type='text' value='{$vo['spendcoin_low']}' class='input-text-c' style="width:150px;"></td>
+				<td><input name='spendcoin_up[]' type='text' value='{$vo['spendcoin_up']}' class='input-text-c' style="width:150px;"></td>
+				<td></td>
+			</tr>
+			</volist>
+			<tr>
+				<td align="center">增加</td> 
+				<td><input name='add_levelid' type='text' value='0' size='3' class='input-text-c'></td>
+				<td><input name='add_levelname' type='text' class='input-text-c' style="width:150px;"></td>
+				<td><input name='add_spendcoin_low' type='text' class='input-text-c' style="width:150px;"></td>
+				<td><input name='add_spendcoin_up' type='text' class='input-text-c' style="width:150px;"></td>
+				<td></td>
+			</tr>
+		</tbody>
+    </table>
+
+    <div class="btn">
+	<label for="check_box">全选/取消</label> 
+	<input type="submit" class="button" name="dosubmit" value="保存" /></div>  </div>
+</div>
+</div>
+</form>
+<script language="JavaScript">
+<!--
+	window.top.$('#display_center_id').css('display','none');
+//-->
+</script>
+</body>
+</html>

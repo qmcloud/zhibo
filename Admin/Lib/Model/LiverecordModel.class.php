@@ -1,0 +1,9 @@
+<?php
+class LiverecordModel extends Model
+{
+	//自动字段填充
+	protected $_auto = array(
+		array('starttime','time',1,'function'),
+	);
+}
+?>

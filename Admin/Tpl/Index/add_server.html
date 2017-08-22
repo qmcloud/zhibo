@@ -1,0 +1,61 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="http://localhost:88/phpcmsv9/statics/js/formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript">
+	window.focus();
+</script>
+</head>
+<body>
+<div class="subnav">
+    <div class="content-menu ib-a blue line-x">
+        <a href='__URL__/admin_rtmpserver/' ><em>直播服务器设置</em></a><span>|</span><a href='javascript:;' class="on"><em>添加服务器</em></a>    </div>
+</div>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><script type="text/javascript">
+<!--
+$(function(){
+	$.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+	$("#server_name").formValidator({onshow:"请输入服务器名称",onfocus:"请输入服务器名称",oncorrect:"输入正确"}).inputValidator({min:1,onerror:"请输入服务器名称"});
+	$("#server_ip").formValidator({onshow:"请输入访问域名或IP",onfocus:"请输入访问域名或IP",oncorrect:"输入正确"}).inputValidator({min:1,onerror:"请输入访问域名或IP"});
+	
+})
+//-->
+</script>
+<div class="pad_10">
+<div class="common-form">
+<form name="myform" action="__URL__/do_add_server/" method="post" id="myform">
+<table width="100%" class="table_form contentWrap">
+<tr>
+<td width="80">服务器名称</td> 
+<td><input type="text" name="server_name"  class="input-text" id="server_name"></input></td>
+</tr>
+<tr>
+<td width="80">访问域名或IP</td> 
+<td><input type="text" name="server_ip"  class="input-text" id="server_ip"></input></td>
+</tr>
+</table>
+    <div class="bk15"></div>
+    <input name="dosubmit" type="submit" value="提交" class="button">
+</form>
+</div>
+</div>
+</body>
+</html>
+

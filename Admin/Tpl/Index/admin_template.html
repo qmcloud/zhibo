@@ -1,0 +1,172 @@
+﻿<tagLib name="html" />
+<?php
+global $basedir;
+global $wdir;
+
+$basedir = realpath("../");
+if(!$wdir) $wdir="/";
+
+switch ($_GET['action'])
+{
+	case "root":
+   		$wdir=base64_decode("/");
+		break;
+	case "chdr":
+		$wdir = base64_decode($_GET['file']);
+		break;
+}
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script type="text/javascript">
+	window.focus();
+</script>
+</head>
+<body>
+<div class="subnav">
+    <div class="content-menu ib-a blue line-x">
+    <a href='javascript:;' class="on"><em>模板风格</em></a>    </div>
+</div>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><div class="pad-lr-10">
+<div class="table-list">
+    <table width="100%" cellspacing="0">
+        <thead>
+		<tr>
+		<th width="80">风格目录</th>
+		<th>风格中文名</th>
+		<th>风格作者</th>
+		<th>风格版本</th>
+		<th>状态</th>
+		<th width="150">管理操作</th>
+		</tr>
+        </thead>
+<tbody>
+
+<?php
+function display_size($file){
+	$file_size = filesize($file);
+	if($file_size >= 1073741824)
+	{
+		$file_size = round($file_size / 1073741824 * 100) / 100 . "g";
+	}
+	elseif($file_size >= 1048576)
+	{
+		$file_size = round($file_size / 1048576 * 100) / 100 . "m";
+	}
+	elseif($file_size >= 1024)
+	{
+		$file_size = round($file_size / 1024 * 100) / 100 . "k";
+	}
+	else{
+		$file_size = $file_size . "b";
+	}
+	return $file_size;
+}
+
+function list_files()
+{
+	global $basedir;
+	global $wdir;
+	global $single;
+	global $key;
+
+	$handle=opendir(".");
+	while ($file = readdir($handle))
+	{
+		if(is_file($file)) $filelist[] = $file;
+	}
+	closedir($handle);
+
+	if($filelist)
+	{
+		asort($filelist);
+		while (list ($key, $file) = each ($filelist))
+		{
+			$ext = strrchr ( $file , "." );
+
+			if ((!strcasecmp ($ext, ".html")) || (!strcasecmp ($ext, ".htm")))
+			{
+				$icon = "<img src=/Public/images/manage/htm.gif border=0 width=16 height=16 align=absmiddle>";
+			}
+			
+			$filename=$basedir.$wdir.$file;
+			$fileurl=base64_encode($wdir.$file);
+			$lastchanged = filectime($filename);
+			$changeddate = date("Y-d-m H:i:s", $lastchanged);
+			
+		}
+	}
+}
+
+if(!isset($single))
+{
+	chdir($basedir . $wdir);
+	$handle=opendir(".");
+	while ($file = readdir($handle))
+	{
+		if(is_dir($file)) $dirlist[] = $file;
+	}
+	closedir($handle);
+	
+	if($dirlist)
+	{
+		asort($dirlist);
+		while (list ($key, $file) = each ($dirlist))
+		{
+			if (!($file == "."))
+			{
+				$filename=$basedir.$wdir.$file;
+				$fileurl=base64_encode($wdir.$file.'/');
+				$lastchanged = filectime($filename);
+				$changeddate = date("Y-d-m H:i:s", $lastchanged);
+
+				if($file == "..")
+				{
+					
+				}
+				else if(htmlspecialchars($file) == 'Tpl')
+				{
+					echo '<tr>';
+					echo '<td width="80" align="center">'.htmlspecialchars($file).'</td>';
+					echo '<td align="center">默认模板</td>';
+					echo '<td align="center">Youst</td>';
+					echo '<td align="center">V1.0</td>';
+					echo '<td align="center"><font color="red">使用中</font></td>';
+					echo '<td align="center"  width="150"><a href="__URL__/admin_dirlist/?action=chdr&file='.$fileurl.'">详情列表</a></td>';
+					echo '</tr>';
+				}
+			}	
+		}
+	}
+	list_files();
+}
+else
+{
+	list_files();
+}
+?>
+
+</tbody>
+</table>
+
+</div>
+</div>
+<div id="pages"></div>
+</body>
+</html>

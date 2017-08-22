@@ -1,0 +1,186 @@
+﻿<tagLib name="html" />
+<?php
+global $basedir;
+global $wdir;
+
+$basedir = realpath("../");
+if(!$wdir) $wdir="/";
+
+switch ($_GET['action'])
+{
+	case "root":
+   		$wdir=base64_decode("/");
+		break;
+	case "chdr":
+		$wdir = base64_decode($_GET['file']);
+		$dirArray = explode('/',$wdir);
+		if (file_exists('../'.$dirArray[1].'/config.php')) {
+			$style_info = include '../'.$dirArray[1].'/config.php';
+		}
+		break;
+}
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script type="text/javascript">
+	window.focus();
+</script>
+</head>
+<body>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><div class="subnav">
+  <h1 class="title-2 line-x">{$style_info['name']} - 详情列表</h1>
+</div>
+<div class="pad-lr-10">
+<div class="table-list">
+<form action="__URL__/tpl_updatefilename/" method="post">
+    <table width="100%" cellspacing="0">
+        <thead>
+		<tr>
+		<th align="left" >目录列表</th>
+		<th align="left" >说明</th>
+		<th align="left" >操作</th>
+		</tr>
+        </thead>
+<tbody>
+
+<?php
+function display_size($file){
+	$file_size = filesize($file);
+	if($file_size >= 1073741824)
+	{
+		$file_size = round($file_size / 1073741824 * 100) / 100 . "g";
+	}
+	elseif($file_size >= 1048576)
+	{
+		$file_size = round($file_size / 1048576 * 100) / 100 . "m";
+	}
+	elseif($file_size >= 1024)
+	{
+		$file_size = round($file_size / 1024 * 100) / 100 . "k";
+	}
+	else{
+		$file_size = $file_size . "b";
+	}
+	return $file_size;
+}
+
+function list_files()
+{
+	global $basedir;
+	global $wdir;
+	global $single;
+	global $key;
+
+	$handle=opendir(".");
+	while ($file = readdir($handle))
+	{
+		if(is_file($file)) $filelist[] = $file;
+	}
+	closedir($handle);
+
+	if($filelist)
+	{
+		asort($filelist);
+		while (list ($key, $file) = each ($filelist))
+		{
+			$ext = strrchr ( $file , "." );
+
+			if ((!strcasecmp ($ext, ".html")) || (!strcasecmp ($ext, ".htm")))
+			{
+				$icon = "<img src=/Public/images/manage/htm.gif border=0 width=16 height=16 align=absmiddle>";
+			}
+			
+			$filename=$basedir.$wdir.$file;
+			$fileurl=base64_encode($wdir.$file);
+			$lastchanged = filectime($filename);
+			$changeddate = date("Y-d-m H:i:s", $lastchanged);
+			
+			$dirArray = explode('/',$wdir);
+			if (file_exists('../../'.$dirArray[1].'/config.php')) {
+				$style_info = include '../../'.$dirArray[1].'/config.php';
+			}
+			echo '<tr><td align="left"><img src="__PUBLIC__/statics/images/file.gif" /> '.htmlspecialchars($file).'</td><td align="left"><input type="text" name="file_explan[Tpl|'.$dirArray[2].']['.htmlspecialchars($file).']" value="'.$style_info['file_explan']['Tpl|'.$dirArray[2].''][htmlspecialchars($file)].'"></td><td> <a href="__URL__/edit_file/?action=edit&wdir='.base64_encode($wdir).'&file='.$fileurl.'">[修改]</a></td></tr>';
+		}
+	}
+}
+
+if(!isset($single))
+{
+	chdir($basedir . $wdir);
+	$handle=opendir(".");
+	while ($file = readdir($handle))
+	{
+		if(is_dir($file)) $dirlist[] = $file;
+	}
+	closedir($handle);
+	
+	if($dirlist)
+	{
+		asort($dirlist);
+		while (list ($key, $file) = each ($dirlist))
+		{
+			if (!($file == "."))
+			{
+				$filename=$basedir.$wdir.$file;
+				$fileurl=base64_encode($wdir.$file.'/');
+				$lastchanged = filectime($filename);
+				$changeddate = date("Y-d-m H:i:s", $lastchanged);
+
+				if($file == "..")
+				{
+					if(dirname("$wdir") == "\\")
+					{
+						$downdir = base64_encode('/');
+					}
+					else{
+						$downdir = base64_encode(dirname("$wdir").'/');
+					}
+					$dirArray = explode('/',$wdir);
+					echo '<tr>';
+					echo '<td align="left" colspan="3">当前目录：'.$wdir.'</td>';
+					echo '</tr>';
+					echo '<tr>';
+					echo '<td align="left" colspan="3"><a href="__URL__/admin_dirlist/?action=chdr&file='.$downdir.'"><img src="__PUBLIC__/statics/images/folder-closed.gif" />上一层目录</a></td>';
+					echo '</tr>';
+				}
+				else
+				{
+					
+				}
+			}	
+		}
+	}
+	list_files();
+}
+else
+{
+	list_files();
+}
+?>
+
+</tbody>
+</table>
+<div class="btn"><input type="button" onclick="location.href='__URL__/admin_template/'" class="button" name="dosubmit" value="返回风格列表" /> <input type="submit" class="button" name="dosubmit" value="更新" ></div> 
+<input type="hidden" name="style" value="{$dirArray[1]}">
+</form>
+</div>
+<div id="pages"></div>
+</div>
+</body>
+</html>

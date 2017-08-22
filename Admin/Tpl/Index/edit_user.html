@@ -1,0 +1,431 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/dialog.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/dialog.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/formvalidatorregex.js" charset="UTF-8"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/areas.js"></script>
+
+<script type="text/javascript">
+	window.focus();
+</script>
+</head>
+<body>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><div id="closeParentTime" style="display:none"></div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	$(function(){
+		SwapTab('setting','on','',5,1);
+	})
+function ResumeError() { 
+	return true; 
+} 
+window.onerror = ResumeError;
+if(window.top.$("#current_pos").data('clicknum')==1) {
+	window.top.$("#current_pos").data('clicknum',0);
+}
+
+function checkForm(obj, type) {
+	$("#province").attr("value",$("#selectArea").find("option:selected").text());
+	$("#city").attr("value",$("#selectSubArea").find("option:selected").text());
+	$("#province2").attr("value",$("#selectArea2").find("option:selected").text());
+	$("#city2").attr("value",$("#selectSubArea2").find("option:selected").text());
+    if(upForm.truename.value == '') {
+		alert("请填写选手姓名！")
+		upForm.truename.focus()
+		return false;
+	}
+	
+}
+//-->
+</SCRIPT>
+<div class="pad-lr-10">
+
+	<form name="upForm" id="upForm" action="__URL__/do_edit_user/" method="post" enctype="multipart/form-data" onsubmit="return checkForm(this)">
+	<input type="hidden" name="id" value="{$_GET['userid']}"></input>
+	<div class="pad_10">
+		
+		<div class="col-tab">
+			<ul class="tabBut cu-li">
+				<li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',5,1);">基本配置</li>
+				<li id="tab_setting_2" onclick="SwapTab('setting','on','',5,2);">签约信息</li>
+				<li id="tab_setting_3" onclick="SwapTab('setting','on','',5,3);">代理身份</li>
+				<li id="tab_setting_4" onclick="SwapTab('setting','on','',5,4);">管理权限</li>
+				<li id="tab_setting_5" onclick="SwapTab('setting','on','',5,5);">直播参数</li>
+			</ul>
+
+		<div id="div_setting_1" style='overflow-y:auto;overflow-x:hidden' class='contentList pad-10'>
+			<table width="100%" cellspacing="0" class="table_form contentWrap">
+				<tr>
+					<th width="80"> 用户名	  </th>
+					<td>{$userinfo['username']}</td>
+				</tr>
+				<tr>
+					<th width="80"> 密码	  </th>
+					<td><input type="password" name="newpwd" id="newpwd" class="input-text"></input>不更改密码请留空</td>
+				</tr>
+				<tr>
+					<th width="80"> 类别	  </th>
+					<td>
+						<select name="sid">
+							<option value="0"> 请选择类别 </option>
+							<volist name="usersorts" id="vo">
+							<option value="{$vo['id']}" <if condition = "$vo['id'] eq $userinfo['sid']">selected</if>>{$vo['sortname']}</option>
+								<volist name="vo['voo']" id="sub">
+								<option value="{$sub['id']}" <if condition = "$sub['id'] eq $userinfo['sid']">selected</if>>├─{$sub['sortname']}</option>
+								</volist>
+							</volist>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 昵称	  </th>
+					<td><input type="text" name="nickname" id="nickname" value="{$userinfo['nickname']}" size="50" style="width:100px;"></td>
+				</tr>
+				<tr>
+					<th width="80"> 姓名	  </th>
+					<td><input type="text" name="realname" id="realname" value="{$userinfo['realname']}" size="50" style="width:100px;"></td>
+				</tr>
+				<tr>
+					<th width="80"> 性别	  </th>
+					<td>
+						<input name="sex" value="0" type="radio" <if condition = "$userinfo['sex'] eq '0'">checked</if>> 男&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="sex" value="1" type="radio" <if condition = "$userinfo['sex'] eq '1'">checked</if>> 女
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 所在地	  </th>
+					<td>
+						<select onchange="getSubArea(this);" id="selectArea" name="selectArea" class="selectStyle">
+							<option value="" selected="selected">请选择...</option>
+						</select> 
+						<select onchange="copyValueToHidden(this.value);" id="selectSubArea" name="selectSubArea" class="selectStyle">
+							<option value="" selected="selected">请选择...</option>
+						</select>
+						<input type="hidden" name="area" value="" id="hdResidenceArea">
+						<input type="hidden" name="province" id="province" value="">
+						<input type="hidden" name="city" id="city" value="">
+						<script language="javascript">
+							fillArea();
+							user_areas('{$userinfo['selectArea']}','{$userinfo['selectSubArea']}');
+						</script>
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 生日	  </th>
+					<td>
+					<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/js/calendar/jscal2.css"/> 
+					<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/js/calendar/border-radius.css"/> 
+					<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/js/calendar/win2k.css"/> 
+					<script type="text/javascript" src="__PUBLIC__/statics/js/calendar/calendar.js"></script> 
+					<script type="text/javascript" src="__PUBLIC__/statics/js/calendar/lang/en.js"></script>
+					
+					<input type="text" name="birthday" id="birthday" value="{$userinfo['birthday']}" size="50" style="width:150px;">
+					<script type="text/javascript"> 
+					Calendar.setup({
+					weekNumbers: false,
+					inputField : "birthday",
+					trigger    : "birthday",
+					dateFormat: "%Y年%m月%d日",
+					showTime: false,
+					minuteStep: 1,
+					onSelect   : function() {this.hide();}
+					});
+					</script>
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 爱好	  </th>
+					<td><input type="text" name="interest" id="interest" value="{$userinfo['interest']}" size="50"></td>
+				</tr>
+				<tr>
+					<th width="80"> 个人签名	  </th>
+					<td><textarea name="intro" id="intro" style="height: 60px;width:310px;; visibility:inherit">{$userinfo['intro']}</textarea></td>
+				</tr>
+				<tr>
+					<th width="80"> 形象大图	  </th>
+					<td><input type="file" name="bigpic" id="bigpic" style="width:200px;height:25px"> 252*188为佳</td>
+				</tr>
+				<if condition = "$userinfo['bigpic'] neq ''">
+				<tr>
+					<th width="80"> 现有形象大图	  </th>
+					<td><img src="{$userinfo['bigpic']}" style="height:188px;width:auto;"></td>
+				</tr>
+				</if>
+				<tr>
+					<th width="80"> 直播截图	  </th>
+					<td><input type="file" name="bigpic2" id="bigpic2" style="width:200px;height:25px"> 120*90为佳</td>
+				</tr>
+				<tr>
+					<th width="80"> 目前直播截图	  </th>
+					<td><img src="{$userinfo['snap']}" onerror="this.src='__PUBLIC__/images/default.gif'" style='max-height:90px; _height:expression(this.height>90?"90px":"atuo"); max-width:120px; _width:expression(this.width>120?"120px":"atuo"); '></td>
+				</tr>
+				<tr>
+					<th width="80"> 审核	  </th>
+					<td>
+						<input name="isaudit" value="y" type="radio" <if condition = "$userinfo['isaudit'] eq 'y'">checked</if>> 已审核&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="isaudit" value="n" type="radio" <if condition = "$userinfo['isaudit'] eq 'n'">checked</if>> 未审核
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 推荐	  </th>
+					<td>
+						<input name="recommend" value="y" type="radio" <if condition = "$userinfo['recommend'] eq 'y'">checked</if>> 是&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="recommend" value="n" type="radio" <if condition = "$userinfo['recommend'] eq 'n'">checked</if>> 否
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 首页推荐	  </th>
+					<td>
+						<input name="idxrec" value="y" type="radio" <if condition = "$userinfo['recommend'] eq 'y'">checked</if>> 是&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="idxrec" value="n" type="radio" <if condition = "$userinfo['recommend'] eq 'n'">checked</if>> 否
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 直播权限	  </th>
+					<td>
+						<input name="canlive" value="y" type="radio" <if condition = "$userinfo['canlive'] eq 'y'">checked</if>> 有&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="canlive" value="n" type="radio" <if condition = "$userinfo['canlive'] eq 'n'">checked</if>> 无
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 当前状态	  </th>
+					<td>
+						<input name="broadcasting" value="y" type="radio" <if condition = "$userinfo['broadcasting'] eq 'y'">checked</if>> 直播中&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="broadcasting" value="n" type="radio" <if condition = "$userinfo['broadcasting'] eq 'n'">checked</if>> 无直播<br>
+						<font color="#FF6600">此项参数仅在前台直播状态不正常的时候修改</font>
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 房间容纳	  </th>
+					<td><input type="text" name="maxonline" id="maxonline" value="{$userinfo['maxonline']}" size="50" style="width:100px;">人</td>
+				</tr>
+				<tr>
+					<th width="80"> 虚拟游客	  </th>
+					<td><input type="text" name="virtualguest" id="virtualguest" value="{$userinfo['virtualguest']}" size="50" style="width:100px;">人</td>
+				</tr>
+				<tr>
+					<th width="80"> 服务器	  </th>
+					<td>
+						<select name="host">
+							<volist name="servers" id="vo">
+							<option value="{$vo['server_ip']}" <if condition = "$userinfo['host'] eq $vo['server_ip']">selected</if>>{$vo['server_name']}</option>
+							</volist>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 代理人	  </th>
+					<td>
+						<?php
+						if($userinfo['agentuid'] != 0){
+							$agentinfo = D("Member")->find($userinfo['agentuid']);
+						}
+						?>
+						<input type="text" name="agentname" id="agentname" value="{$agentinfo['username']}" size="50" style="width:100px;">
+					</td>
+				</tr>
+
+				<tr>
+					<th width="80"> 是否虚拟观众	  </th>
+					<td>
+						<input name="isvirtual" value="y" type="radio" <if condition = "$userinfo['isvirtual'] eq 'y'">checked</if>> 是&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="isvirtual" value="n" type="radio" <if condition = "$userinfo['isvirtual'] eq 'n'">checked</if>> 否
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> VIP	  </th>
+					<td>
+						<input name="vip" value="0" type="radio" <if condition = "$userinfo['vip'] eq '0'">checked</if>> 无VIP&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="vip" value="1" type="radio" <if condition = "$userinfo['vip'] eq '1'">checked</if>> 至尊VIP&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="vip" value="2" type="radio" <if condition = "$userinfo['vip'] eq '2'">checked</if>> 普通VIP
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 消费金钱	  </th>
+					<td><input type="text" name="spendcoin" id="spendcoin" value="{$userinfo['spendcoin']}" size="50" style="width:100px;">根据此参数判断用户的富豪等级</td>
+				</tr>
+				
+			</table>
+		</div>
+		<div id="div_setting_2" style='overflow-y:auto;overflow-x:hidden' class='contentList pad-10'>
+			<table width="100%" cellspacing="0" class="table_form contentWrap">
+				<tr>
+					<th width="80"> 是否签约	  </th>
+					<td>
+						<input name="sign" value="y" type="radio" <if condition = "$userinfo['sign'] eq 'y'">checked</if>> 已签约&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="sign" value="n" type="radio" <if condition = "$userinfo['sign'] eq 'n'">checked</if>> 未签约&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="sign" value="i" type="radio" <if condition = "$userinfo['sign'] eq 'i'">checked</if>> 审核中
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 身份证号码	  </th>
+					<td><input type="text" name="shenfenzheng" id="shenfenzheng" value="{$userinfo['shenfenzheng']}" size="50"></td>
+				</tr>
+				<tr>
+					<th width="80"> 联系电话	  </th>
+					<td><input type="text" name="contactno" id="contactno" value="{$userinfo['contactno']}" size="50" style="width:150px;"></td>
+				</tr>
+				<tr>
+					<th width="80"> 常用QQ	  </th>
+					<td><input type="text" name="qq" id="qq" value="{$userinfo['qq']}" size="50" style="width:150px;"></td>
+				</tr>
+				<tr>
+					<th width="80"> 联系地址	  </th>
+					<td><input type="text" name="address" id="address" value="{$userinfo['address']}" size="50"></td>
+				</tr>
+				<tr>
+					<th width="80"> 账户类型	  </th>
+					<td>
+						<input name="accounttype" value="1" type="radio" <if condition = "$userinfo['accounttype'] eq '1'">checked</if>> 银行账户&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="accounttype" value="2" type="radio" <if condition = "$userinfo['accounttype'] eq '2'">checked</if>> 支付宝
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 开户银行	  </th>
+					<td><input type="text" name="accountbank" id="accountbank" value="{$userinfo['accountbank']}" size="50" style="width:150px;"></td>
+				</tr>
+				<if condition = "$userinfo['accountbank'] eq '其它'">
+				<tr>
+					<th width="80"> 	  </th>
+					<td><input type="text" name="otherbank" id="otherbank" value="{$userinfo['otherbank']}" size="50" style="width:150px;"></td>
+				</tr>
+				</if>
+				<tr>
+					<th width="80"> 开户地	  </th>
+					<td><input type="text" name="accountbankaddress" id="accountbankaddress" value="{$userinfo['accountbankaddress']}" size="50" style="width:150px;"></td>
+				</tr>
+				<tr>
+					<th width="80"> 支行名称	  </th>
+					<td><input type="text" name="accountsubbank" id="accountsubbank" value="{$userinfo['accountsubbank']}" size="50" style="width:150px;"></td>
+				</tr>
+				<tr>
+					<th width="80"> 银行账号	  </th>
+					<td><input type="text" name="accountno" id="accountno" value="{$userinfo['accountno']}" size="50"></td>
+				</tr>
+				<tr>
+					<th width="80"> 开户人姓名	  </th>
+					<td><input type="text" name="accountname" id="accountname" value="{$userinfo['accountname']}" size="50" style="width:150px;"></td>
+				</tr>
+				<tr>
+					<th width="80"> 支付宝账户	  </th>
+					<td><input type="text" name="alipayname" id="alipayname" value="{$userinfo['alipayname']}" size="50" style="width:150px;"></td>
+				</tr>
+			</table>
+		</div>
+		<div id="div_setting_3" style='overflow-y:auto;overflow-x:hidden' class='contentList pad-10'>
+			<table width="100%" cellspacing="0" class="table_form contentWrap">
+				<tr>
+					<th width="80"> 主播代理	  </th>
+					<td>
+						<input name="emceeagent" value="y" type="radio" <if condition = "$userinfo['emceeagent'] eq 'y'">checked</if>> 是&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="emceeagent" value="n" type="radio" <if condition = "$userinfo['emceeagent'] eq 'n'">checked</if>> 否
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 充值代理	  </th>
+					<td>
+						<input name="payagent" value="y" type="radio" <if condition = "$userinfo['payagent'] eq 'y'">checked</if>> 是&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="payagent" value="n" type="radio" <if condition = "$userinfo['payagent'] eq 'n'">checked</if>> 否
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="div_setting_4" style='overflow-y:auto;overflow-x:hidden' class='contentList pad-10'>
+			<table width="100%" cellspacing="0" class="table_form contentWrap">
+				<tr>
+					<th width="80"> 直播管理员	  </th>
+					<td>
+						<input name="showadmin" value="1" type="radio" <if condition = "$userinfo['showadmin'] eq '1'">checked</if>> 是&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="showadmin" value="0" type="radio" <if condition = "$userinfo['showadmin'] eq '0'">checked</if>> 否
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="div_setting_5" style='overflow-y:auto;overflow-x:hidden' class='contentList pad-10'>
+			<table width="100%" cellspacing="0" class="table_form contentWrap">
+				<tr>
+					<th width="80"> fps	  </th>
+					<td>
+						<input name="fps" size="5" value="{$userinfo['fps']}" type="text"/>
+					
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 最大比特率  </th>
+					<td>
+						<input name="zddk" value="{$userinfo['zddk']}"type="text"/>
+					
+					</td>
+				</tr>
+				<tr>
+					<th width="80"> 品质	  </th>
+					<td>
+						<input name="pz" value="{$userinfo['pz']}" type="text"/>
+					
+					</td>
+				</tr>
+				<tr>
+					<th width="80">  关键帧间隔  </th>
+					<td>
+						<input name="zjg" value="{$userinfo['zjg']}" type="text"/>
+					
+					</td>
+				</tr>
+				<tr>
+					<th width="80">  分辨率高度  </th>
+					<td>
+						<input name="height" value="{$userinfo['height']}" type="text"/>
+					
+					</td>
+				</tr>
+				<tr>
+					<th width="80">  分辨率宽度  </th>
+					<td>
+						<input name="width" value="{$userinfo['width']}" type="text"/>
+					
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="bk10"></div>
+		<div class="btn" style="display:none;">
+			<input type="submit" class="button" name="dosubmit" value="保存" style="width:100px;height:40px;" id="dosubmit" />
+		</div> 
+	</div>
+	</div>
+	</form>
+</div>
+</body>
+<script type="text/javascript">
+
+function SwapTab(name,cls_show,cls_hide,cnt,cur){
+    for(i=1;i<=cnt;i++){
+		if(i==cur){
+			 $('#div_'+name+'_'+i).show();
+			 $('#tab_'+name+'_'+i).attr('class',cls_show);
+		}else{
+			 $('#div_'+name+'_'+i).hide();
+			 $('#tab_'+name+'_'+i).attr('class',cls_hide);
+		}
+	}
+}
+</script>
+</html>

@@ -1,0 +1,78 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>你的APP - 后台管理中心</title>
+<link href="__PUBLIC__/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/system.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles1.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles2.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles3.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="__PUBLIC__/statics/css/style/styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/styleswitch.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript">
+	window.focus();
+</script>
+</head>
+<body>
+<style type="text/css">
+	html{_overflow-y:scroll}
+</style><script type="text/javascript">
+  $(document).ready(function() {
+	$.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+	
+  })
+</script>
+<div class="pad_10">
+<div class="common-form">
+<form name="myform" action="__URL__/do_edit_emccepayrecord/" method="post" id="myform">
+<input type="hidden" name="id" value="{$_GET['recordid']}"></input>
+<table width="100%" class="table_form contentWrap">
+<tr>
+<td width="80">用户名</td> 
+<td>{$userinfo['username']}</td>
+</tr>
+<tr>
+<td>支付款项</td> 
+<td><font color="#FF6600"><?php echo round(($recordinfo['bean'] / 100),2); ?></font> 元</td>
+</tr>
+<tr>
+<td>用户账户信息</td> 
+<td>
+	支付宝：{$userinfo['alipayname']}<br>
+	开户银行：{$userinfo['accountbank']} {$userinfo['otherbank']}<br>
+	开户地：{$userinfo['accountbankaddress']}<br>
+	支行名称：{$userinfo['accountsubbank']}<br>
+	银行账号：{$userinfo['accountno']}<br>
+	开户人姓名：{$userinfo['accountname']}
+</td>
+</tr>
+<tr>
+<td>状态</td> 
+<td>
+	<select name="status">
+		<option value="">未处理</option>
+		<option value="已支付" <if condition = "$recordinfo['status'] eq '已支付'">selected</if>>已支付</option>
+	</select>
+</td>
+</tr>
+<tr>
+<td>备注</td> 
+<td><input type="text" class="input-text" name="remark" id="remark" size="50" value="{$recordinfo['remark']}" /></td>
+</tr>
+</table>
+
+    <div class="bk15"></div>
+    <input name="dosubmit" type="submit" value="提交" class="dialog" id="dosubmit">
+</form>
+</div>
+</div>
+</body>
+</html>
