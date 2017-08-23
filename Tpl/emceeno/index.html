@@ -1,0 +1,222 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$sitename}靓号 - 官方靓号在线申请_靓号交易 - {$sitename}</title>
+<meta name="keywords" content="{$metakeyword}"/>
+<meta name="description" content="{$metadesp}" />
+<link rel="stylesheet" href="/Public/css/20120825/common.css" type="text/css" />
+<script language="javascript" src="/Public/js/20120825/jquery.js"></script>
+<script language="javascript" src="/Public/js/20120825/common.js"></script>
+<script language="javascript" src="/Public/js/20120825/mymanage.js"></script>
+<script> 
+try { document.domain = '{$domainroot}'; }
+catch(e){}
+</script>
+<script language="javascript" type="text/javascript" src="/Public/js/logon-2.0.js" charset="utf-8"></script>
+</head>
+<body>
+<include file="Public:header" />
+<div class="wrap">
+	<div class="goodnum">
+		<div class="gnum-user">
+			<div class="guser1">靓号用户</div>
+			<div class="guser-info" id="guser-info">
+<?php
+$goodnum_users = D('Goodnum')->where('issale="y"')->order('rand()')->group('owneruid')->limit(10)->select();
+?>
+					<volist name='goodnum_users' id='vo' key='k'>
+					<?php 
+					$emceeinfo = D("Member")->find($vo['owneruid']);
+					?>
+                    <li>
+                        <a href="/{$vo['num']}" title=""><img src="{$ucurl}avatar.php?uid={$emceeinfo['ucuid']}&size=middle" width="40" height="40"/></a>
+                        <p>{$vo['num']}</p>
+                    </li>
+					</volist>
+                    
+            </div>
+			<div class="guser-c" onClick="Manage.refreshUser();">
+				<span>刷新</span>
+			</div>
+		</div>
+		<div class="gn-search">
+			<div class="gns-v">
+				<input type="text" id="goognums" class="gn-text" pro-msg="请输入4-8位数字..."  value="请输入4-8位数字..." />
+				<span class="gn_btn" onClick="Manage.checknum();"><cite>搜靓号</cite></span>
+                
+			</div>
+		</div>
+		<div class="sell_gn">
+			<h2 class="rtitle">官方正在销售的靓号</h2>
+			<div class="gn_item">
+			    <div class="gni-t">
+					<a href="javascript:Manage.changeNum(4);" class="change-gn" title="换一批">换一批</a><h3>4位靓号</h3>
+				</div>
+				<div class="gni-v" id="Num_area4">
+					<ul>
+<?php
+$four_goodnums = D('Goodnum')->where('length=4 and issale="n"')->order('rand()')->limit(4)->select();
+?>
+						<volist name='four_goodnums' id='vo' key='k'>
+						<li>
+							<p>靓号: <strong class="f-1">{$vo['num']}</strong></p>
+							<p class="price">价值: <strong class="f-2">{$vo['price']}</strong> 个秀币</p>
+                            
+                            
+							<span class="gn_btn mt5" onClick="Manage.Buynum({$vo['num']},false)" ><cite>购买</cite></span>           
+                            
+						</li>
+						</volist>
+					</ul>
+				</div>
+			</div>
+            <div class="gn_item">
+			    <div class="gni-t">
+					<a href="javascript:Manage.changeNum(5);" class="change-gn" title="换一批">换一批</a><h3>5位靓号</h3>
+				</div>
+				<div class="gni-v" id="Num_area5">
+					<ul>
+<?php
+$five_goodnums = D('Goodnum')->where('length=5 and issale="n"')->order('rand()')->limit(4)->select();
+?>
+						<volist name='five_goodnums' id='vo' key='k'>
+						<li>
+							<p>靓号: <strong class="f-1">{$vo['num']}</strong></p>
+							<p class="price">价值: <strong class="f-2">{$vo['price']}</strong> 个秀币</p>
+                            
+                            
+							<span class="gn_btn mt5" onClick="Manage.Buynum({$vo['num']},false)" ><cite>购买</cite></span>           
+                            
+						</li>
+						</volist>
+					</ul>
+				</div>
+			</div>
+			<div class="gn_item">
+			    <div class="gni-t">
+					<a href="javascript:Manage.changeNum(6);" class="change-gn" title="换一批">换一批</a><h3>6位靓号</h3>
+				</div>
+				<div class="gni-v" id="Num_area6">
+					<ul>
+<?php
+$six_goodnums = D('Goodnum')->where('length=6 and issale="n"')->order('rand()')->limit(4)->select();
+?>
+						<volist name='six_goodnums' id='vo' key='k'>
+						<li>
+							<p>靓号: <strong class="f-1">{$vo['num']}</strong></p>
+							<p class="price">价值: <strong class="f-2">{$vo['price']}</strong> 个秀币</p>
+                            
+                            
+							<span class="gn_btn mt5" onClick="Manage.Buynum({$vo['num']},false)" ><cite>购买</cite></span>           
+                            
+						</li>
+						</volist>
+					</ul>
+				</div>
+			</div>
+			<div class="gn_item">
+			    <div class="gni-t">
+					<a href="javascript:Manage.changeNum(7);" class="change-gn" title="换一批">换一批</a><h3>7位靓号</h3>
+				</div>
+				<div class="gni-v" id="Num_area7">
+					<ul>
+<?php
+$seven_goodnums = D('Goodnum')->where('length=7 and issale="n"')->order('rand()')->limit(4)->select();
+?>
+						<volist name='seven_goodnums' id='vo' key='k'>
+						<li>
+							<p>靓号: <strong class="f-1">{$vo['num']}</strong></p>
+							<p class="price">价值: <strong class="f-2">{$vo['price']}</strong> 个秀币</p>
+                            
+                            
+							<span class="gn_btn mt5" onClick="Manage.Buynum({$vo['num']},false)" ><cite>购买</cite></span>           
+                            
+						</li>
+						</volist>
+					</ul>
+				</div>
+			</div>
+			<div class="gn_item">
+			    <div class="gni-t">
+					<a href="javascript:Manage.changeNum(8);" class="change-gn" title="换一批">换一批</a><h3>8位靓号</h3>
+				</div>
+				<div class="gni-v" id="Num_area8">
+					<ul>
+<?php
+$eight_goodnums = D('Goodnum')->where('length=8 and issale="n"')->order('rand()')->limit(4)->select();
+?>
+						<volist name='eight_goodnums' id='vo' key='k'>
+						<li>
+							<p>靓号: <strong class="f-1">{$vo['num']}</strong></p>
+							<p class="price">价值: <strong class="f-2">{$vo['price']}</strong> 个秀币</p>
+                            
+                            
+							<span class="gn_btn mt5" onClick="Manage.Buynum({$vo['num']},false)" ><cite>购买</cite></span>           
+                            
+						</li>
+						</volist>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="gn-qua">
+		<div class="model-h">
+			<h2 class="rtitle">常见问题</h2>
+			<div class="help_des">
+				<dl>
+					<dt>什么是靓号？</dt>
+					<dd>
+						<p>
+						靓号是秀场房号中珍贵稀有的号码，精品靓号则是靓号中的珍藏极品，尊贵之中的王者。
+						</p>
+						<p>
+						1、靓号购买方式：进入靓号选购页 → 点击“购买”即可 。
+						</p>
+						<p>
+							2、注意：靓号只能替换购买的账号的编号，不能赠送。
+						</p>
+					</dd>
+				</dl>
+				<dl class="no">
+					<dt>靓号有什么用？</dt>
+					<dd>
+						<p>靓号就是漂亮的号，有规律的号，吉祥的号，稀少的号，有深刻含义的号。如像520（我爱你）还有一些易记的连号即美观又能加强记忆，用靓号的显示效果好，具有一定震撼力。</p>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="model-h mt10">
+			<h2 class="rtitle">用户声音</h2>
+			<div class="help_des">
+				<dl>
+					<dd>
+						<p>
+							<strong>灿烂脱口秀（999999）：</strong>靓号之于主播和财主，犹如护照，除了彰显尊贵，更是鉴别身份真伪的重要标志。主播和财主一旦被众多粉丝追捧，立即会有若干相似马甲涌现，仿真程度一时间李逵李鬼难辨，这时候靓号的作用就彰显出来了，靓号犹如指纹一样，赫然唯一，无法拷贝。靓号升值空间无限，无论是传情达意，还是投资收藏，都是睿智玩家的首选。靓号，让您成为众人瞩目的焦点！
+						</p>
+					</dd>
+				</dl>
+				<dl class="no">
+					<dd>
+						<p>
+							<strong>♪゛杉宝贝（888028）：</strong>靓号是一种身份的象征，也是一种特殊靓点。每个靓号都有着各种来历，如我们的888***主播号，不仅是主播号，还能展示成长步伐。靓号是秀场房号中珍贵稀有的号码，尊贵之中的王者。
+						</p>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+    <div class="clear"></div>
+</div>
+<!--靓号弹层 begin-->
+<div id="giveBox" class="poptip" style="display:none;">
+	<div class="pop-t"><span class="close" onClick="Manage.closeBox();"></span><h3>提示</h3></div>	
+	<div class="pop-v" id="goodnum-tip"></div>
+</div>
+<!--靓号弹层 end-->
+<literal><script language="javascript">$(function(){$(".gn-text").ClearRoom();})</script></literal>
+<include file="Public:footer" />
+</body>
+</html>

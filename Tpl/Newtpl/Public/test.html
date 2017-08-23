@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ckplayer只调用html5播放器</title>
+</head>
+<body>
+<div id="a1"></div>
+<script type="text/javascript" src="/static/public/ckplayer/ckplayer.js"></script>
+<script type="text/javascript">
+    var flashvars={
+        f:'rtmp://rtmplive.glzxedu.com/gta0615/032add68779e47c88ecd60d850d75c53',
+        c:0
+    };
+    var video=['http://rtmplive.glzxedu.com/gta0615/032add68779e47c88ecd60d850d75c53.m3u8'];
+    CKobject.embed('/static/public/ckplayer/ckplayer.swf','a1','ckplayer_a1','600','400',false,flashvars,video);
+</script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的账单-管理中心-直播时长详细</title>
+<link rel="stylesheet" href="__PUBLIC__/css/20120825/common.css" type="text/css" />
+<script language="javascript" src="__PUBLIC__/js/20120825/jquery.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/common.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/personal.js"></script>
+</head>
+<body>
+<include file="Public:header" />
+<div class="wrap">
+	<div class="usercenter">
+		
+
+
+
+
+
+<div class="utitle">
+			<h2><a href="__URL__/" title="管理中心">我的管理中心</a></h2>
+			<div class="utab">
+				<a href="__URL__/myfavor/" title="收藏"><span>收藏</span></a>
+				<a href="__URL__/interestToList/" title="偶像"><span>偶像</span></a>
+				<a href="__URL__/myNos/" title="靓号"><span>靓号</span></a>
+				<a href="__URL__/toolinuse/" title="道具"><span>道具</span></a>
+				<!--<a href="__URL__/wishing_wishing/" title="许愿"><span>许愿</span></a>//-->
+				<a href="__URL__/showadmin/" title="房管"><span>房管</span></a>
+				<!--<a href="__URL__/familyIJoin/" title="家族"><span>家族</span></a>//-->
+                <a href="__URL__/interestByList/" title="粉丝"><span>粉丝</span></a>
+                <a href="__URL__/info_edit/" title="个人设置"><span>个人设置</span></a>
+				<a href="__URL__/getConsume/" title="账单"><span>账单</span></a>
+				<!--<a href="__URL__/bl_list/" title="黑名单"><span>黑名单</span></a>//-->
+			</div>
+			<div class="umyhelp">
+				<a href="/{$_SESSION['roomnum']}" title="我的直播"><span>我的直播</span></a> 
+                <a href="__URL__/charge/" title="充值"><span>充值</span></a> 
+                <a href="__URL__/exchange/" title="兑换"><span>兑换</span></a>
+                <a href="__URL__/settlement/" title="结算"><span>结算</span></a>
+			</div>
+</div>
+
+<script language="javascript">
+$(function(){
+   var sm = $('.utab a,.umyhelp a').setMyTab();
+ }
+)
+</script>
+		<div class="myaccount">
+			
+
+
+
+			<div class="account-l">
+				<a href="__URL__/getGiftStat/"  title="礼物统计">礼物统计</a>
+				<a href="__URL__/getTakedGift/"  title="我收到的礼物">我收到的礼物</a>
+				<a href="__URL__/getBuyedGift/"  title="我送出的礼物">我送出的礼物</a>
+				<a href="__URL__/getConsume/"  title="消费记录">消费记录</a>
+                <a href="__URL__/getPresentation/"  title="获赠记录">获赠记录</a>
+                
+				
+				
+				<a href="__URL__/getShowList/"  class="on" title="直播详细">直播详细</a>
+				<!--<a href="__URL__/listAward/"  title="中奖记录">中奖记录</a>//-->
+			</div>
+			<div class="account-r">
+				<div class="recod-tpl sessiontimeout">
+                <style>
+                	.sessiontimeout .record ul { padding-top:4px;}
+					.datelist { margin-bottom:2px;}
+					.datelist h2 { line-height:30px; height:30px; color:#555; background:url(__PUBLIC__/images/ico06.gif) 10px 9px no-repeat #ddd; padding-left:30px; cursor:pointer;}.datelist h2 em { font-weight:bold; padding:0 5px; color:#FD4813;}
+					.datelist table { display:none;}
+					/*.datelist.firstlist table { display:block; width:500px;}*/.datelist.first h2 {background-position:10px -12px;}
+                </style>
+                <script>
+					$(function(){
+						$('.datelist table:eq(0)').show();
+						$('.datelist h2:eq(0)').css('background-position','10px -12px');
+						$('.datelist').toggle(
+							function (){
+								$(this).find('table').show();
+								$(this).find('h2').css('background-position','10px -12px');
+							},function (){
+								$(this).find('table').hide();
+								$(this).find('h2').css('background-position','10px 9px');
+							}
+						)
+					})
+                </script>
+					<div class="record">
+                     <ul>
+						
+								<li>
+									<?php
+									if($_GET['date'] == '' || $_GET['date'] == date('Ym',time())){
+									?>
+									<strong><?php echo date('Y年m月',time()); ?></strong>
+									<?php
+									}
+									else{
+									?>
+									<a href="__URL__/getShowList/date/<?php echo date('Ym',time()); ?>/"><?php echo date('Y年m月',time()); ?></a>
+									<?php
+									}
+									?>
+								</li>
+								 <li>
+									<?php
+									if($_GET['date'] == date('Y',time()).'0'.(date('m',time()) - 1)){
+									?>
+									<strong><?php echo date('Y',time()).'年'.(date('m',time()) - 1).'月'; ?></strong>
+									<?php
+									}
+									else{
+									?>
+									<a href="__URL__/getShowList/date/<?php echo date('Y',time()).'0'.(date('m',time()) - 1); ?>/"><?php echo date('Y',time()).'年'.(date('m',time()) - 1).'月'; ?></a>
+									<?php
+									}
+									?>
+								</li>
+								 <li>
+									<?php
+									if($_GET['date'] == date('Y',time()).'0'.(date('m',time()) - 2)){
+									?>
+									<strong><?php echo date('Y',time()).'年'.(date('m',time()) - 2).'月'; ?></strong>
+									<?php
+									}
+									else{
+									?>
+									<a href="__URL__/getShowList/date/<?php echo date('Y',time()).'0'.(date('m',time()) - 2); ?>/"><?php echo date('Y',time()).'年'.(date('m',time()) - 2).'月'; ?></a>
+									<?php
+									}
+									?>
+								</li>	
+								 <li>
+									<?php
+									if($_GET['date'] == date('Y',time()).'0'.(date('m',time()) - 3)){
+									?>
+									<strong><?php echo date('Y',time()).'年'.(date('m',time()) - 3).'月'; ?></strong>
+									<?php
+									}
+									else{
+									?>
+									<a href="__URL__/getShowList/date/<?php echo date('Y',time()).'0'.(date('m',time()) - 3); ?>/"><?php echo date('Y',time()).'年'.(date('m',time()) - 3).'月'; ?></a>
+									<?php
+									}
+									?>
+								</li>
+                    </ul>
+                    </div>
+                    <p class="the-total" style="text-align:left;padding-left:40px;">
+                        <font style="color:#f00;">1、每场的直播时长在直播结束后更新，如果直播跨天那么该直播时长计入前一天，如果直播跨月该场直播的直播时长将无法统计</font>
+                    </p>
+					<p class="the-total" style="text-align:left;padding-left:40px;">
+                        <font style="color:#f00;">2、收费直播和密码直播均不计入有效时长范围</font>
+                    </p>
+                    <div class="recod-tpl">
+                    
+					<volist name='liverecords' id='vo' key='k'>
+							<div class="datelist" id="div_<?php echo $k - 1; ?>">
+						 
+                       
+                        <h2>{$vo['livedate']}，您的直播总时长为
+							<em><span id="durdate_<?php echo $k - 1; ?>"></span></em> 
+							<span id="duryouxiao_<?php echo $k - 1; ?>"></span>，点击查看详情
+						</h2>
+                            <table class="r-table">
+                                <tr>
+                                    <th>序号</th>
+                                    <th>开播时间</th>
+                                    <th>结束时间</th>
+									<th>直播类型</th>
+                                    <th>时长</th>
+                                </tr>
+										<?php
+										$dayrecords = D('Liverecord')->query('SELECT * FROM `ss_liverecord` where uid='.$_SESSION['uid'].' and date_format(FROM_UNIXTIME(starttime),"%Y年%m月%d日")="'.$vo['livedate'].'" order by starttime desc');
+										?>
+										<volist name='dayrecords' id='voo' key='k2'>
+										<tr>
+											<td><span style="color:#FF0000">{$k2}</span></td>
+											<td><span style="color:#FF0000"><?php echo date('Y-m-d H:i:s',$voo['starttime']); ?>&nbsp;&nbsp;(<if condition="$voo['sign'] eq 'y'">签约<else />未签约</if>)</span></td>
+											<td><span style="color:#FF0000"><?php if($voo['endtime'] == 0){echo '尚未结束';}else{echo date('Y-m-d H:i:s',$voo['endtime']);} ?></span></td>
+											<td><span style="color:#FF0000"><switch name="voo['roomtype']"><case value="0">公开直播</case><case value="1">收费直播</case><case value="2">私有直播</case></switch></span></td>
+											<?php
+											if($voo['endtime'] != 0){
+												$totalsecs = $voo['endtime'] - $voo['starttime'];
+												$totalh = intval($totalsecs / 3600);
+												$totalm = intval(($totalsecs % 3600) / 60);
+											}
+											?>
+											<td><span style="color:#FF0000"><if condition="$voo['endtime'] neq 0">{$totalh}时{$totalm}分</if></span></td>
+										</tr>
+										</volist>
+							</table>
+							<script type="text/javascript">
+								<?php
+								$totalsecs = 0;
+								$totalsecs2 = 0;
+								foreach($dayrecords as $val){
+									if($val['endtime'] != 0){
+										$totalsecs += $val['endtime'] - $val['starttime'];
+										if($val['roomtype'] == 0){
+											$totalsecs2 += $val['endtime'] - $val['starttime'];
+										}
+									}
+								}
+								$totalh = intval($totalsecs / 3600);
+								$totalm = intval(($totalsecs % 3600) / 60);
+
+								$totalh2 = intval($totalsecs2 / 3600);
+								$totalm2 = intval(($totalsecs2 % 3600) / 60);
+								?>
+								$("#durdate_<?php echo $k - 1; ?>").html("{$totalh}时{$totalm}分");
+							
+								if(0 == 2){
+									$("#duryouxiao_<?php echo $k - 1; ?>").html("(有效时长<em>0时0分</span></em>)");
+								}
+								if(false){
+									$("#div_<?php echo $k - 1; ?>").hide();
+								}
+
+							</script>
+                        </div>
+					</volist>
+							
+                       
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<include file="Public:footer" />
+
+</body>
+</html>

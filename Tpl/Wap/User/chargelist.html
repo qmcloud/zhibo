@@ -1,0 +1,113 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>充值中心-充值记录</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/wap/charge/css/main.css" />
+<script language="javascript" src="__PUBLIC__/wap/js/20120825/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__/wap/charge/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/wap/charge/js/sitejavascript.js"></script>
+</head>
+<body>
+<include file="Public:charge_header" />
+<div class="main clear">
+	<!--充值中心左侧导航 begin-->
+	
+
+<div class="main_left">
+<dl>
+	<dt><a href="__URL__/charge/">充值中心首页</a></dt>
+    <dd ><a href="__URL__/userbalance/">账户余额</a></dd>
+    <dd class="on"><a href="__URL__/chargelist/">充值记录</a></dd>
+    <!--
+    <dd ><a href="__URL__/securityset/">安全设置</a></dd>
+	//-->
+    <dd ><a href="__URL__/helplist/">客服帮助</a></dd>
+</dl>
+</div>
+    <!--充值中心左侧导航 end-->
+    <div class="main_right">
+    	<h3>充值记录 >> 人民币充值</h3>
+        <div class="radio_l clear">
+        	<!-- <a href="chargelist.do?AccountTypeID=2">激动币充值 >></a>  -->
+            <div class="recent">共有 <strong><?php echo !empty($count)?intval($count):0; ?></strong> 笔交易</div>
+        </div>
+        <div class="record">
+            <p class="history">历史充值总额:<strong>{$totalpay}</strong>元</p>
+            <form name="form1" method="get" action="">
+				<!--
+				  <select name="c_TimeType" id="c_TimeType" class="input-accout" style="width:90px;" onchange="ReSetDate()">
+				    <option value="1" selected="selected">60天内帐单</option>
+				    <option value="2" >60天前帐单</option>
+				  </select>
+				//-->
+				<?php
+				if($_GET['c_StartTime'] != ''){
+					$begin = $_GET['c_StartTime'];
+				}
+				else{
+					$begin = date('Y-m',time()).'-01';
+				}
+				if($_GET['c_EndTime'] != ''){
+					$end = $_GET['c_EndTime'];
+				}
+				else{
+					$end = date('Y-m-d',time());
+				}
+				?>
+                <input type="text" name="c_StartTime" id="c_StartTime"  onfocus="WdatePicker({el:'c_StartTime',minDate:'#F{GetMinDate()}',maxDate:'#F{GetMaxDate()}'});" class="input-accout" value="{$begin}"/>
+                <span onclick="WdatePicker({el:'c_StartTime'});"></span>
+                <p class="line">--</p>
+                <input type="text" name="c_EndTime" id="c_EndTime"  onfocus="WdatePicker({el:'c_EndTime',minDate:'#F{GetMinDate()}',maxDate:'#F{GetMaxDate()}'});" class="input-accout"  value="{$end}"/>
+                <span onclick="WdatePicker({el:'c_EndTime'});"></span>
+                <input type="hidden" name="AccountTypeID" id="AccountTypeID" value="1"/>
+                <input type="submit" class="sea-record" value="搜 索"/>
+            </form>
+        </div>
+        <div class="recod-tpl">
+        
+            <table class="r-table">
+                <tr>
+                    <th>交易号</th>
+                    <th>交易时间</th>
+                    <th>充值虚拟币</th>
+                    <th>支付人民币（元）</th>
+                    <th>付款人</th>
+                    <th>充值对象</th>
+                    <th>交易状态</th>
+                </tr>
+            
+
+				<volist name="charges" id="vo">
+                <tr>
+                    <td>{$vo['orderno']}</td>
+                    <td><?php echo date('Y-m-d H:i:s',$vo['addtime']); ?></td>
+                    <td>{$vo['coin']}(币)</td>
+                    <td>{$vo['rmb']}</td>
+                    <td><a href="/{$_SESSION['roomnum']}" target="_blank">{$_SESSION['username']}（{$_SESSION['roomnum']}）</a></td>
+					<volist name="vo['voo']" id="sub">
+                    <td><a href="/{$sub['curroomnum']}" target="_blank">{$sub['username']}（{$sub['curroomnum']}）</a></td>
+					</volist>
+                    <td>{$vo['status']}</td>
+                </tr>
+				</volist>
+                
+			
+				<tr><td align="center" colspan="7">共{$count}条信息 共1页&nbsp;当前第<input name="PGPage" type="text" id="PGPage" value="<?php echo !empty($_GET['p'])?intval($_GET['p']):1; ?>" size="5" maxlength="5">页&nbsp;<input name="PGSubmit" type="button" id="PGSubmit" value="GO" onclick="PGJump('__URL__/chargelist/?c_StartTime={$_GET['c_StartTime']}&c_EndTime={$_GET['c_EndTime']}&p=' + document.getElementById('PGPage').value,'{$pagecount}');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+var DefaultStartTime = '{$begin}';
+var DefaultEndTime = '{$end}';
+var DefaultStartTimeHistory = '';
+var DefaultEndTimeHistory = '';
+</script>
+</body>
+</html>

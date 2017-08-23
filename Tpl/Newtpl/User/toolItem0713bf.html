@@ -1,0 +1,220 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>道具商城-管理中心-{$sitename}</title>
+<link rel="stylesheet" href="__PUBLIC__/css/20120825/common.css" type="text/css" />
+<link rel="stylesheet" href="/Tpl/Newtpl/Public/css/home.css" type="text/css"  />
+<link rel="stylesheet" href="/Tpl/Newtpl/Public/css/shop.css" type="text/css"  />
+<script language="javascript" src="__PUBLIC__/js/20120825/jquery.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/common.js"></script>
+<script type="text/javascript">
+//test
+	function buy(toolid,toolsubid){
+		var info=document.getElementById('info_'+toolsubid);
+		
+		if(confirm("确认要购买此礼物吗?")){
+
+						
+			jQuery.ajax({
+				type: "get",
+				dataType: "json",
+				url: "__URL__/buyTool/toolid/"+toolid+"/toolsubid/"+toolsubid+"/v/"+Math.random(),
+				beforeSend: function(XMLHttpRequest){
+					info.innerHTML='<img src="__PUBLIC__/images/loading.gif"> ...';
+				},
+				success: function(data, textStatus){
+					alert(data.msg);
+					info.innerHTML="";
+				},
+				complete: function(XMLHttpRequest, textStatus){
+					//alert('complete');											
+				},
+				error: function(){					
+					//inner.innerHTML='<font color=green>出错啦 稍后再试</font>';	
+				}
+			});	
+			
+		}
+	}
+</script>
+</head>
+<body style="background: #f1f1f1;;">
+<include file="Public:header" />
+<div class="wrap">
+	<div class="usercenter">
+    	
+
+
+
+
+
+<div class="utitle">
+			<h2><a href="personal_pcenter.htm" title="管理中心">我的管理中心</a></h2>
+			<div class="utab">
+				<a href="__URL__/myfavor/" title="收藏"><span>收藏</span></a>
+				<a href="__URL__/interestToList/" title="偶像"><span>偶像</span></a>
+				<a href="__URL__/myNos/" title="靓号"><span>靓号</span></a>
+				<a href="__URL__/toolinuse/" title="道具"><span>道具</span></a>
+				<!--<a href="__URL__/wishing_wishing/" title="许愿"><span>许愿</span></a>//-->
+				<a href="__URL__/showadmin/" title="房管"><span>房管</span></a>
+				<!--<a href="__URL__/familyIJoin/" title="家族"><span>家族</span></a>//-->
+                <a href="__URL__/interestByList/" title="粉丝"><span>粉丝</span></a>
+                <a href="__URL__/info_edit/" title="个人设置"><span>个人设置</span></a>
+				<a href="__URL__/getConsume/" title="账单"><span>账单</span></a>
+				<!--<a href="__URL__/bl_list/" title="黑名单"><span>黑名单</span></a>//-->
+			</div>
+			<div class="umyhelp">
+				<a href="/{$_SESSION['roomnum']}" title="我的直播"><span>我的直播</span></a> 
+                <a href="__URL__/charge/" title="充值"><span>充值</span></a> 
+                <a href="__URL__/exchange/" title="兑换"><span>兑换</span></a>
+                <a href="__URL__/settlement/" title="结算"><span>结算</span></a>
+			</div>
+</div>
+
+<script language="javascript">
+$(function(){
+   var sm = $('.utab a,.umyhelp a').setMyTab();
+ }
+)
+</script>
+
+
+<div class="shop-bd">
+ <div class="shop-product">
+         <div class="shop-product-hd"><em class="png24 shop-floor">1F</em><h2>特权</h2><strong>特权</strong><a class="png24 shop-more" href="#"></a></div>
+         <div class="shop-product-bd">
+            <ul class="clearfix js-bd-list">
+               <li class="shop-item">
+                  <p class="shop-sale-info"></p>             
+                  <img class="png24 shop-img" src="Tpl/Newtpl/Public/images/vip.jpg" width="170" height="110">
+                  <h3> 	至尊VIP</h3>
+                  <p>限10富及以上等级玩家购买</p>
+                  <p style="text-align: left;">
+					防止被踢	<br />
+					防止被禁言<br />
+					可以进入满员房间
+					</p>
+
+                  <p>1个月：20000秀币 <button onClick="buy('1','1')">购买</button> <span id="info_1"></p>
+                  <p>3个月：48000秀币<button style="" onClick="buy('1','2')">购买</button> <span id="info_2"></p>
+                  <p>6个月：84000秀币<button style="" onClick="buy('1','3')">购买</button> <span id="info_3"></p>
+                  <p>12个月：120000秀币<button style="" onClick="buy('1','4')">购买</button> <span id="info_4"></p>
+                  
+                  <div class="shop-buy-more">
+                  <a class="js-goBuy" href="javascript:;" data-method="give" data-itemid="63">赠送</a>
+                  </div>
+               </li>
+               
+              <li class="shop-item">
+                  <p class="shop-sale-info"></p>             
+                  <img class="png24 shop-img" src="images/hx1_170.png" width="170" height="110">
+                  <h3>VIP</h3>
+                  <p>限3富及以上等级玩家购买</p>
+                  <p>名称前""标识<br />
+					除房主以外，防止被踢<br />
+					除房主以外，防止被禁言<br />
+					可以进入满员房间<br />
+					房间排位直接升至10富上面<br />
+                  </p>
+                  <p>1个月：15000秀币 <button onClick="buy('2','5')">购买</button> <span id="info_5"></p>
+                  <p>3个月：40000秀币<button style="" onClick="buy('2','6')">购买</button> <span id="info_6"></p>
+                  <p>6个月：65000秀币<button style="" onClick="buy('3','7')">购买</button> <span id="info_7"></p>
+                  <p>12个月：100000秀币<button style="" onClick="buy('4','8')">购买</button> <span id="info_8"></p>
+                  <p></p>
+                  
+                  <div class="shop-buy-more">
+                  <a class="js-goBuy" href="javascript:;" data-method="give" data-itemid="63">赠送</a>
+                  </div>
+               </li>
+               
+               <li class="shop-item">
+                  <p class="shop-sale-info"></p>             
+                  <img class="png24 shop-img" src="images/hx1_170.png" width="170" height="110">
+                  <h3>金钥匙</h3>
+                  <p>不限条件</p>
+                  <p>可进入满房房间<br />
+					
+                  </p>
+                  <p>1个月：15000秀币 <button onClick="buy('3','9')">购买</button> <span id="info_9"></p>
+                  <p></p>
+                  
+                  <div class="shop-buy-more">
+                  <a class="js-goBuy" href="javascript:;" data-method="give" data-itemid="63">赠送</a>
+                  </div>
+               </li>
+               
+               <li class="shop-item">
+                  <p class="shop-sale-info"></p>             
+                  <img class="png24 shop-img" src="images/hx1_170.png" width="170" height="110">
+                  <h3>随意说</h3>
+                  <p>不限条件</p>
+                  <p>每日免费发布100条广播<br />
+					
+                  </p>
+                  <p>1个月：50000秀币 <button onClick="buy('4','10')">购买</button> <span id="info_10"></p>
+                  <p></p>
+                  
+                  <div class="shop-buy-more">
+                  <a class="js-goBuy" href="javascript:;" data-method="give" data-itemid="63">赠送</a>
+                  </div>
+               </li>
+               <!--新道具Start-->
+				<?php include '/lib/action/daojuset.php'; ?>
+				 
+            </ul>
+    
+      </div>
+      </div>
+      
+</div>
+
+  <div class="shop-product">
+         <div class="shop-product-hd">
+            <em class="png24 shop-floor">2F</em><h2>座驾</h2>
+            <strong>座驾</strong><a class="png24 shop-more" href="#"></a>
+         </div>
+         <div class="shop-product-bd shop-prop-bd">
+         	<ul class="clearfix js-bd-list">
+         	<?php include '/lib/action/daojuset.php'; ?>
+				<php>
+				$j=5;
+				$k=11;
+				 	for($i=1;$i<=count($daojuname);$i++)
+				 	{
+						echo "
+						
+						<li class='shop-item'>
+		                  <p class='shop-sale-info'></p>             
+		                  <img class='png24 shop-img' src='$daojuicon[$i]' width='170' height='110'>
+		                  <h3>$daojuname[$i]</h3>
+		                  <p>不限条件</p>
+		                  <p>{$daojucon[$i]}<br />
+							
+		                  </p>
+		                  <p>1个月：50000秀币 <button onClick='buy('$j','$k')'>购买</button> <span id='info_10'></p>
+		                  <p></p>
+		                  
+		                  <div class='shop-buy-more'>
+		                  <a class='js-goBuy' href='javascript:;' data-method='give' data-itemid='63'>赠送</a>
+		                  </div>
+		               </li>
+						
+";
+						++$j;
+						++$k;
+				 	}
+				 				</php>
+         	</ul>
+         </div>
+       
+
+
+    </div>
+</div>
+</div>
+<include file="Public:footer" />
+
+</body>
+</html>

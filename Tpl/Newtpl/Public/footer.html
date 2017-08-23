@@ -1,0 +1,92 @@
+<!--footer begin-->
+
+
+
+<div class="footer">
+
+	<div class="footertip">
+
+	
+	<p>{$footinfo}</p>
+
+	
+
+
+
+	</div>
+
+</div>
+
+
+
+<script type="text/javascript">
+
+
+
+	//加载注册完毕后的邮箱验证浮层
+
+	var showEmailLayer = "null";
+
+	if(showEmailLayer!=null && parseInt(showEmailLayer)==1){
+
+		window.setTimeout(function(){
+
+			firstApplyByEmail._alertLayer1();				   
+
+		},3000);
+
+	}
+
+	
+
+</script>
+
+
+
+<div id="regSucMsg" class="joymodlogin">
+
+	<h3><em id=div_title>用户登录</em><span title="关闭"><a id="close_msg1">关闭</a></span></h3>
+
+	<div class="login_body1">
+
+		<ul>
+
+			<li style=" font-size:16px; margin-left:1px;">您已成功获得<span style="color:#fd4817;">10秀币</span>！</li>
+
+			<li style=" font-size:16px; margin-left:1px; font-weight:bold;">完成认证可再获得<span style="color:#fd4817;">100秀币</span>！</li>
+
+		</ul>
+
+		<p class="login_icon1" id="data-confirm1">立即完成认证</p>
+
+	</div>
+
+</div>
+
+	
+
+<div id="alertBox1" class="joymodlogin">
+
+	<h3><em id=div_title>用户登录</em><span title="关闭"><A id="close_msg2">关闭</a></span></h3>
+
+	<div class="login_body2">
+
+		<ul>
+
+			<li>
+
+				<label>请输入邮箱地址：</label><input type="text" class="login1" id="emailAddress">
+
+			</li>
+
+			<li style=" font-size:12px; color:#fc4817; margin-left:110px; margin-top:10px;">请填写真实有效的邮箱地址</li>
+
+		</ul>
+
+		<p class="login_icon2" id="data-confirm2">立即完成认证</p>
+
+	</div>
+
+</div>
+
+<!--footer end-->

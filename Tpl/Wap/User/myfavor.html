@@ -1,0 +1,138 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的收藏-管理中心-{$sitename}</title>
+<link rel="stylesheet" href="__PUBLIC__/wap/css/20120825/common.css" type="text/css" />
+<script language="javascript" src="__PUBLIC__/wap/js/20120825/jquery.js"></script>
+<script language="javascript" src="__PUBLIC__/wap/js/20120825/common.js"></script>
+<script>
+function batchDel()
+{
+	var ids = document.getElementsByName("id");
+	var idstr = "";
+	
+	for(var i=0; i< ids.length; i++)
+	{
+		if(ids[i].checked == true)
+		{
+			idstr = idstr+ids[i].value+",";
+		}
+	}
+	
+	if(idstr == "")
+	{
+		alert("请选择要删除的收藏！");
+		return false;
+	}
+	else
+    {
+		idstr = idstr.substring(0,idstr.length-1);
+		//alert(idstr);
+		document.bookmarkForm.action = "__URL__/delfavor/fid/"+idstr+"/";
+		document.bookmarkForm.submit();
+	}
+}
+
+function selectAll()
+{
+	var checkboxAll = document.getElementById("all");
+	var ids = document.getElementsByName("id");
+
+	if(checkboxAll.checked == true)
+	{
+		for(var i=0; i< ids.length; i++)
+		{
+			ids[i].checked = true;
+		}
+	}
+	else if(checkboxAll.checked == false)
+	{
+		for(var i=0; i< ids.length; i++)
+		{
+			ids[i].checked = false;
+		}
+	}
+}
+</script>
+</head>
+<body>
+<include file="Public:header" />
+<div class="wrap">
+  <div class="usercenter">
+    
+
+
+
+
+
+<div class="utitle">
+			<h2><a href="__URL__/" title="管理中心">我的管理中心</a></h2>
+			<div class="utab">
+				<a href="__URL__/myfavor/" title="收藏"><span>收藏</span></a>
+				<a href="__URL__/interestToList/" title="偶像"><span>偶像</span></a>
+				<a href="__URL__/myNos/" title="靓号"><span>靓号</span></a>
+				<a href="__URL__/toolinuse/" title="道具"><span>道具</span></a>
+				<!--<a href="__URL__/wishing_wishing/" title="许愿"><span>许愿</span></a>//-->
+				<a href="__URL__/showadmin/" title="房管"><span>房管</span></a>
+				<!--<a href="__URL__/familyIJoin/" title="家族"><span>家族</span></a>//-->
+                <a href="__URL__/interestByList/" title="粉丝"><span>粉丝</span></a>
+                <a href="__URL__/info_edit/" title="个人设置"><span>个人设置</span></a>
+				<a href="__URL__/getConsume/" title="账单"><span>账单</span></a>
+				<!--<a href="__URL__/bl_list/" title="黑名单"><span>黑名单</span></a>//-->
+			</div>
+			<div class="umyhelp">
+				<a href="/{$_SESSION['roomnum']}" title="我的直播"><span>我的直播</span></a> 
+                <a href="__URL__/charge/" title="充值"><span>充值</span></a> 
+                <a href="__URL__/exchange/" title="兑换"><span>兑换</span></a>
+                <a href="__URL__/settlement/" title="结算"><span>结算</span></a>
+			</div>
+</div>
+
+<script language="javascript">
+$(function(){
+   var sm = $('.utab a,.umyhelp a').setMyTab();
+ }
+)
+</script>
+    <form id="bookmarkForm" name="bookmarkForm" method="post">
+    <div class="usercenter_con">
+      <div class="collect_top"> <span>我一共收藏了<strong>{$favors|count}</strong>个房间</span>
+        <label>
+        <input id="all" name="all" type="checkbox" onclick="selectAll();"/>
+        全选</label>
+        | <a href="#" onclick="batchDel();">删除</a> </div>
+      <div class="collect_list">
+		<volist name="favors" id="vo">
+		<dl>
+          <dt>
+            <input name="id" type="checkbox" value="{$vo['id']}" />
+          </dt>
+		  <volist name="vo['voo']" id="sub">
+		  <?php
+		  if($sub['broadcasting'] == 'y'){
+				$usersnap = $sub['snap'];
+		  }
+		  else{
+				$usersnap = __PUBLIC__/wap.'/images/default.gif';
+				$iconclass = 'nolive';
+		  }
+		  $emceelevel = getEmceelevel($sub['earnbean']);
+		  ?>
+             <dd class="img {$iconclass}"><cite>{$sub['online']}</cite> <em></em> <a href="/{$sub['curroomnum']}" target="_blank"><img src="{$usersnap}" /></a> </dd>
+          
+          <dd class="tt"><span class="star star{$emceelevel[0]['levelid']}"></span><a href="/{$sub['curroomnum']}" title="{$sub['snap']}" target="_blank">{$sub['nickname']}</a></dd>
+          <dd class="links"><a href="/{$sub['curroomnum']}" target="_blank">进入房间</a> | <a href="__URL__/delfavor/fid/{$vo['id']}">删除</a></dd>
+		  </volist>
+        </dl>
+		</volist>
+        <div class="clear"></div>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+<include file="Public:footer" />
+</body>
+</html>

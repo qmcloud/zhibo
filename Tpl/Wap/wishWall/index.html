@@ -1,0 +1,56 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$sitename}许愿墙 - 零距离接触美女主播 - {$sitename}</title>
+<meta name="keywords" content="{$metakeyword}"/>
+<meta name="description" content="{$metadesp}" />
+<link rel="stylesheet" href="__PUBLIC__/wap/css/20120825/common.css" type="text/css" />
+<script src="__PUBLIC__/wap/assets/js/jquery.min.js"></script>
+<script language="javascript" src="__PUBLIC__/wap/js/20120825/common.js"></script>
+<script language="javascript">
+
+function gotoShow(hostId){
+	window.location.href = "/" + hostId;
+}
+
+</script>
+
+</head>
+<body>
+<include file="Public:header" />
+<div class="wishingwall"> 
+	<div class="wishingwall2"></div>
+    <div class="wishingwall3"></div>
+    <div class="wishingwallmain">
+    	<h2 class="rtitle">今日主播心愿（{$wishs|count}）</h2>
+        <div class="model xyq">
+				<volist name='wishs' id='vo' key='k'>
+				<?php
+				$userinfo = D("Member")->find($vo['uid']);
+				$emceelevel = getEmceelevel($userinfo['earnbean']);
+				?>
+				<div class="xyqblocks">
+	            	<dl>
+	                	<dt><a href="/{$userinfo['curroomnum']}" ><img src="{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle" /></a></dt>
+	                    <dd class="name"><a href="/{$userinfo['curroomnum']}">{$userinfo['nickname']}</a><span class="star star{$emceelevel[0]['levelid']}"></span></dd>
+	                    <dd class="links"><a href="/{$userinfo['curroomnum']}">查看直播</a></dd>
+			             
+							    <dd class="wishing">{$vo['wish']}.</dd>
+							  	   
+	                    
+	                    <dd class="bt"><input name="" type="image" src="__PUBLIC__/wap/images/btsx.gif" onClick="gotoShow({$userinfo['curroomnum']})" ></input></dd>
+	                </dl>
+	            </div>
+				</volist>
+				
+		   
+			   
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<include file="Public:footer" />
+</body>
+</html>

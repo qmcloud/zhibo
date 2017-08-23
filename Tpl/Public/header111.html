@@ -1,0 +1,579 @@
+<!--nav begin-->
+
+<script>
+	var pageCount = 2;
+	$(document).ready(function() {
+	setInterval(getEmceeList, 30000);//每隔5分钟调用一次getEmceeList()
+	});
+	//$(document).ready(function() {
+	//window.setTimeout(getEmceeList, 30000);
+	//});
+
+	function getEmceeList(){
+		$.ajax({
+				type:'POST',
+				url:'/admin/index.php/Index/findEmcees_ajaxFlag/p/'+pageCount+ "/rand/" + Math.random()  +'/',
+				//url:'/discovery.do',
+				//data: "m=findEmcees&ajaxFlag=1&flag=false&pageNo="+ pageCount+"&"+Math.random(),
+				success: function(data){																					
+					if(data=="ERROR"){
+						alert("获取失败");
+					}else{
+						var json = eval("(" + data + ")");
+						var emceeList = json.rows;
+						var totalPage = parseInt(json.total/90);
+						if(json.total % 90 > 0) totalPage = totalPage + 1;				
+						if(pageCount < totalPage){
+							pageCount=pageCount+1;
+						}else{
+							pageCount = 1;
+						}
+
+						var size = $("#discover").children("ul").size()/2;
+						if(size>270){
+							$("#discover").find("ul:nth-child(" + size + ")").next("ul").prevAll("ul").remove();
+						}
+						
+						$("#hiddiv").children().remove();
+						$("#hiddiv").append("<ul class='bigimg'></ul>");
+
+						$.each(emceeList, function(i){
+							$("#hiddiv").find("ul:last").append(" <li><a href='/"+ emceeList[i].emceeNo +"'  target='_blank'><img src='" + emceeList[i].coverPic + "' /></a><div class='text'><p><span>" + emceeList[i].personNumber + "</span>人</p><a  href='/"+ emceeList[i].emceeNo +"' title='"+ emceeList[i].nickName +"' target='_blank'>" 
+								+ emceeList[i].nickName + "</a> </div></li>");
+							
+				           if((i+1)%3 == 0 && i!=emceeList.length-1){
+				           		$("#hiddiv").append("<ul class='bigimg'></ul>");
+				           }
+				        }); 
+				        //$("#discover").append($("#hiddiv").children());
+				        $("#discover").find("ul:last").after($("#hiddiv").children());
+					}
+				}		
+			});	
+	}
+	
+	function gotoLiveStudio(){
+		if($("#liveStudio").val()==null||$("#liveStudio").val()=="请输入房间号直达..."){
+			_alert("请输入房间号",5);
+			return false;
+		}
+		document.getElementById("form1").action = "/" + $("#liveStudio").val();
+		document.getElementById("form1").submit();
+	}
+
+</script>
+
+<script> 
+
+
+
+try { document.domain = '{$domainroot}'; }
+
+
+
+catch(e){}
+
+
+
+</script>
+
+
+
+<script language="javascript" type="text/javascript" src="__PUBLIC__/js/logon-2.0.js" charset="utf-8"></script>
+
+
+
+<script>
+
+
+UAC.showUserInfo = function(data) {if(data.isLogin == "1"){window.location.reload();}}
+
+</script>
+
+<!--提示文件
+<div id="ad"> 
+   <img id="adcon" src="/Public/images/ad1.jpg"/ height="689" width="1100"> 
+</div>
+<script type="text/javascript">
+	
+	//提示图片的js代码
+	oAd     = document.getElementById('ad');
+	oAdcon  = document.getElementById('adcon');
+
+	h = 0;
+	step = 5;
+	maxH = oAdcon.height;
+	function adDown(){
+
+		oAd.style.height = h +'px';
+	    oAd.style.display = 'block';
+		if(h<maxH){
+			h+=step;
+			setTimeout(adDown,1);
+			}else{			
+				setTimeout(adUp,3000);
+				}
+	}
+	function adUp(){
+		if(h>0){
+			h-=step;
+			oAd.style.height = h +'px';
+			setTimeout(adUp,1);
+			}
+		}
+	setTimeout(adDown,3000);
+</script>
+-->
+<div class="headjoy">
+
+  	<div class="joytip">
+
+	<!--<div class="vlogo"><a href="/" title="" target="_blank"><img src="{$sitelogo}" style="height:45px;width:auto;" /></a></div>-->
+
+<div class="vtab">
+
+
+
+			<a href="/" title="首页" <if condition = "$_GET['_URL_'][0] eq ''">class="on"</if>>首页</a>
+
+
+			<a href="/index.php/order/" title="排行榜" <if condition = "$_GET['_URL_'][0] eq 'order'">class="on"</if>>排行榜</a>
+
+
+
+			<a href="/index.php/User/toolItem/" title="商城" <if condition = "$_GET['_URL_'][0] eq 'toolItem'">class="on"</if>>商城</a>
+			<a href="/index.php/Activity/" title="活动" <if condition = "$_GET['_URL_'][0] eq 'Activity'">class="on"</if>>活动</a>
+ 
+			<a href="/index.php/Jiazu/" title="家族" <if condition = "$_GET['_URL_'][0] eq 'Jiazu'">class="on"</if>>家族</a>
+
+			<a href="/index.php/emceeno/" title="靓号" <if condition = "$_GET['_URL_'][0] eq 'emceeno'">class="on"<else />class="tabno"</if>">靓号</a>
+
+
+
+
+
+
+		</div>
+<!--<p class="app-list" style="left:1000px">
+            <a class="png24 home-phone" href="/special/android/?f=bobohome" target="_blank" data-keyfrom="down"><span>APP下载<em class="png24 home-app-dot"></em></span></a>
+    		
+            	</p>-->
+
+
+  <form id="form1" action="" method="post" class="search_fx">
+          <input class="input_fx" name="" id="liveStudio" type="text" pro-msg="请输入房间号直达..." value="请输入房间号直达..." />
+          <input class="button_fx" name=""  type="image" src="/Public/images/qw.gif" onClick="gotoLiveStudio();" />
+        <input type="hidden" name="__hash__" value="12bb863150858908334be992bced48eb_bcea99a5a7e741ec0290eb1eb6971261" />
+		<input type="hidden" name="__hash__" value="30940f52ed03c0e041f16212cfadd8df_de5dfb405c80fc5fc53911c306e2ad7b" />
+		</form>
+
+
+	  <div class="others">
+      </div>
+
+
+
+<!--/**/-->
+
+	  <literal>
+
+
+
+	  <script language="javascript" type="text/javascript">
+
+
+
+	  	$(function(){
+
+
+
+			setTimeout(function(){ 
+
+
+
+				$.get("/index.php/Show/show_headerInfo/t/"+Math.random(),function(data){ $('.others').html(data);});
+
+
+
+			}, 1000);
+
+
+
+			setTimeout(function(){ 
+
+
+
+				$.get("/index.php/Show/show_headerInfo2/t/"+Math.random(),function(data){ $('.setting').html(data);});
+
+
+
+			}, 1500);
+
+
+
+		});
+
+
+
+		
+
+
+
+		//加载系统紧急消息公告
+
+
+
+		$(document).ready(function(){	
+
+
+
+			getemergencyNotice(this);
+
+
+
+		});
+
+
+
+	  </script>
+
+
+
+	  </literal>
+
+
+
+	</div>
+
+
+
+	
+
+
+
+
+
+
+
+	<script type="text/javascript">
+
+
+
+	
+
+
+
+		var globalObj = "";
+
+
+
+		function getemergencyNotice(obj){
+
+
+
+		globalObj = obj;
+
+
+
+		
+
+
+
+			$.ajax({
+
+
+
+				type:"post",
+
+
+
+				url:"/index.php/Show/show_getEmergencyNotice/",
+
+
+
+				data:{},
+
+
+
+				success:function(data){
+
+
+
+				 var data = evalJSON(data);
+
+
+
+				  if(data.code==0){
+
+
+
+						dynamicNotice(obj,data.info);
+
+
+
+				  }
+
+
+
+				}
+
+
+
+			});
+
+
+
+		}
+
+
+
+		
+
+
+
+		// 自动滚动 
+
+
+
+		function dynamicNotice(obj,msg) {
+
+
+
+			if (msg == "" || msg == null) {
+
+
+
+				//定时从服务器拿消息
+
+
+
+				setTimeout(function() {
+
+
+
+					getemergencyNotice(globalObj);
+
+
+
+				}, 5*60*1000);
+
+
+
+			} else {
+
+
+
+				$('#moveNotices').text(msg);
+
+
+
+				$('#noticeBody').fadeIn();
+
+
+
+				$("#headshow").css('margin','20px auto');
+
+
+
+			}
+
+
+
+		}
+
+
+
+	
+
+
+
+		function closeNotice() {
+
+
+
+			$('#noticeBody').fadeOut();
+
+
+
+			$("#headshow").css('margin','0 auto');
+
+
+
+	
+
+
+
+			//定时从服务器拿消息
+
+
+
+			setTimeout(function() {
+
+
+
+				getemergencyNotice(globalObj);
+
+
+
+			},5*60*1000);
+
+
+
+		}
+
+
+
+		
+
+
+
+	</script> 
+
+
+
+
+
+
+
+
+
+
+	<style type="text/css"> 
+
+
+
+		div#b,div#d,div#bb { white-space:nowrap; } 
+
+
+
+	</style> 
+
+
+
+	
+
+
+
+	<div id="noticeBody" class="noticeBody">
+
+
+
+		<div id="noticeLine" class="noticeLine">
+
+
+
+			<div class="noticeText">
+
+
+
+				<marquee id="moveNotices" scrollamount="3" direction="left" onmouseover= "this.stop();" onmouseout= "this.start();"></marquee>
+
+
+
+			</div>
+
+
+
+			<div class="noticeClose">
+
+
+
+				<a id="closebutton" onclick="closeNotice();">
+
+
+
+					<img width="12" height="12" src="__PUBLIC__/images/close.png" />
+
+
+
+				</a>
+
+
+
+			</div>
+
+
+
+		</div>
+
+
+
+	</div>
+
+
+
+
+
+
+
+	
+
+
+
+</div>
+
+
+
+<!--<div class="headshow" id="headshow">
+
+
+
+	<div class="showtip">
+
+
+
+		<div class="vlogo"><a href="/" title="" target="_blank"><img src="{$sitelogo}" style="height:75px;width:auto;" /></a></div>
+
+
+
+		<div class="vtab">
+
+
+
+			<a href="/" title="首页" <if condition = "$_GET['_URL_'][0] eq ''">class="on"</if>>首页</a>
+
+
+
+			<a href="/index.php/findEmcees/" title="发现" <if condition = "$_GET['_URL_'][0] eq 'findEmcees'">class="on"</if>>发现</a>
+
+
+
+			<a href="/index.php/order/" title="排行榜" <if condition = "$_GET['_URL_'][0] eq 'order'">class="on"</if>>排行榜</a>
+
+
+
+			<a href="/index.php/wishWall/" title="许愿墙" <if condition = "$_GET['_URL_'][0] eq 'wishWall'">class="on"</if>>许愿墙</a>
+
+
+
+			<a href="/index.php/emceeno/" title="靓号" <if condition = "$_GET['_URL_'][0] eq 'emceeno'">class="on"<else />class="tabno"</if>">靓号</a>
+
+
+
+            <a href="/index.php/User/toolItem/" title="道具" <if condition = "$_GET['_URL_'][0] eq 'emceeno'">class="on"<else />class="tabno"</if>">道具</a>
+
+
+
+		</div>
+
+
+
+  <form id="form1" action="" method="post" class="search_fx">
+          <input class="input_fx" name="" id="liveStudio" type="text" pro-msg="请输入房间号直达..." value="请输入房间号直达..." />
+          <input class="button_fx" name=""  type="image" src="/Public/images/qw.gif" onClick="gotoLiveStudio();" />
+        <input type="hidden" name="__hash__" value="12bb863150858908334be992bced48eb_bcea99a5a7e741ec0290eb1eb6971261" />
+		<input type="hidden" name="__hash__" value="30940f52ed03c0e041f16212cfadd8df_de5dfb405c80fc5fc53911c306e2ad7b" />
+		</form>
+		
+
+
+
+	</div>
+
+
+
+</div>
+-->
+
+
+<!--nav end-->

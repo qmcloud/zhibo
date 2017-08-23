@@ -1,0 +1,66 @@
+<?php
+if($_SESSION['uid'] == '' || $_SESSION['uid'] == null || $_SESSION['uid'] < 0){
+?>
+<ul><li class="f"><a href="#" onclick="javascript:UAC.openUAC(0); return false;" title="登录">登录</a></li><li><a href="#" onclick="javascript:UAC.openUAC(1); return false;" title="注册">注册</a></li></ul>
+<?php
+}
+else{
+?>
+      <ul>
+        <li class="f"><a href="/{$_SESSION['roomnum']}" title="{$_SESSION['nickname']}" target="_blank">{$_SESSION['nickname']}({$_SESSION['roomnum']})</a></li>
+        
+        
+        <li class="mycenter" style="display:none;"> <a href="javascript:void(0);" class="dropdown" title="我的">我的<i class="arrow-down"></i></a>
+          <!--管理中心 begin-->
+          <div class="mysetting">
+            <div class="setting-tip">
+              <h3>管理中心</h3>
+              <div class="myplay">
+                <p><a href="/{$_SESSION['roomnum']}" title="我的直播"  target="_blank">我的直播</a></p>
+              </div>
+              <div class="mymenu">
+                <ul>
+                  <li><a href="__APP__/User/info_edit/" title="个人资料" class="t1"  target="_blank">个人资料</a></li>
+                  <!--<li><a href="__APP__/User/familyIJoin/" title="我的家族" class="t2"  target="_blank">我的家族</a></li>//-->
+                  <!--<li><a href="__APP__/User/wishing_wishing/" title="我的许愿" class="t4"  target="_blank">我的许愿</a></li>//-->
+                  <li><a href="__APP__/User/showadmin/" title="我的房管" class="t5"  target="_blank">我的房管</a></li>
+                  <li><a href="__APP__/User/myNos/" title="我的靓号" class="t6"  target="_blank">我的靓号</a></li>
+                  <li><a href="__APP__/User/toolinuse/" title="我的道具" class="t7"  target="_blank">我的道具</a></li>
+                  <li><a href="__APP__/User/getConsume/" title="我的账单" target="_blank" class="t8">我的账单</a></li>
+                  <li><a href="__APP__/User/charge/" title="充值商城" class="t9"  target="_blank">充值商城</a></li>
+                  <li><a href="__APP__/User/myfavor/" title="我的收藏" class="t10"  target="_blank">我的收藏</a></li>
+                  <li><a href="__APP__/User/interestByList/" title="关注我的" class="t11"  target="_blank">关注我的</a></li>
+                  <li><a href="__APP__/User/interestToList/" title="我关注的" class="t12"  target="_blank">我关注的</a></li>
+                  <!--<li><a href="__APP__/User/bl_list/" title="我的黑名单" class="t13"  target="_blank">我的黑名单</a></li>//-->
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--管理中心 end-->
+        </li>
+        <li class="mycenter"  style="display:none;"> <a href="javascript:void(0);" class="toMeg m-1" id="msgnum">0</a>
+          <!--消息 begin-->
+          <div class="mysetting" style="display:none;">
+				<div class="setting-tip">
+					<h3>消息</h3>
+					<div class="mesage-tip">
+						<ul id="message">
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+			<script language="javascript" >
+			$(document).ready(function(){	
+				setTimeout("showMessages()",1000);					
+			});
+			</script>
+          <!--消息 end-->
+        </li>
+        <li  style="display:none;"> <a href="__APP__/User/userbalance/" title="余额" target="_blank"><span class="red">{$userinfo['coinbalance']}</span></a></li>     
+        <li> <a href="__APP__/User/charge/" title="充值" target="_blank">充值</a> </li>
+        <li><a href="#" onclick="javascript:UAC.logout(window.location.href,2); return false;" title="退出">退出</a></li>
+      </ul>
+<?php
+}
+?>

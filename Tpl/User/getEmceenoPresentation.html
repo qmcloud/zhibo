@@ -1,0 +1,10 @@
+									<ul>
+	                            		<volist name='othersendtome' id='vo' key='k'>
+										<volist name="vo['voo']" id="sub">
+                            			<li><span class="col1"><img src="{$vo['objectIcon']}"/></span><span class="col2">{$vo['content']}</span><span class="col3"><?php echo date('Y-m-d H:i:s',$vo['addtime']); ?></span><span class="col4">{$sub['nickname']}</span></li>
+										</volist>
+										</volist>
+									</ul>
+									<div class="page02">
+										{$page2}
+									</div>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>  
+<link rel="stylesheet" href="__PUBLIC__/css/20120825/common.css" type="text/css" />
+<link rel="stylesheet" href="/Tpl/Newtpl/Public/css/rank.css">
+<link rel="stylesheet" href="/Tpl/Newtpl/Public/css/home.css">
+<link rel="stylesheet" href="/Tpl/Newtpl/Public/css/familyMember.css">
+<script type="text/javascript" src="/Tpl/Newtpl/Public/js/jquery1.42.min.js"></script><script type="text/javascript" src="/Tpl/Newtpl/Public/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+ <include file="Public:header" />
+<div class="team-intro-wrapper">
+   <div class="team-intro-inner">
+      <p class="team-intro-link">
+         <em class="png24 icon-back"></em>
+                  <a href="#">返回热门家族</a>
+      </p>
+      <div class="team-intro">
+         	<p class="team-intro-fans">
+            <em class="png24 icon-fansB" title="人气总数"></em>
+            <span>{$rqtotal}</span>
+            <em class="png24 icon-liveWB" title="家族主播"></em>
+            <span>{$total}</span>
+            <a class="family-room-btn" href="#" target="_blank">进入家族房</a>
+            </p>
+         	<a class="fl avatar" href="#"><img src="__PUBLIC__/Familyimg/{$familyinfo[0]['familyimg']}"><em class="avatar-y"></em></a>
+         	<div class="team-intro-title">
+            <h2><a href="#">{$familyinfo[0]['familyname']}</a></h2>
+            <em class="medal-family">
+            <a href="#">
+            	
+            <img class="png24" src="/Tpl/Newtpl/Public/images/197876908727972988.png">
+            <img src="/Tpl/Newtpl/Public/images/goldme.png">
+			</a>
+            </em>
+         </div>
+         <div class="team-intro-info clearfix">
+            <p class="team-intro-detail">
+               <span id="familyNotice">{$familyinfo[0]['familyinfo']}&nbsp;&nbsp;<br/></span>
+                           </p>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="container clearfix">
+ <div class="conL">
+                  
+        		<div class="team-admin clearfix">
+			<div class="team-leader">
+				<h3>经纪人</h3>
+				<a class="fl avatar js-box" href="javascript:;" title="" userid="2329077333287591594"><img src="{$ucurl}avatar.php?uid={$agentinfo[0]['ucuid']}&size=middle"></a>
+				<p><em class="png24 medal-wealth25"></em></p>
+			</div>
+            
+            <div class="douban" style="margin:0 auto">
+
+		<div class="hd">
+		<h2>最新加入</h2>
+			<a class="next"></a>
+			<a class="prev prevStop"></a>
+			<ul>
+				<li class="on"></li>
+				<li></li>
+				<li></li>
+			</ul>
+	<!--	</div>-->
+		</div>
+		<div class="bd">
+			<div class="tempWrap" style="overflow:hidden; position:relative; width:605px">
+		<ul style="width: 1815px; left: 0px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">        <foreach name="newjoin" item="new">
+				<li style="float: left; width: 106px;">
+					<a class="fl avatar js-box" href="/{$new.curroomnum}"><img src="{$ucurl}avatar.php?uid={$new['ucuid']}&size=middle"></a>
+					<em class=""></em>
+				</li>
+				
+			</foreach>
+              
+			</ul></div>
+
+		</div>
+
+	</div>
+    <script type="text/javascript">jQuery(".douban").slide({ mainCell:".bd ul", effect:"left", delayTime:800,vis:5,scroll:5,pnLoop:false,trigger:"click",easing:"easeOutCubic" });</script>
+  		</div>
+		<div class="team-member team-family-room">
+			<h3>在线人气主播</h3>
+			<div class="anchor-list clearfix">
+				<ul>
+				<foreach name="olrqzb" item="ol">
+					<li>
+						<a class="js-play" href="/{$ol['curroomnum']}" target="_blank">
+							<img src="{$ol["bigpic"]}" width="160" height="120">
+							<em class="live-tip">直播</em>
+							<span class="hot-anchor-hover" title="进入直播间"></span>
+							<em class="anchor-play png24 icon-play"></em>
+							<span class="hot-anchor-cover"></span>
+							<span class="hot-anchor-fans"><em class="png24 icon-fansS"></em><?php if($ol['virtualguest'] > 0){echo ($ol['online'] + $ol['virtualguest'] + $virtualcount);}else{echo $ol['online'];} ?></span>
+						</a>
+						<p class="anchor-name"><a href="/{$ol['curroomnum']}" target="_blank">{$ol.nickname}</a></p>
+					</li>
+                  </foreach>	  
+				</ul>
+			</div>
+		</div>
+				<div class="team-member">
+			<h3>全部主播 ({$total})</h3>
+			<div class="team-member-list anchor-list clearfix">
+				<ul>
+					
+			<foreach name="emceeinfo" item="emcee">	
+					<li>
+						<a class="js-play" href="/{$emcee['curroomnum']}" target="_blank">
+							<img src="{$emcee["bigpic"]}" width="160" height="120">
+					<span class="hot-anchor-hover" title="进入直播间"></span>
+							<em class="anchor-play png24 icon-play"></em>
+							<span class="hot-anchor-cover"></span>
+							<span class="hot-anchor-fans"><em class="png24 icon-fansS"></em>1190</span>
+						</a>
+						<p class="anchor-name"><a class="js-box" href="javascript:;"> {$emcee.nickname}</a><em title="
+" class="star star{$emcee['emceelevel'][0]['levelid']}"></em></p>
+						<!--<p class="cGray"><em class="png24 icon-clock"></em>1小时57分钟48秒</p>-->		</li>
+        </foreach>	
+				</ul>
+							</div>
+
+<p class="page">
+     {$page}
+</p>
+
+		</div>
+ </div>
+ <div class="conR">
+    <div class="apply-join">
+   		<a href="__URL__/sqjoinfamily" class="orange-btn js-need-login">申请加入该家族</a>
+   		<p>每人暂时只能加入一个家族</p>
+   	</div>
+ 	<div class="team-rank">
+   		<h2>家族排行榜</h2>
+        
+        
+        
+        
+        <div class="conR-item home-rank slideTxtBox">
+    <div class="team-rank-hd hd">
+        <h3>明星榜</h3>
+        <ul>
+        	<li class="on"><a class="js-tab" href="javascript:;" data-period="3">月</a><i class="home-italicS"></i></li>
+            <li><a class="js-tab" href="javascript:;" data-period="0">总</a></li>
+        </ul>
+        
+    </div>
+    
+    
+    <div class="team-star-rank bd">
+        <ul class="js-content">
+        	<li class="home-rank clearfix"><em class="png24 num-home1"></em><a class="fl avatar-m js-box" href="javascript:;"><img src="{$ucurl}avatar.php?uid={$emceeRank_month[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+            <a class="fl js-box" href="$emceeRank_month[0]['userinfo']['curroomnum']">{$emceeRank_month[0]['userinfo']['nickname']}</a><em class="star star{$emceeRank_month[0]['emceelevel'][0]['levelid']}"></em></li>
+            
+            <foreach name="emceeRank_month4" item="month">
+            <li><em class="png24 num-home{$moth.xuhao}"></em><a class="fl js-box" href="/{$month['userinfo']['curroomnum']}">{$month['userinfo']['nickname']}</a><em class="star star{$month['emceelevel'][0]['levelid']}"></em></li>
+           </foreach>
+        </ul>
+        <ul class="js-content">
+        	<li class="home-rank clearfix"><em class="png24 num-home1"></em><a class="fl avatar-m js-box" href="javascript:;"><img src="{$ucurl}avatar.php?uid={$emceeRank_all[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+            <a class="fl js-box" href="javascript:;">{$emceeRank_all[0]['userinfo']['nickname']}</a><em class="star star{$emceeRank_all[0]['emceelevel'][0]['levelid']}"></em></li>
+            <foreach name="emceeRank_all4" item="all">
+            <li><em class="png24 num-home{$all.xuhao}"></em><a class="fl js-box" href="/{$all['userinfo']['curroomnum']}">{$all['userinfo']['nickname']}</a><em class="star star{$all[0]['emceelevel'][0]['levelid']}"></em></li>
+           </foreach>
+        </ul>
+    </div>
+</div>
+ <div class="conR-item home-rank slideTxtBox">
+    <div class="team-rank-hd hd">
+        <h3>富豪榜</h3>
+        <ul>
+        	<li class="on"><a class="js-tab" href="javascript:;" data-period="3">月</a><i class="home-italicS"></i></li>
+            <li><a class="js-tab" href="javascript:;" data-period="0">总</a></li>
+        </ul>
+        
+    </div>
+    
+    
+    <div class="team-star-rank bd">
+        <ul class="js-content">
+        	<li class="home-rank clearfix"><em class="png24 num-home1"></em><a class="fl avatar-m js-box" href="javascript:;"><img src="{$ucurl}avatar.php?uid={$richRank_month[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+            <a class="fl js-box" href="{$richRank_month[0]['userinfo']['curroomnum']}">{$richRank_month[0]['userinfo']['nickname']}</a><em class="cracy cra{$richRank_month[0]['richlevel'][0]['levelid']}"></em></li>
+            <foreach name="richRank_month4" item="month">
+            <li><em class="png24 num-home{$month.xuhao}"></em><a class="fl js-box" href="{$richRank_month[0]['userinfo']['curroomnum']}">{$month['userinfo']['nickname']}</a><em class="cracy cra{$month[0]['richlevel'][0]['levelid']}"></em></li>
+    </foreach>
+        </ul>
+        <ul class="js-content">
+        	      	<li class="home-rank clearfix"><em class="png24 num-home1"></em><a class="fl avatar-m js-box" href="javascript:;"><img src="{$ucurl}avatar.php?uid={$richRank_month[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+            <a class="fl js-box" href="{$richRank_all[0]['userinfo']['curroomnum']}">{$richRank_all[0]['userinfo']['nickname']}</a><em class="cracy cra{$richRank_all[0]['richlevel'][0]['levelid']}"></em></li>
+            <foreach name="richRank_all4" item="all">
+            <li><em class="png24 num-home{$all.xuhao}"></em><a class="fl js-box" href="{$richRank_all[0]['userinfo']['curroomnum']}">{$all['userinfo']['nickname']}</a><em class="cracy cra{$all[0]['richlevel'][0]['levelid']}"></em></li>
+    </foreach>
+  
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">jQuery(".slideTxtBox").slide();</script>
+        
+        
+        
+        
+      	
+<div class="super-member">
+	<h3>高级徽章成员</h3>
+   	<span id="badgePager"></span>
+<div>
+<ul>
+	<li>
+    	<a class="avatar-m js-box" href="javascript:;"><img src="/Tpl/Newtpl/Public/img/saved_resource(40)"></a>
+        <em class="png24 medal-wealth17"></em>
+        <em class="medal-family"><a href="#"><img src="/Tpl/Newtpl/Public/images/2019864432975917212.png"></a></em>
+        <p><a href="javascript:;" class="js-box">森森♥小草莓</a></p>
+    </li>
+
+    </ul></div>
+</div>
+    </div>
+</div>
+</div>
+<div class="footer">
+   <div class="foot">
+   	<span class="fl"><a href="#" title="商务联系" target="_blank">商务联系</a>
+		<a class=" js-need-login" href="javascript:;" title="意见反馈">意见反馈</a>
+		<a href="#" title="帮助中心" data-keyfrom="service" target="_blank">帮助中心</a>
+		<i>|</i>BoBo<span class="copyright">©</span>1997-2015 网易BoBo版权所有
+		</span>
+		<em>浙网文[2015]0293-063号</em><em>浙ICP备15005366号</em>经营许可证编号：浙B2-20150144
+  	</div>
+</div>
+
+<script>
+$(document).ready(function(e) {
+    $(".js-area,.js-areaSelect").hover(
+		function(){
+			$(".js-areaSelect").show();
+			},
+		function(){
+			$(".js-areaSelect").hide();
+			}
+	);
+	$(".js-level,.js-levelSelect").hover(
+		function(){
+			$(".js-levelSelect").show();
+			},
+		function(){
+			$(".js-levelSelect").hide();
+			}
+	);
+	$(".js-play").hover(
+		function(){
+			$(this).addClass("hover");
+			},
+		function(){
+			$(this).removeClass("hover");
+			}
+	);
+	
+});
+</script>
+
+</body></html>

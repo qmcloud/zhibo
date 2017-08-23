@@ -1,0 +1,257 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人资料-个人中心-管理中心-{$sitename}</title>
+<link rel="stylesheet" href="__PUBLIC__/css/20120825/common.css" type="text/css" />
+<script language="javascript" src="__PUBLIC__/js/20120825/jquery.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/common.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/My97DatePicker/WdatePicker.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/areas.js"></script>
+</head>
+<body>
+<include file="Public:header" />
+<div class="wrap">
+
+  <div class="usercenter">
+    
+
+
+
+
+
+<div class="utitle">
+			<h2><a href="__URL__/" title="管理中心">我的管理中心</a></h2>
+			<div class="utab">
+				<a href="__URL__/myfavor/" title="收藏"><span>收藏</span></a>
+				<a href="__URL__/interestToList/" title="偶像"><span>偶像</span></a>
+				<a href="__URL__/myNos/" title="靓号"><span>靓号</span></a>
+				<a href="__URL__/toolinuse/" title="道具"><span>道具</span></a>
+				<!--<a href="__URL__/wishing_wishing/" title="许愿"><span>许愿</span></a>//-->
+				<a href="__URL__/showadmin/" title="房管"><span>房管</span></a>
+				<!--<a href="__URL__/familyIJoin/" title="家族"><span>家族</span></a>//-->
+                <a href="__URL__/interestByList/" title="粉丝"><span>粉丝</span></a>
+                <a href="__URL__/info_edit/" title="个人设置"><span>个人设置</span></a>
+				<a href="__URL__/getConsume/" title="账单"><span>账单</span></a>
+				<!--<a href="__URL__/bl_list/" title="黑名单"><span>黑名单</span></a>//-->
+			</div>
+			<div class="umyhelp">
+				<a href="/{$_SESSION['roomnum']}" title="我的直播"><span>我的直播</span></a> 
+                <a href="__URL__/charge/" title="充值"><span>充值</span></a> 
+                <a href="__URL__/exchange/" title="兑换"><span>兑换</span></a>
+                <a href="__URL__/settlement/" title="结算"><span>结算</span></a>
+			</div>
+</div>
+
+<script language="javascript">
+$(function(){
+   var sm = $('.utab a,.umyhelp a').setMyTab();
+ }
+)
+</script>
+    <div class="myaccount">
+      
+
+<div class="account-l">
+<a href="__URL__/info_edit/" title="我的个人资料" class="on">我的个人资料</a>
+<a href="__URL__/info_icon/" title="上传头像">上传头像</a> 
+<a href="__URL__/info_changepass/" title="密码/保护">密码/保护</a> 
+</div>
+
+      <div class="account-r">
+
+	  <script type="text/javascript">
+			var isEdit=false;
+			var info='';
+			function checkSave(){
+				var y_nick='asdfsadfassfasdf';
+				var nick=document.getElementById('nick');
+				if(nick.value!=y_nick){
+					isEdit=true;
+				}
+				var y_intro='xxxxxxx';
+				var intro=document.getElementById('intro');
+				if(intro.value!=y_intro){
+					isEdit=true;
+				}
+				var y_realName='秦广东';
+				var realName=document.getElementById('realName');
+				if(realName.value!=y_realName){
+					isEdit=true;
+				}
+				var y_date='2011年09月14日';
+				var date=document.getElementById('birthday');
+				if(date.value!=y_date){
+					isEdit=true;
+				}
+				var y_aihao='Web前端开发';
+				var aihao=document.getElementById('interest');
+				if(aihao.value!=y_aihao){
+					isEdit=true;
+				}
+			}
+			var selectSubArea="selectSubArea";
+			var selectArea="selectArea";
+			var hdResidenceArea="hdResidenceArea";
+			function checkall(){
+			  $("#province").attr("value",$("#selectArea").find("option:selected").text());
+			  $("#city").attr("value",$("#selectSubArea").find("option:selected").text());
+			  var nick=document.getElementById('nick');
+			  var error_nick=document.getElementById('error_nick');
+			  if(nick.value==''){
+				 error_nick.innerHTML='昵称不能为空';
+				 nick.focus();
+				 return false;
+			  }
+			  var exp_nick=/^[^0-9](.*)$/;
+			  if(!exp_nick.test(nick.value)) {
+			  	error_nick.innerHTML='昵称不能使用数字开头';
+				 nick.focus();
+				 return false;
+			  };
+			  var nickL=strbytelen(nick.value);
+			  if(nickL>16){
+				 error_nick.innerHTML='超出长度 最多16个英文';
+				 nick.focus();
+				 return false;
+			  }else{
+				 error_nick.innerHTML='<img src="__PUBLIC__/space/images/xiaov.gif">';	
+			  }
+			  var intro=document.getElementById('intro');
+			  var error_intro=document.getElementById('error_intro');
+			  var introL=strbytelen(intro.value);
+			  if(intro.value!=''&&introL>100){
+				 error_intro.innerHTML='超出长度 最多100个英文';
+				 intro.focus();
+				 return false;
+			  }else{
+				 error_intro.innerHTML='<img src="__PUBLIC__/space/images/xiaov.gif">';	
+			  }
+			  var realName=document.getElementById('realName');
+			  var error_realName=document.getElementById('error_realName');
+			  var realNL=strbytelen(realName.value);
+			  if(realName.value!=''&&realNL>8){
+				 error_realName.innerHTML='超出长度 最多8个英文';
+				 realName.focus();
+				 return false;
+			  }else{error_realName.innerHTML='<img src="__PUBLIC__/space/images/xiaov.gif">';	}
+			  var error_sex=document.getElementById('error_sex');
+			  error_sex.innerHTML='<img src="__PUBLIC__/space/images/xiaov.gif">';
+			  var birthday=document.getElementById('birthday');
+			  var error_birthday=document.getElementById('error_birthday');
+			  error_birthday.innerHTML='<img src="__PUBLIC__/space/images/xiaov.gif">';
+			  var error_aihao=document.getElementById('error_aihao');
+			  error_aihao.innerHTML='<img src="__PUBLIC__/space/images/xiaov.gif">';
+			}	
+			function strbytelen(source){    
+				var endvalue=0;    
+				var sourcestr=new String(source);    
+				var tempstr;    
+				for(var strposition=0;strposition<sourcestr.length;strposition++){  
+					tempstr=sourcestr.charAt(strposition);    
+					if(tempstr.charCodeAt(0)>255||tempstr.charCodeAt(0)<0){    
+						endvalue=endvalue+2;    
+					}else{    
+						endvalue=endvalue+1;    
+					}
+				}    
+				return(endvalue);    
+			}    
+		</script>
+        <div class="grzl_r">
+          <form name="infoForm" method="post" action="__URL__/do_info_edit/" onsubmit="return checkall();">
+          <input type="hidden" name="id" value="{$_SESSION['uid']}">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="12%" align="right">我的昵称：</td>
+                <td width="30%"><input type="text" name="nickname" value="{$userinfo['nickname']}" onchange="checkSave();" id="nick" class="set_input set3"></td>
+				<td><em>不能超过8个汉字 <strong id="error_nick"></strong></em></td>
+
+              </tr>
+			  <tr>
+                <td width="12%" align="right">个人签名：</td>
+                <td width="30%"><textarea name="intro" id="intro">{$userinfo['intro']}</textarea></td>
+				<td><em>不能超过50个汉字 <strong id="error_intro"></strong></em></td>
+              </tr>
+			  <tr>
+
+                <td width="12%" align="right">姓名：</td>
+                <td width="30%"><input type="text" name="realname" value="{$userinfo['realName']}" id="realName" class="set_input set3"></td>
+				<td><em>不能超过4个汉字 <strong id="error_realName"></strong></em></td>
+              </tr>
+			   <tr>
+                <td width="12%" align="right">性别：</td>
+                <td width="30%">
+				   <label for="sexradio1"><input type="radio" name="sex" value="0" <if condition = "$userinfo['sex'] eq '0'">checked="checked"</if> id="sexradio1"> 男</label>
+                   <label for="sexradio2" class="ml15"><input type="radio" name="sex" value="1" <if condition = "$userinfo['sex'] eq '1'">checked="checked"</if> id="sexradio2"> 女</label>
+				 </td>
+				 <td><em><strong id="error_sex"></strong></em></td>
+
+              </tr>
+			  <tr>
+                <td width="12%" align="right">所在地：</td>
+                <td width="30%">
+					<select onchange="getSubArea(this);" id="selectArea" name="selectArea" class="selectStyle">
+						<option value="" selected="selected">请选择...</option>
+					</select>
+				    <span class="mr10 ml10">省</span>
+
+					<select onchange="copyValueToHidden(this.value);" id="selectSubArea" name="selectSubArea" class="selectStyle">
+					  <option value="" selected="selected">请选择...</option>
+					</select>
+					<input type="hidden" name="area" value="" id="hdResidenceArea">
+					<script language="javascript">
+						fillArea();
+						user_areas('{$userinfo['selectArea']}','{$userinfo['selectSubArea']}');
+					</script>
+				</td>
+				<td><em> 选择所在地 <strong id="error_area"></strong></em></td>
+
+			 </tr>
+             <tr>
+                <td width="12%" align="right">生日：</td>
+                <td width="30%"><input type="text" name="birthday" value="{$userinfo['birthday']}" onfocus="WdatePicker({dateFmt:'yyyy年MM月dd日'})" id="birthday" class="set_input set3"></td>
+				<td><em>点击选择您的生日 <strong id="error_birthday"></strong></em></td>
+              </tr>
+             <tr>
+                <td width="12%" align="right">爱好：</td>
+
+                <td width="30%"><input type="text" name="interest" value="{$userinfo['interest']}" id="interest" class="set_input set3"></td>
+				<td><em>您的兴趣爱好 <strong id="error_aihao"></strong></em></td>
+              </tr>
+              
+             
+              
+			  <tr>
+                <td width="12%" align="right">&nbsp;</td>
+                <td width="30%"><input type="image" name="" src="__PUBLIC__/images/tjbt.gif"><span id="edit_info"></span></td>
+				<td></td>
+              </tr>
+
+            </table>
+			<input type="hidden" name="province" id="province" value="{$userinfo['province']}">
+			<input type="hidden" name="city" id="city" value="{$userinfo['city']}">
+          </form>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--提示层-->
+		<div class="poptip" id="giveBox" style="display:none;">
+				<div class="pop-t"><span class="close" id="pop-close"></span><h3>提示</h3></div>	
+				<div class="pop-v">
+					<p class="txt" id="pop-text">修改成功!</p>
+					<p class="txt"><span class="sendBtn" id="pop-btnclose">确 定</span></p>
+				</div>
+			</div>
+		<!--提示层-->
+
+
+
+<include file="Public:footer" />
+</body>
+</html>

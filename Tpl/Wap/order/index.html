@@ -1,0 +1,352 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$sitename}排行榜 - 美女主播人气排行榜 - {$sitename}</title>
+<meta name="keywords" content="{$metakeyword}"/>
+<meta name="description" content="{$metadesp}" />
+<!--
+<link rel="stylesheet" href="/Public/css/20120825/common.css" type="text/css" />
+-->
+
+<script src="__PUBLIC__/wap/assets/js/jquery.min.js"></script>
+<script language="javascript" src="__PUBLIC__/wap/js/20120825/common.js"></script>
+</head>
+<body>
+<include file="Public:header" />
+<div class="wrap">
+  <!--TOP20-明星排行榜 begin-->
+  <div class="topreviews">
+  	  <h2 class="rtitle">TOP20-明星排行榜</h2>
+	  <div class="review-v">
+		 <ul class="star_tab">
+			<li onClick="turn(1,4,1);" id="lm1_1" class="on"><span class="no">日榜</span></li>
+			<li onClick="turn(2,4,1);" id="lm1_2" class=""><span>周榜</span></li>
+			<li onClick="turn(3,4,1);" id="lm1_3" class=""><span>月榜</span></li>
+			<li onClick="turn(4,4,1);" id="lm1_4" class=""><span>超级榜</span></li>
+		 </ul>
+		 <ul class="top-ul" id="content1_1">
+		 	<volist name='emceeRank_day' id='vo' key='k'>
+			<?php
+			$userinfo = D("Member")->find($vo['uid']);
+			$emceelevel = getEmceelevel($userinfo['earnbean']);
+			?>
+			<if condition="$k eq 1">
+		 		<li class="first">
+				<div class="fimg"><a href='/{$userinfo['curroomnum']}' target="_blank" title='{$userinfo['nickname']}'><img src='{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle' /></a></div>
+				<div class="ftxt">
+					<p><strong><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a></strong><span class='star star{$emceelevel[0]['levelid']}'></span></p>
+					<p><b>({$userinfo['curroomnum']})</b></p>
+				</div>
+			</li>
+			<else />
+			<li><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}<cite>({$userinfo['curroomnum']})</cite></a><span class="star star{$emceelevel[0]['levelid']} fr"></span></li>
+		 	</if>
+		 	</volist>
+		 </ul>	
+		 <ul class="top-ul" id="content1_2" style="display:none;">
+		 	<volist name='emceeRank_week' id='vo' key='k'>
+			<?php
+			$userinfo = D("Member")->find($vo['uid']);
+			$emceelevel = getEmceelevel($userinfo['earnbean']);
+			?>
+			<if condition="$k eq 1">
+		 		<li class="first">
+				<div class="fimg"><a href='/{$userinfo['curroomnum']}' target="_blank" title='{$userinfo['nickname']}'><img src='{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle' /></a></div>
+				<div class="ftxt">
+					<p><strong><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a></strong><span class='star star{$emceelevel[0]['levelid']}'></span></p>
+					<p><b>({$userinfo['curroomnum']})</b></p>
+				</div>
+			</li>
+			<else />
+			<li><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}<cite>({$userinfo['curroomnum']})</cite></a><span class="star star{$emceelevel[0]['levelid']} fr"></span></li>
+		 	</if>
+		 	</volist>
+		 </ul>
+		 <ul class="top-ul" id="content1_3" style="display:none;">
+		 	<volist name='emceeRank_month' id='vo' key='k'>
+			<?php
+			$userinfo = D("Member")->find($vo['uid']);
+			$emceelevel = getEmceelevel($userinfo['earnbean']);
+			?>
+			<if condition="$k eq 1">
+		 		<li class="first">
+				<div class="fimg"><a href='/{$userinfo['curroomnum']}' target="_blank" title='{$userinfo['nickname']}'><img src='{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle' /></a></div>
+				<div class="ftxt">
+					<p><strong><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a></strong><span class='star star{$emceelevel[0]['levelid']}'></span></p>
+					<p><b>({$userinfo['curroomnum']})</b></p>
+				</div>
+			</li>
+			<else />
+			<li><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}<cite>({$userinfo['curroomnum']})</cite></a><span class="star star{$emceelevel[0]['levelid']} fr"></span></li>
+		 	</if>
+		 	</volist>
+		 </ul>
+		 <ul class="top-ul" id="content1_4" style="display:none;">
+		 	<volist name='emceeRank_all' id='vo' key='k'>
+			<?php
+			$userinfo = D("Member")->find($vo['uid']);
+			$emceelevel = getEmceelevel($userinfo['earnbean']);
+			?>
+			<if condition="$k eq 1">
+		 		<li class="first">
+				<div class="fimg"><a href='/{$userinfo['curroomnum']}' target="_blank" title='{$userinfo['nickname']}'><img src='{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle' /></a></div>
+				<div class="ftxt">
+					<p><strong><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a></strong><span class='star star{$emceelevel[0]['levelid']}'></span></p>
+					<p><b>({$userinfo['curroomnum']})</b></p>
+				</div>
+			</li>
+			<else />
+			<li><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}<cite>({$userinfo['curroomnum']})</cite></a><span class="star star{$emceelevel[0]['levelid']} fr"></span></li>
+		 	</if>
+		 	</volist>
+		 </ul> 
+	  </div>
+  </div>
+  <!--TOP20-明星排行榜 end-->
+  <!--TOP20-富豪排行榜 begin-->
+  <div class="topreviews">
+  	  <h2 class="rtitle">TOP20-富豪排行榜</h2>
+	  <div class="review-v">
+		 <ul class="star_tab">
+			<li onClick="turn(1,4,2);" id="lm2_1" class="on"><span class="no">日榜</span></li>
+			<li onClick="turn(2,4,2);" id="lm2_2" class=""><span>周榜</span></li>
+			<li onClick="turn(3,4,2);" id="lm2_3" class=""><span>月榜</span></li>
+			<li onClick="turn(4,4,2);" id="lm2_4" class=""><span>超级榜</span></li>
+		 </ul>
+		 <ul class="top-ul" id="content2_1">
+			<volist name='richRank_day' id='vo' key='k'>
+			<?php
+			$userinfo = D("Member")->find($vo['uid']);
+			$richlevel = getRichlevel($userinfo['spendcoin']);
+			?>
+			<if condition="$k eq 1">
+		 		<li class="first">
+				<div class="fimg"><a href='/{$userinfo['curroomnum']}' target="_blank" title='{$userinfo['nickname']}'><img src='{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle' /></a></div>
+				<div class="ftxt">
+					<p><strong><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a></strong><span class='cracy cra{$richlevel[0]['levelid']}'></span></p>
+					<p><b>({$userinfo['curroomnum']})</b></p>
+				</div>
+			</li>
+			<else />
+			<li><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}<cite>({$userinfo['curroomnum']})</cite></a><span class="cracy cra{$richlevel[0]['levelid']} fr"></span></li>
+		 	</if>
+		 	</volist>
+		 </ul>	
+		 <ul class="top-ul" id="content2_2" style="display:none;">
+			<volist name='richRank_week' id='vo' key='k'>
+			<?php
+			$userinfo = D("Member")->find($vo['uid']);
+			$richlevel = getRichlevel($userinfo['spendcoin']);
+			?>
+			<if condition="$k eq 1">
+		 		<li class="first">
+				<div class="fimg"><a href='/{$userinfo['curroomnum']}' target="_blank" title='{$userinfo['nickname']}'><img src='{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle' /></a></div>
+				<div class="ftxt">
+					<p><strong><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a></strong><span class='cracy cra{$richlevel[0]['levelid']}'></span></p>
+					<p><b>({$userinfo['curroomnum']})</b></p>
+				</div>
+			</li>
+			<else />
+			<li><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}<cite>({$userinfo['curroomnum']})</cite></a><span class="cracy cra{$richlevel[0]['levelid']} fr"></span></li>
+		 	</if>
+		 	</volist>
+		 </ul>
+		 <ul class="top-ul" id="content2_3" style="display:none;">
+		 	<volist name='richRank_month' id='vo' key='k'>
+			<?php
+			$userinfo = D("Member")->find($vo['uid']);
+			$richlevel = getRichlevel($userinfo['spendcoin']);
+			?>
+			<if condition="$k eq 1">
+		 		<li class="first">
+				<div class="fimg"><a href='/{$userinfo['curroomnum']}' target="_blank" title='{$userinfo['nickname']}'><img src='{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle' /></a></div>
+				<div class="ftxt">
+					<p><strong><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a></strong><span class='cracy cra{$richlevel[0]['levelid']}'></span></p>
+					<p><b>({$userinfo['curroomnum']})</b></p>
+				</div>
+			</li>
+			<else />
+			<li><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}<cite>({$userinfo['curroomnum']})</cite></a><span class="cracy cra{$richlevel[0]['levelid']} fr"></span></li>
+		 	</if>
+		 	</volist>
+		 </ul>
+		 <ul class="top-ul" id="content2_4" style="display:none;">
+			<volist name='richRank_all' id='vo' key='k'>
+			<?php
+			$userinfo = D("Member")->find($vo['uid']);
+			$richlevel = getRichlevel($userinfo['spendcoin']);
+			?>
+			<if condition="$k eq 1">
+		 		<li class="first">
+				<div class="fimg"><a href='/{$userinfo['curroomnum']}' target="_blank" title='{$userinfo['nickname']}'><img src='{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle' /></a></div>
+				<div class="ftxt">
+					<p><strong><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a></strong><span class='cracy cra{$richlevel[0]['levelid']}'></span></p>
+					<p><b>({$userinfo['curroomnum']})</b></p>
+				</div>
+			</li>
+			<else />
+			<li><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}<cite>({$userinfo['curroomnum']})</cite></a><span class="cracy cra{$richlevel[0]['levelid']} fr"></span></li>
+		 	</if>
+		 	</volist>
+		 </ul> 
+	  </div>
+  </div>
+  <!--TOP20-富豪排行榜 end-->
+  <!--TOP20-人气排行榜 begin-->
+  <div class="topreviews">
+  	  <h2 class="rtitle">TOP20-人气排行榜</h2>
+	  <div class="review-v">
+		 <ul class="star_tab">
+			<li onClick="turn(1,4,3);" id="lm3_1" class="on"><span class="no">日榜</span></li>
+			<li onClick="turn(2,4,3);" id="lm3_2" class=""><span>周榜</span></li>
+			<li onClick="turn(3,4,3);" id="lm3_3" class=""><span>月榜</span></li>
+			<li onClick="turn(4,4,3);" id="lm3_4" class=""><span>超级榜</span></li>
+		 </ul>
+		 <ul class="top-ul" id="content3_1">
+		 	<volist name='rqRank_day' id='vo' key='k'>
+			<?php
+			$userinfo = D("Member")->find($vo['uid']);
+			$emceelevel = getEmceelevel($userinfo['earnbean']);
+			?>
+			<if condition="$k eq 1">
+		 		<li class="first">
+				<div class="fimg"><a href='/{$userinfo['curroomnum']}' target="_blank" title='{$userinfo['nickname']}'><img src='{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle' /></a></div>
+				<div class="ftxt">
+					<p><strong><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a></strong><span class='star star{$emceelevel[0]['levelid']}'></span></p>
+					<p><b>({$userinfo['curroomnum']})</b></p>
+				</div>
+			</li>
+			<else />
+			<li><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}<cite>({$userinfo['curroomnum']})</cite></a><span class="star star{$emceelevel[0]['levelid']} fr"></span></li>
+		 	</if>
+		 	</volist>
+		 </ul>	
+		 <ul class="top-ul" id="content3_2" style="display:none;">
+		 	<volist name='rqRank_week' id='vo' key='k'>
+			<?php
+			$userinfo = D("Member")->find($vo['uid']);
+			$emceelevel = getEmceelevel($userinfo['earnbean']);
+			?>
+			<if condition="$k eq 1">
+		 		<li class="first">
+				<div class="fimg"><a href='/{$userinfo['curroomnum']}' target="_blank" title='{$userinfo['nickname']}'><img src='{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle' /></a></div>
+				<div class="ftxt">
+					<p><strong><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a></strong><span class='star star{$emceelevel[0]['levelid']}'></span></p>
+					<p><b>({$userinfo['curroomnum']})</b></p>
+				</div>
+			</li>
+			<else />
+			<li><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}<cite>({$userinfo['curroomnum']})</cite></a><span class="star star{$emceelevel[0]['levelid']} fr"></span></li>
+		 	</if>
+		 	</volist>
+		 </ul>
+		 <ul class="top-ul" id="content3_3" style="display:none;">
+		 	<volist name='rqRank_month' id='vo' key='k'>
+			<?php
+			$userinfo = D("Member")->find($vo['uid']);
+			$emceelevel = getEmceelevel($userinfo['earnbean']);
+			?>
+			<if condition="$k eq 1">
+		 		<li class="first">
+				<div class="fimg"><a href='/{$userinfo['curroomnum']}' target="_blank" title='{$userinfo['nickname']}'><img src='{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle' /></a></div>
+				<div class="ftxt">
+					<p><strong><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a></strong><span class='star star{$emceelevel[0]['levelid']}'></span></p>
+					<p><b>({$userinfo['curroomnum']})</b></p>
+				</div>
+			</li>
+			<else />
+			<li><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}<cite>({$userinfo['curroomnum']})</cite></a><span class="star star{$emceelevel[0]['levelid']} fr"></span></li>
+		 	</if>
+		 	</volist>
+		 </ul>
+		 <ul class="top-ul" id="content3_4" style="display:none;">
+		 	<volist name='rqRank_all' id='vo' key='k'>
+			<?php
+			$userinfo = D("Member")->find($vo['uid']);
+			$emceelevel = getEmceelevel($userinfo['earnbean']);
+			?>
+			<if condition="$k eq 1">
+		 		<li class="first">
+				<div class="fimg"><a href='/{$userinfo['curroomnum']}' target="_blank" title='{$userinfo['nickname']}'><img src='{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle' /></a></div>
+				<div class="ftxt">
+					<p><strong><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a></strong><span class='star star{$emceelevel[0]['levelid']}'></span></p>
+					<p><b>({$userinfo['curroomnum']})</b></p>
+				</div>
+			</li>
+			<else />
+			<li><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}<cite>({$userinfo['curroomnum']})</cite></a><span class="star star{$emceelevel[0]['levelid']} fr"></span></li>
+		 	</if>
+		 	</volist>
+		 </ul> 
+	  </div>
+  </div>
+  <!--TOP20-人气排行榜 end-->
+
+<!--本周礼物红人榜 begin-->
+  <div class="topreviews redlist">
+  	  <h2 class="rtitle redlist01"><em></em>本周礼物红人榜</h2>
+	  <div class="review-v">
+		 <ul class="redlistul">
+		<volist name='gifts' id='vo' key='k'>
+		<?php
+		$firstuser = D('Coindetail')->query('SELECT touid,sum(giftcount) as total FROM `ss_coindetail` where giftid='.$vo['id'].' and date_format(FROM_UNIXTIME(addtime),"%Y")=date_format(now(),"%Y") and date_format(FROM_UNIXTIME(addtime),"%u")=date_format(now(),"%u") group by touid order by total desc LIMIT 1');
+		if($firstuser){
+			$userinfo = D("Member")->find($firstuser[0]['touid']);
+			$emceelevel = getEmceelevel($userinfo['earnbean']);
+		?>
+		<li><em>
+					<?php
+					//$smallIcon = str_replace('/50/','/25/',$vo['giftIcon']);
+					//$smallIcon = str_replace('.png','.gif',$smallIcon);
+					$smallIcon = $vo['giftIcon_25'];
+					?>
+					<img src="{$smallIcon}">{$vo['giftname']}  {$firstuser[0]['total']}个</em>
+					<cite><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a><span class="star star{$emceelevel[0]['levelid']}"></span></cite>
+		</li>
+		<?php
+		}
+		?>
+		</volist>
+ 		 <div class="clear"></div>
+		 </ul>	
+	  </div>
+  </div>
+
+  <!--本周礼物红人榜 end-->
+  <!--上周礼物之星 begin-->
+  <div class="topreviews redlist">
+  	  <h2 class="rtitle redlist02"><em></em>上周礼物之星<span>（如礼物数量相同，则按照"先到先得"规则评选礼物之星）</span></h2>
+	  <div class="review-v">
+		 <ul class="redlistul">
+		<volist name='gifts' id='vo' key='k'>
+		<?php
+		$firstuser = D('Coindetail')->query('SELECT touid,sum(giftcount) as total FROM `ss_coindetail` where giftid='.$vo['id'].' and date_format(FROM_UNIXTIME(addtime),"%Y")=date_format(now(),"%Y") and date_format(FROM_UNIXTIME(addtime),"%u")=date_format(now(),"%u")-1 group by touid order by total desc LIMIT 1');
+		if($firstuser){
+			$userinfo = D("Member")->find($firstuser[0]['touid']);
+			$emceelevel = getEmceelevel($userinfo['earnbean']);
+		?>
+		<li><em>
+					<?php
+					//$smallIcon = str_replace('/50/','/25/',$vo['giftIcon']);
+					//$smallIcon = str_replace('.png','.gif',$smallIcon);
+					$smallIcon = $vo['giftIcon_25'];
+					?>
+					<img src="{$smallIcon}">{$vo['giftname']}  {$firstuser[0]['total']}个</em>
+					<cite><a href='/{$userinfo['curroomnum']}'  target="_blank"  title='{$userinfo['nickname']}'>{$userinfo['nickname']}</a><span class="star star{$emceelevel[0]['levelid']}"></span></cite>
+		</li>
+		<?php
+		}
+		?>
+		</volist>
+		 </ul>	
+	  </div>
+  </div>
+  <!--上周礼物之星 end-->
+
+
+</div>
+<include file="Public:footer" />
+</body>
+</html>

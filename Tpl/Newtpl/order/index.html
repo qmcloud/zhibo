@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title> 
+<link rel="stylesheet" href="/Tpl/Newtpl/Public/css/rank.css">
+<script language="javascript" src="__PUBLIC__/js/20120825/jquery.js"></script>
+
+<script language="javascript" src="__PUBLIC__/js/20120825/common.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/css/20120825/common.css" type="text/css" />
+
+<link rel="stylesheet" href="__PUBLIC__/css/20120825/rank.css" type="text/css" />
+</head>
+<body>
+<include file="Public:header" />
+<div class="container clearfix">
+	<div class="rank-mod" id="starRank" data-type="star" data-url="/rank/star">
+		<div class="rank-mod-hd">
+			<h2>明星榜</h2><span class="selfRank cGray">你目前处在榜单之外</span>
+			<div class="rank-gift-tab">
+				榜单周期 <a onMouseOver="turn(1,4,1);" id="lm1_1" class="on"><span class="no">日</span></a>
+
+			<a onMouseOver="turn(2,4,1);" id="lm1_2" class=""><span>周</span></a>
+
+			<a onMouseOver="turn(3,4,1);" id="lm1_3" class=""><span>月</span></a>
+
+			<a onMouseOver="turn(4,4,1);" id="lm1_4" class=""><span>总榜</span></a>
+			</div>
+		</div>
+		<!--明星总榜-->
+		<div class="rank-mod-bd js-content" id="content1_4">
+        	<div class="fl rank-top">
+            	<div class="rank-top3 rank-first">
+                	<a href="/{$emceeRank_allq3[0]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$emceeRank_allq3[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$emceeRank_allq3[0]['userinfo']['curroomnum']}">{$emceeRank_allq3[0]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="star star{$emceeRank_allq3[0]['emceelevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank1"></em>
+                </div>
+                <div class="rank-top3 ">
+                	<a href="/{$emceeRank_allq3[1]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$emceeRank_allq3[1]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a class="js-box" href="/{$emceeRank_allq3[1]['userinfo']['curroomnum']}">{$emceeRank_allq3[1]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$emceeRank_allq3[1]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank2"></em>
+                </div>
+                <div class="rank-top3 ">
+                	<a href="/{$emceeRank_allq3[2]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$emceeRank_allq3[2]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a userid="-5934064518915256288" class="js-box" href="/{$emceeRank_allq3[2]['userinfo']['curroomnum']}">{$emceeRank_allq3[2]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$emceeRank_allq3[2]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank3"></em></div>
+                </div>
+                <div class="fl rank-list">
+                <foreach name="emceeRank_allz6" item="zj">	
+                	<p><em class="num-rank{$zj['xuhao']}"></em><span class="rank-list-fl"><a class="fl js-box" href="/{$zj['userinfo']['curroomnum']}">{$zj['userinfo']['nickname']}</a>({$zj['userinfo']['curroomnum']})</span><em title="" class="fr png24 star star{$zj['emceelevel'][0]['levelid']}"></em></p>
+                 </foreach>
+      </div>
+    <div class="fr rank-list rank-last">
+                 <foreach name="emceeRank_allh6" item="h6">	
+                	<p><em class="num-rank{$h6['xuhao']}"></em><span class="rank-list-fl"><a class="fl js-box" href="/{$h6['userinfo']['curroomnum']}">{$h6['userinfo']['nickname']}</a>({$h6['userinfo']['curroomnum']})</span><em title="" class="fr png24 star star{$h6['emceelevel'][0]['levelid']}"></em></p>
+                 </foreach>
+
+    
+    </div>
+       </div>
+      <!--明星总榜end-->
+      		<!--明星日榜-->
+		<div class="rank-mod-bd js-content" id="content1_1" style="display:none">
+        	<div class="fl rank-top">
+            	<div class="rank-top3 rank-first">
+                	<a href="/{$emceeRank_dayq3[0]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$emceeRank_dayq3[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$emceeRank_dayq3[0]['userinfo']['curroomnum']}">{$emceeRank_dayq3[0]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="star star{$emceeRank_dayq3[0]['emceelevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank1"></em>
+                </div>
+                <div class="rank-top3 ">
+                	<a href="/{$emceeRank_dayq3[1]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$emceeRank_dayq3[1]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a class="js-box" href="/{$emceeRank_dayq3[1]['userinfo']['curroomnum']}">{$emceeRank_dayq3[1]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$emceeRank_dayq3[1]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank2"></em>
+                </div>
+                <div class="rank-top3 ">
+                	<a href="/{$emceeRank_dayq3[2]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$emceeRank_dayq3[2]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a userid="-5934064518915256288" class="js-box" href="/{$emceeRank_allq3[2]['userinfo']['curroomnum']}">{$emceeRank_dayq3[2]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$emceeRank_dayq3[2]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank3"></em></div>
+                </div>
+                <div class="fl rank-list">
+                <foreach name="emceeRank_dayz6" item="zj">	
+                	<p><em class="num-rank{$zj['xuhao']}"></em><span class="rank-list-fl"><a class="fl js-box" href="/{$zj['userinfo']['curroomnum']}">{$zj['userinfo']['nickname']}</a>({$zj['userinfo']['curroomnum']})</span><em title="" class="fr png24 star star{$zj['emceelevel'][0]['levelid']}"></em></p>
+                 </foreach>
+      </div>
+    <div class="fr rank-list rank-last">
+                 <foreach name="emceeRank_dayh6" item="h6">	
+                	<p><em class="num-rank{$h6['xuhao']}"></em><span class="rank-list-fl"><a class="fl js-box" href="/{$h6['userinfo']['curroomnum']}">{$h6['userinfo']['nickname']}</a>({$h6['userinfo']['curroomnum']})</span><em title="" class="fr png24 star star{$h6['emceelevel'][0]['levelid']}"></em></p>
+                 </foreach>
+
+    
+    </div>
+       </div>
+      <!--明星日榜end-->
+            		<!--明星周榜-->
+		<div class="rank-mod-bd js-content" id="content1_2" style="display:none">
+        	<div class="fl rank-top">
+            	<div class="rank-top3 rank-first">
+                	<a href="/{$emceeRank_weekq3[0]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$emceeRank_weekq3[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$emceeRank_weekq3[0]['userinfo']['curroomnum']}">{$emceeRank_weekq3[0]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="star star{$emceeRank_weekq3[0]['emceelevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank1"></em>
+                </div>
+                <div class="rank-top3 ">
+                	<a href="/{$emceeRank_weekq3[1]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$emceeRank_weekq3[1]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a class="js-box" href="/{$emceeRank_weekq3[1]['userinfo']['curroomnum']}">{$emceeRank_weekq3[1]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$emceeRank_weekq3[1]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank2"></em>
+                </div>
+                <div class="rank-top3 ">
+                	<a href="/{$emceeRank_weekq3[2]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$emceeRank_weekq3[2]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a userid="" class="js-box" href="/$emceeRank_weekq3[2]['userinfo']['curroomnum']}">{$emceeRank_weekq3[2]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$emceeRank_weekq3[2]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank3"></em></div>
+                </div>
+                <div class="fl rank-list">
+                <foreach name="emceeRank_weekz6" item="zj">	
+                	<p><em class="num-rank{$zj['xuhao']}"></em><span class="rank-list-fl"><a class="fl js-box" href="/{$zj['userinfo']['curroomnum']}">{$zj['userinfo']['nickname']}</a>({$zj['userinfo']['curroomnum']})</span><em title="" class="fr png24 star star{$zj['emceelevel'][0]['levelid']}"></em></p>
+                 </foreach>
+      </div>
+    <div class="fr rank-list rank-last">
+                 <foreach name="emceeRank_weekh6" item="h6">	
+                	<p><em class="num-rank{$h6['xuhao']}"></em><span class="rank-list-fl"><a class="fl js-box" href="/{$h6['userinfo']['curroomnum']}">{$h6['userinfo']['nickname']}</a>({$h6['userinfo']['curroomnum']})</span><em title="" class="fr png24 star star{$h6['emceelevel'][0]['levelid']}"></em></p>
+                 </foreach>
+
+    
+    </div>
+       </div>
+      <!--明星周榜end-->
+       	<!--明星月榜-->
+		<div class="rank-mod-bd js-content" id="content1_3" style="display:none">
+        	<div class="fl rank-top">
+            	<div class="rank-top3 rank-first">
+                	<a href="/{$emceeRank_monthq3[0]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$emceeRank_monthq3[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$emceeRank_monthq3[0]['userinfo']['curroomnum']}">{$emceeRank_monthq3[0]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="star star{$emceeRank_monthq3[0]['emceelevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank1"></em>
+                </div>
+                <div class="rank-top3 ">
+                	<a href="/{$emceeRank_monthq3[1]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$emceeRank_monthq3[1]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a class="js-box" href="/{$emceeRank_monthq3[1]['userinfo']['curroomnum']}">{$emceeRank_monthq3[1]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$emceeRank_monthq3[1]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank2"></em>
+                </div>
+                <div class="rank-top3 ">
+                	<a href="/{$emceeRank_monthq3[2]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$emceeRank_monthq3[2]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a userid="" class="js-box" href="/{$emceeRank_monthq3[2]['userinfo']['curroomnum']}">{$emceeRank_monthq3[2]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$emceeRank_monthq3[2]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank3"></em></div>
+                </div>
+                <div class="fl rank-list">
+                <foreach name="emceeRank_monthz6" item="zj">	
+                	<p><em class="num-rank{$zj['xuhao']}"></em><span class="rank-list-fl"><a class="fl js-box" href="/{$zj['userinfo']['curroomnum']}">{$zj['userinfo']['nickname']}</a>({$zj['userinfo']['curroomnum']})</span><em title="" class="fr png24 star star{$zj['emceelevel'][0]['levelid']}"></em></p>
+                 </foreach>
+      </div>
+    <div class="fr rank-list rank-last">
+                 <foreach name="emceeRank_monthh6" item="h6">	
+                	<p><em class="num-rank{$h6['xuhao']}"></em><span class="rank-list-fl"><a class="fl js-box" href="/{$h6['userinfo']['curroomnum']}">{$h6['userinfo']['nickname']}</a>({$h6['userinfo']['curroomnum']})</span><em title="" class="fr png24 star star{$h6['emceelevel'][0]['levelid']}"></em></p>
+                 </foreach>
+
+    
+    </div>
+       </div>
+      <!--明星月榜end-->
+       
+	</div>
+    
+	<div class="rank-mod">
+		<div class="rank-mod-hd">
+			<h2>人气榜</h2><span class="cGray"></span>
+			<div class="rank-gift-tab">
+				榜单周期 <a onMouseOver="turn(1,4,2);" id="lm2_1" class="on"><span class="no">日</span></a>
+
+			<a onMouseOver="turn(2,4,2);" id="lm2_2" class=""><span>周</span></a>
+
+			<a onMouseOver="turn(3,4,2);" id="lm2_3" class=""><span>月</span></a>
+
+			<a onMouseOver="turn(4,4,2);" id="lm2_4" class=""><span>总榜</span></a>
+			</div>
+		</div>
+		<div class="rank-mod-bd js-content" id="content2_4">
+			<div class="fl rank-top">
+				      	<div class="rank-top3 rank-first">
+                	<a href="/{$rqRank_allq3[0]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$rqRank_allq3[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$rqRank_allq3[0]['userinfo']['curroomnum']}">{$rqRank_allq3[0]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="star star{$rqRank_allq3[0]['emceelevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank1"></em>
+                </div>
+		            <div class="rank-top3 ">
+                	<a href="/{$rqRank_allq3[1]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$rqRank_allq3[1]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a class="js-box" href="/{$rqRank_allq3[1]['userinfo']['curroomnum']}">{$rqRank_allq3[1]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$rqRank_allq3[1]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank2"></em>
+                </div>
+	<div class="rank-top3 ">
+                	<a href="/{$rqRank_allq3[2]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$rqRank_allq3[2]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a userid="-5934064518915256288" class="js-box" href="/{$rqRank_allq3[2]['userinfo']['curroomnum']}">{$rqRank_allq3[2]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$rqRank_allq3[2]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank3"></em></div>
+																																																																																																											</div>
+			<div class="fl rank-list">
+
+<foreach name="rqRank_allz6" item="zj">																																			<p>
+				<em class="num-rank{$zj['xuhao']}"></em>
+				<span class="rank-list-fl">
+				<a href="/{$zj['userinfo']['curroomnum']}" class="fl js-box" userid="" title="">{$zj['userinfo']['nickname']}</a>
+				({$zj['userinfo']['curroomnum']})				</span>
+				<em title="
+" class="fr png24 star star{$zj['emceelevel'][0]['levelid']}"></em>
+				<em class="fl png24 icon-radio" title="直播中"></em>								</p>
+
+	</foreach>																																																											</div>
+			<div class="fr rank-list rank-last">
+<foreach name="rqRank_allh6" item="h6">																																			<p>
+				<em class="num-rank{$h6['xuhao']}"></em>
+				<span class="rank-list-fl">
+				<a href="/{$h6['userinfo']['curroomnum']}" class="fl js-box" userid="" title="">{$h6['userinfo']['nickname']}</a>
+				({$h6['userinfo']['curroomnum']})				</span>
+				<em title="
+" class="fr png24 star star{$h6['emceelevel'][0]['levelid']}"></em>
+				<em class="fl png24 icon-radio" title="直播中"></em>								</p>
+
+	</foreach>								
+															
+											</div>
+		</div>
+		<!--人气日榜-->
+		<div class="rank-mod-bd js-content" id="content2_1" style="display:none">
+			<div class="fl rank-top">
+				      	<div class="rank-top3 rank-first">
+                	<a href="/{$rqRank_dayq3[0]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$rqRank_dayq3[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$rqRank_dayq3[0]['userinfo']['curroomnum']}">{$rqRank_dayq3[0]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="star star{$rqRank_dayq3[0]['emceelevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank1"></em>
+                </div>
+		            <div class="rank-top3 ">
+                	<a href="/{$rqRank_dayq3[1]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$rqRank_dayq3[1]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a class="js-box" href="/{$rqRank_dayq3[1]['userinfo']['curroomnum']}">{$rqRank_dayq3[1]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$rqRank_dayq3[1]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank2"></em>
+                </div>
+	<div class="rank-top3 ">
+                	<a href="/{$rqRank_dayq3[2]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$rqRank_dayq3[2]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a userid="" class="js-box" href="/{$rqRank_dayq3[2]['userinfo']['curroomnum']}">{$rqRank_dayq3[2]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$rqRank_dayq3[2]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank3"></em></div>
+																																																																																																											</div>
+			<div class="fl rank-list">
+
+<foreach name="rqRank_dayz6" item="zj">																																			<p>
+				<em class="num-rank{$zj['xuhao']}"></em>
+				<span class="rank-list-fl">
+				<a href="/{$zj['userinfo']['curroomnum']}" class="fl js-box" userid="" title="">{$zj['userinfo']['nickname']}</a>
+				({$zj['userinfo']['curroomnum']})				</span>
+				<em title="
+" class="fr png24 star star{$zj['emceelevel'][0]['levelid']}"></em>
+				<em class="fl png24 icon-radio" title="直播中"></em>								</p>
+
+	</foreach>																																																											</div>
+			<div class="fr rank-list rank-last">
+<foreach name="rqRank_dayh6" item="h6">																																			<p>
+				<em class="num-rank{$h6['xuhao']}"></em>
+				<span class="rank-list-fl">
+				<a href="/{$h6['userinfo']['curroomnum']}" class="fl js-box" userid="" title="">{$h6['userinfo']['nickname']}</a>
+				({$h6['userinfo']['curroomnum']})				</span>
+				<em title="
+" class="fr png24 star star{$h6['emceelevel'][0]['levelid']}"></em>
+				<em class="fl png24 icon-radio" title="直播中"></em>								</p>
+
+	</foreach>								
+															
+											</div>
+		</div>
+		<!--end 人气日榜-->
+		<!--人气周榜-->
+		<div class="rank-mod-bd js-content" id="content2_2" style="display:none">
+			<div class="fl rank-top">
+				      	<div class="rank-top3 rank-first">
+                	<a href="/{$rqRank_weekq3[0]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$rqRank_weekq3[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$rqRank_weekq3[0]['userinfo']['curroomnum']}">{$rqRank_weekq3[0]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="star star{$rqRank_weekq3[0]['emceelevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank1"></em>
+                </div>
+		            <div class="rank-top3 ">
+                	<a href="/{$rqRank_weekq3[1]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$rqRank_weekq3[1]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a class="js-box" href="/{$rqRank_weekq3[1]['userinfo']['curroomnum']}">{$rqRank_weekq3[1]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$rqRank_weekq3[1]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank2"></em>
+                </div>
+	<div class="rank-top3 ">
+                	<a href="/{$rqRank_weekq3[2]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$rqRank_weekq3[2]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a userid="-5934064518915256288" class="js-box" href="/{$rqRank_weekq3[2]['userinfo']['curroomnum']}">{$rqRank_weekq3[2]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$rqRank_weekq3[2]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank3"></em></div>
+																																																																																																											</div>
+			<div class="fl rank-list">
+
+<foreach name="rqRank_weekz6" item="zj">																																			<p>
+				<em class="num-rank{$zj['xuhao']}"></em>
+				<span class="rank-list-fl">
+				<a href="/{$zj['userinfo']['curroomnum']}" class="fl js-box" userid="" title="">{$zj['userinfo']['nickname']}</a>
+				({$zj['userinfo']['curroomnum']})				</span>
+				<em title="
+" class="fr png24 star star{$zj['emceelevel'][0]['levelid']}"></em>
+				<em class="fl png24 icon-radio" title="直播中"></em>								</p>
+
+	</foreach>																																																											</div>
+			<div class="fr rank-list rank-last">
+<foreach name="rqRank_weekh6" item="h6">																																			<p>
+				<em class="num-rank{$h6['xuhao']}"></em>
+				<span class="rank-list-fl">
+				<a href="/{$h6['userinfo']['curroomnum']}" class="fl js-box" userid="" title="">{$h6['userinfo']['nickname']}</a>
+				({$h6['userinfo']['curroomnum']})				</span>
+				<em title="
+" class="fr png24 star star{$h6['emceelevel'][0]['levelid']}"></em>
+				<em class="fl png24 icon-radio" title="直播中"></em>								</p>
+
+	</foreach>								
+															
+											</div>
+		</div>
+		<!--end 人气周榜-->
+		<!--人气月榜-->
+		<div class="rank-mod-bd js-content" id="content2_3" style="display:none">
+			<div class="fl rank-top">
+				      	<div class="rank-top3 rank-first">
+                	<a href="/{$rqRank_monthq3[0]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$rqRank_monthq3[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$rqRank_monthq3[0]['userinfo']['curroomnum']}">{$rqRank_monthq3[0]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="star star{$rqRank_monthq3[0]['emceelevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank1"></em>
+                </div>
+		            <div class="rank-top3 ">
+                	<a href="/{$rqRank_monthq3[1]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$rqRank_monthq3[1]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a class="js-box" href="/{$rqRank_monthq3[1]['userinfo']['curroomnum']}">{$rqRank_monthq3[1]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$rqRank_monthq3[1]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank2"></em>
+                </div>
+	<div class="rank-top3 ">
+                	<a href="/{$rqRank_monthq3[2]['userinfo']['curroomnum']}" class="avatar-r2 js-box"><img src="{$ucurl}avatar.php?uid={$rqRank_monthq3[2]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                    <p><a userid="" class="js-box" href="/{$rqRank_monthq3[2]['userinfo']['curroomnum']}">{$rqRank_monthq3[2]['userinfo']["nickname"]}</a></p>
+                    <p><em title="" class="star star{$rqRank_monthq3[2]['emceelevel'][0]['levelid']}"></em></p><em class="num-rank3"></em></div>
+																																																																																																											</div>
+			<div class="fl rank-list">
+
+<foreach name="rqRank_monthz6" item="zj">																																			<p>
+				<em class="num-rank{$zj['xuhao']}"></em>
+				<span class="rank-list-fl">
+				<a href="/{$zj['userinfo']['curroomnum']}" class="fl js-box" userid="" title="">{$zj['userinfo']['nickname']}</a>
+				({$zj['userinfo']['curroomnum']})				</span>
+				<em title="
+" class="fr png24 star star{$zj['emceelevel'][0]['levelid']}"></em>
+				<em class="fl png24 icon-radio" title="直播中"></em>								</p>
+
+	</foreach>																																																											</div>
+			<div class="fr rank-list rank-last">
+<foreach name="rqRank_monthh6" item="h6">																																			<p>
+				<em class="num-rank{$h6['xuhao']}"></em>
+				<span class="rank-list-fl">
+				<a href="/{$h6['userinfo']['curroomnum']}" class="fl js-box" userid="" title="">{$h6['userinfo']['nickname']}</a>
+				({$h6['userinfo']['curroomnum']})				</span>
+				<em title="
+" class="fr png24 star star{$h6['emceelevel'][0]['levelid']}"></em>
+				<em class="fl png24 icon-radio" title="直播中"></em>								</p>
+
+	</foreach>								
+															
+											</div>
+		</div>
+		<!--end 人气月榜-->
+	</div>
+    
+	<div class="rank-mod" id="wealthRank" data-type="wealth" data-url="/rank/wealth">
+		<div class="rank-mod-hd">
+			<h2>富豪榜</h2><span class="selfRank cGray">你目前处在榜单之外</span>
+		<div class="rank-gift-tab">
+				榜单周期 <a onMouseOver="turn(1,4,3);" id="lm3_1" class="on"><span class="no">日</span></a>
+
+			<a onMouseOver="turn(2,4,3);" id="lm3_2" class=""><span>周</span></a>
+
+			<a onMouseOver="turn(3,4,3);" id="lm3_3" class=""><span>月</span></a>
+
+			<a onMouseOver="turn(4,4,3);" id="lm3_4" class=""><span>总榜</span></a>
+			</div>
+		</div>
+		<div class="rank-mod-bd js-content" id="content3_4">
+        	<div class="fl rank-top">
+            	<div class="rank-top3 rank-first"> 	
+            		<a href="/{$richRank_allq3[0]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$richRank_allq3[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$richRank_allq3[0]['userinfo']['curroomnum']}">{$richRank_allq3[0]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="cracy cra{$richRank_allq3[0]['richlevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank1"></em>
+                </div>
+                <div class="rank-top3 ">
+            		<a href="/{$richRank_allq3[1]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$richRank_allq3[1]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$richRank_allq3[1]['userinfo']['curroomnum']}">{$richRank_allq3[1]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="cracy cra{$richRank_allq3[1]['richlevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank2"></em></div>
+                <div class="rank-top3 ">
+            		<a href="/{$richRank_allq3[2]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$richRank_allq3[2]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$richRank_allq3[2]['userinfo']['curroomnum']}">{$richRank_allq3[2]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="cracy cra{$richRank_allq3[2]['richlevel'][0]['levelid']}"></em></p>
+                	
+                	<em class="num-rank3"></em></div></div>
+                <div class="fl rank-list rank-wealth-list">
+                	<foreach name="richRank_allz6" item="zj">
+                	<p><em class="num-rank{$zj['xuhao']}"></em><span class="rank-list-fl"><a class="fl js-box" href="/{$zj['userinfo']['curroomnum']}">{$zj['userinfo']['nickname']}</a></span><em class="fr cracy cra{$zj['richlevel'][0]['levelid']}"></em></p>
+                    </foreach>
+                
+                </div>
+                <div class="fr rank-list rank-wealth-list rank-last">
+                	<foreach name="richRank_allh6" item="h6">
+                	<p><em class="num-rank{$h6['xuhao']}"></em><span class="rank-list-fl"><a  class="fl js-box" href="/{$h6['userinfo']['curroomnum']}">{$h6['userinfo']['nickname']}</a></span><em class="fr cracy cra{$h6['richlevel'][0]['levelid']}"></em></p>
+                 </foreach>
+                
+                
+                </div></div>
+            <!--富豪日榜-->
+            <div class="rank-mod-bd js-content" id="content3_1" style="display:none">
+        	<div class="fl rank-top">
+            	<div class="rank-top3 rank-first"> 	
+            		<a href="/{$richRank_dayq3[0]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$richRank_dayq3[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$richRank_dayq3[0]['userinfo']['curroomnum']}">{$richRank_dayq3[0]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="cracy cra{$richRank_dayq3[0]['richlevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank1"></em>
+                </div>
+                <div class="rank-top3 ">
+            		<a href="/{$richRank_dayq3[1]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$richRank_dayq3[1]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$richRank_dayq3[1]['userinfo']['curroomnum']}">{$richRank_dayq3[1]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="cracy cra{$richRank_dayq3[1]['richlevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank2"></em></div>
+                <div class="rank-top3 ">
+            		<a href="/{$richRank_dayq3[2]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$richRank_dayq3[2]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$richRank_dayq3[2]['userinfo']['curroomnum']}">{$richRank_dayq3[2]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="cracy cra{$richRank_dayq3[2]['richlevel'][0]['levelid']}"></em></p>
+                	
+                	<em class="num-rank3"></em></div></div>
+                <div class="fl rank-list rank-wealth-list">
+                	<foreach name="richRank_dayz6" item="zj">
+                	<p><em class="num-rank{$zj['xuhao']}"></em><span class="rank-list-fl"><a class="fl js-box" href="/{$zj['userinfo']['curroomnum']}">{$zj['userinfo']['nickname']}</a></span><em class="fr cracy cra{$zj['richlevel'][0]['levelid']}"></em></p>
+                    </foreach>
+                
+                </div>
+                <div class="fr rank-list rank-wealth-list rank-last">
+                	<foreach name="richRank_dayh6" item="h6">
+                	<p><em class="num-rank{$h6['xuhao']}"></em><span class="rank-list-fl"><a  class="fl js-box" href="/{$h6['userinfo']['curroomnum']}">{$h6['userinfo']['nickname']}</a></span><em class="fr cracy cra{$h6['richlevel'][0]['levelid']}"></em></p>
+                 </foreach>
+                
+                
+                </div></div>
+            <!--end富豪日榜-->
+               <!--富豪周榜-->
+            <div class="rank-mod-bd js-content" id="content3_2" style="display:none">
+        	<div class="fl rank-top">
+            	<div class="rank-top3 rank-first"> 	
+            		<a href="/{$richRank_weekq3[0]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$richRank_weekq3[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$richRank_weekq3[0]['userinfo']['curroomnum']}">{$richRank_weekq3[0]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="cracy cra{$richRank_weekq3[0]['richlevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank1"></em>
+                </div>
+                <div class="rank-top3 ">
+            		<a href="/{$richRank_weekq3[1]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$richRank_weekq3[1]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$richRank_weekq3[1]['userinfo']['curroomnum']}">{$richRank_weekq3[1]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="cracy cra{$richRank_weekq3[1]['richlevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank2"></em></div>
+                <div class="rank-top3 ">
+            		<a href="/{$richRank_weekq3[2]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$richRank_weekq3[2]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$richRank_weekq3[2]['userinfo']['curroomnum']}">{$richRank_weekq3[2]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="cracy cra{$richRank_weekq3[2]['richlevel'][0]['levelid']}"></em></p>
+                	
+                	<em class="num-rank3"></em></div></div>
+                <div class="fl rank-list rank-wealth-list">
+                	<foreach name="richRank_weekz6" item="zj">
+                	<p><em class="num-rank{$zj['xuhao']}"></em><span class="rank-list-fl"><a class="fl js-box" href="/{$zj['userinfo']['curroomnum']}">{$zj['userinfo']['nickname']}</a></span><em class="fr cracy cra{$zj['richlevel'][0]['levelid']}"></em></p>
+                    </foreach>
+                
+                </div>
+                <div class="fr rank-list rank-wealth-list rank-last">
+                	<foreach name="richRank_weekh6" item="h6">
+                	<p><em class="num-rank{$h6['xuhao']}"></em><span class="rank-list-fl"><a  class="fl js-box" href="/{$h6['userinfo']['curroomnum']}">{$h6['userinfo']['nickname']}</a></span><em class="fr cracy cra{$h6['richlevel'][0]['levelid']}"></em></p>
+                 </foreach>
+                
+                
+                </div></div>
+            <!--end富豪周榜-->
+               <!--富豪月榜-->
+            <div class="rank-mod-bd js-content" id="content3_3" style="display:none">
+        	<div class="fl rank-top">
+            	<div class="rank-top3 rank-first"> 	
+            		<a href="/{$richRank_monthq3[0]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$richRank_monthq3[0]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$richRank_monthq3[0]['userinfo']['curroomnum']}">{$richRank_monthq3[0]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="cracy cra{$richRank_monthq3[0]['richlevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank1"></em>
+                </div>
+                <div class="rank-top3 ">
+            		<a href="/{$richRank_monthq3[1]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$richRank_monthq3[1]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$richRank_monthq3[1]['userinfo']['curroomnum']}">{$richRank_monthq3[1]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="cracy cra{$richRank_monthq3[1]['richlevel'][0]['levelid']}"></em></p>
+                	<em class="num-rank2"></em></div>
+                <div class="rank-top3 ">
+            		<a href="/{$richRank_monthq3[2]['userinfo']['curroomnum']}" class="avatar-r1 js-box"><img src="{$ucurl}avatar.php?uid={$richRank_monthq3[2]['userinfo']['ucuid']}&size=middle"><em></em></a>
+                	<p><a class="js-box" href="/{$richRank_monthq3[2]['userinfo']['curroomnum']}">{$richRank_monthq3[2]['userinfo']["nickname"]}</a></p>
+                	<p><em title="" class="cracy cra{$richRank_monthq3[2]['richlevel'][0]['levelid']}"></em></p>
+                	
+                	<em class="num-rank3"></em></div></div>
+                <div class="fl rank-list rank-wealth-list">
+                	<foreach name="richRank_monthz6" item="zj">
+                	<p><em class="num-rank4"></em><span class="rank-list-fl"><a class="fl js-box" href="/{$zj['userinfo']['curroomnum']}">{$zj['userinfo']['nickname']}</a></span><em class="fr cracy cra{$zj['richlevel'][0]['levelid']}"></em></p>
+                    </foreach>
+                
+                </div>
+                <div class="fr rank-list rank-wealth-list rank-last">
+                	<foreach name="richRank_monthh6" item="h6">
+                	<p><em class="num-rank{$h6['xuhao']}"></em><span class="rank-list-fl"><a  class="fl js-box" href="/{$h6['userinfo']['curroomnum']}">{$h6['userinfo']['nickname']}</a></span><em class="fr cracy cra{$h6['richlevel'][0]['levelid']}"></em></p>
+                 </foreach>
+                
+                
+                </div></div>
+            <!--end富豪月榜-->
+                
+                
+                
+                
+	</div>
+	
+	<div class="rank-mod" id="giftRank" data-type="gift" data-url="/rank/gift">
+		<div class="rank-mod-hd">
+			<h2>礼物榜</h2>
+			<div class="rank-gift-tab">
+				榜单周期 <a onMouseOver="turn(1,4,4);" id="lm4_1" class="on"><span class="no">日</span></a>
+
+			<a onMouseOver="turn(2,4,4);" id="lm4_2" class=""><span>周</span></a>
+
+			<a onMouseOver="turn(3,4,4);" id="lm4_3" class=""><span>月</span></a>
+
+			<a onMouseOver="turn(4,4,4);" id="lm4_4" class=""><span>总榜</span></a>
+			</div>
+		</div>
+		<!--礼物总榜榜-->
+		<div class="rank-mod-bd js-content" id="content4_4">
+        	<div class="fl rank-top rank-gift-top">
+            	<div class="rank-top3 rank-first">
+                	<em class="num-rank1"></em>
+                    <a href="javascript:;" class="avatar-r1"><img src="{$gifts_toallq3[0]['giftinfo']['giftIcon']}"><em></em></a>
+                    <p class="rank-gift"><a title="" href="javascript:;">{$gifts_toallq3[0]['giftinfo']['giftname']}<span class="cGray">{$gifts_toallq3[0]['total']}</span></a></p>
+                    <p><a giftid="86" data-period="1" href="javascript:;" class="icon-rank2 png24 js-giftrank"></a></p>
+                    <p class="rank-gift-line"><a class="js-box" href="/{$gifts_toallq3[0]['userinfo']['curroomnum']}">{$gifts_toallq3[0]['userinfo']['nickname']}</a></p>
+                    <p><em class="star star{$gifts_toallq3[0]['emceelevel'][0]['levelid']}" title=""></em></p></div>
+                <div class="rank-top3 ">
+                	<em class="num-rank2"></em>
+                                    <a href="javascript:;" class="avatar-r1"><img src="{$gifts_toallq3[1]['giftinfo']['giftIcon']}"><em></em></a>
+                    <p class="rank-gift"><a title="" href="javascript:;">{$gifts_toallq3[1]['giftinfo']['giftname']}<span class="cGray">{$gifts_toallq3[1]['total']}</span></a></p>
+                    <p><a giftid="86" data-period="1" href="javascript:;" class="icon-rank2 png24 js-giftrank"></a></p>
+                    <p class="rank-gift-line"><a class="js-box" href="/{$gifts_toallq3[1]['userinfo']['curroomnum']}">{$gifts_toallq3[1]['userinfo']['nickname']}</a></p>
+                    <p><em class="star star{$gifts_toallq3[1]['emceelevel'][0]['levelid']}" title=""></em></p></div>
+                <div class="rank-top3 ">
+                	<em class="num-rank3"></em>
+                                    <a href="javascript:;" class="avatar-r1"><img src="{$gifts_toallq3[2]['giftinfo']['giftIcon']}"><em></em></a>
+                    <p class="rank-gift"><a title="" href="javascript:;">{$gifts_toallq3[2]['giftinfo']['giftname']}<span class="cGray">{$gifts_toallq3[2]['total']}</span></a></p>
+                    <p><a giftid="86" data-period="1" href="javascript:;" class="icon-rank2 png24 js-giftrank"></a></p>
+                    <p class="rank-gift-line"><a class="js-box" href="/{$gifts_toallq3[2]['userinfo']['curroomnum']}">{$gifts_toallq3[2]['userinfo']['nickname']}</a></p>
+                    <p><em class="star star{$gifts_toallq3[2]['emceelevel'][0]['levelid']}" title=""></em></p></div></div>
+                <div class="fl rank-list rank-gift-list">
+                <foreach name="gifts_toallz6" item="zj">
+                	<p><em class="num-rank{$zj['xuhao']}"></em><span class="fl cDGray" title="">{$zj['giftinfo']['giftname']}<span class="cGray">{$zj['total']}</span></span><a href="javascript:;" giftid="" data-period="1" class="fl icon-rank3 png24 js-giftrank"></a><em title="" class="fr star star{$zj['emceelevel'][0]['levelid']}"></em><a href="/{$zj['userinfo']['curroomnum']}" class="fr js-box">{$zj['userinfo']['nickname']}</a></p>
+                </foreach>
+                </div>
+                <div class="fr rank-list rank-last rank-gift-list">
+                            <foreach name="gifts_toallh6" item="h6">
+                	<p><em class="num-rank{$h6['xuhao']}"></em><span class="fl cDGray" title="">{$h6['giftinfo']['giftname']}<span class="cGray">{$h6['total']}</span></span><a href="javascript:;" giftid="" data-period="1" class="fl icon-rank3 png24 js-giftrank"></a><em title="" class="fr star star{$h6['emceelevel'][0]['levelid']}"></em><a href="/{$h6['userinfo']['curroomnum']}" class="fr js-box">{$h6['userinfo']['nickname']}</a></p>
+                </foreach>
+
+                </div></div>
+          <!--end礼物总榜-->   
+          	<!--礼物日榜-->
+		<div class="rank-mod-bd js-content" id="content4_1" style="display:none">
+        	<div class="fl rank-top rank-gift-top">
+            	<div class="rank-top3 rank-first">
+                	<em class="num-rank1"></em>
+                    <a href="javascript:;" class="avatar-r1"><img src="{$gifts_dayq3[0]['giftinfo']['giftIcon']}"><em></em></a>
+                    <p class="rank-gift"><a title="" href="javascript:;">{$gifts_dayq3[0]['giftinfo']['giftname']}<span class="cGray">{$gifts_dayq3[0]['total']}</span></a></p>
+                    <p><a giftid="86" data-period="1" href="javascript:;" class="icon-rank2 png24 js-giftrank"></a></p>
+                    <p class="rank-gift-line"><a class="js-box" href="/{$gifts_dayq3[0]['userinfo']['curroomnum']}">{$gifts_dayq3[0]['userinfo']['nickname']}</a></p>
+                    <p><em class="star star{$gifts_dayq3[0]['emceelevel'][0]['levelid']}" title=""></em></p></div>
+                <div class="rank-top3 ">
+                	<em class="num-rank2"></em>
+                                    <a href="javascript:;" class="avatar-r1"><img src="{$gifts_dayq3[1]['giftinfo']['giftIcon']}"><em></em></a>
+                    <p class="rank-gift"><a title="" href="javascript:;">{$gifts_dayq3[1]['giftinfo']['giftname']}<span class="cGray">{$gifts_dayq3[1]['total']}</span></a></p>
+                    <p><a giftid="86" data-period="1" href="javascript:;" class="icon-rank2 png24 js-giftrank"></a></p>
+                    <p class="rank-gift-line"><a class="js-box" href="/{$gifts_dayq3[1]['userinfo']['curroomnum']}">{$gifts_dayq3[1]['userinfo']['nickname']}</a></p>
+                    <p><em class="star star{$gifts_dayq3[1]['emceelevel'][0]['levelid']}" title=""></em></p></div>
+                <div class="rank-top3 ">
+                	<em class="num-rank3"></em>
+                                    <a href="javascript:;" class="avatar-r1"><img src="{$gifts_dayq3[2]['giftinfo']['giftIcon']}"><em></em></a>
+                    <p class="rank-gift"><a title="" href="javascript:;">{$gifts_dayq3[2]['giftinfo']['giftname']}<span class="cGray">{$gifts_dayq3[2]['total']}</span></a></p>
+                    <p><a giftid="86" data-period="1" href="javascript:;" class="icon-rank2 png24 js-giftrank"></a></p>
+                    <p class="rank-gift-line"><a class="js-box" href="/{$gifts_dayq3[2]['userinfo']['curroomnum']}">{$gifts_dayq3[2]['userinfo']['nickname']}</a></p>
+                    <p><em class="star star{$gifts_dayq3[2]['emceelevel'][0]['levelid']}" title=""></em></p></div></div>
+                <div class="fl rank-list rank-gift-list">
+                <foreach name="gifts_dayz6" item="zj">
+                	<p><em class="num-rank{$zj['xuhao']}"></em><span class="fl cDGray" title="">{$zj['giftinfo']['giftname']}<span class="cGray">{$zj['total']}</span></span><a href="javascript:;" giftid="" data-period="1" class="fl icon-rank3 png24 js-giftrank"></a><em title="" class="fr star star{$zj['emceelevel'][0]['levelid']}"></em><a href="/{$zj['userinfo']['curroomnum']}" class="fr js-box">{$zj['userinfo']['nickname']}</a></p>
+                </foreach>
+                </div>
+                <div class="fr rank-list rank-last rank-gift-list">
+                            <foreach name="gifts_dayh6" item="h6">
+                	<p><em class="num-rank{$h6['xuhao']}"></em><span class="fl cDGray" title="">{$h6['giftinfo']['giftname']}<span class="cGray">{$h6['total']}</span></span><a href="javascript:;" giftid="" data-period="1" class="fl icon-rank3 png24 js-giftrank"></a><em title="" class="fr star star{$h6['emceelevel'][0]['levelid']}"></em><a href="/{$h6['userinfo']['curroomnum']}" class="fr js-box">{$h6['userinfo']['nickname']}</a></p>
+                </foreach>
+
+                </div></div>
+          <!--end礼物日榜-->  
+         <!--礼物周榜-->
+		<div class="rank-mod-bd js-content" id="content4_2" style="display:none">
+        	<div class="fl rank-top rank-gift-top">
+            	<div class="rank-top3 rank-first">
+                	<em class="num-rank1"></em>
+                    <a href="javascript:;" class="avatar-r1"><img src="{$gifts_weekq3[0]['giftinfo']['giftIcon']}"><em></em></a>
+                    <p class="rank-gift"><a title="" href="javascript:;">{$gifts_weekq3[0]['giftinfo']['giftname']}<span class="cGray">{$gifts_weekq3[0]['total']}</span></a></p>
+                    <p><a giftid="86" data-period="1" href="javascript:;" class="icon-rank2 png24 js-giftrank"></a></p>
+                    <p class="rank-gift-line"><a class="js-box" href="/{$gifts_weekq3[0]['userinfo']['curroomnum']}">{$gifts_weekq3[0]['userinfo']['nickname']}</a></p>
+                    <p><em class="star star{$gifts_weekq3[0]['emceelevel'][0]['levelid']}" title=""></em></p></div>
+                <div class="rank-top3 ">
+                	<em class="num-rank2"></em>
+                                    <a href="javascript:;" class="avatar-r1"><img src="{$gifts_weekq3[1]['giftinfo']['giftIcon']}"><em></em></a>
+                    <p class="rank-gift"><a title="" href="javascript:;">{$gifts_weekq3[1]['giftinfo']['giftname']}<span class="cGray">{$gifts_weekq3[1]['total']}</span></a></p>
+                    <p><a giftid="86" data-period="1" href="javascript:;" class="icon-rank2 png24 js-giftrank"></a></p>
+                    <p class="rank-gift-line"><a class="js-box" href="/{$gifts_weekq3[1]['userinfo']['curroomnum']}">{$gifts_weekq3[1]['userinfo']['nickname']}</a></p>
+                    <p><em class="star star{$gifts_weekq3[1]['emceelevel'][0]['levelid']}" title=""></em></p></div>
+                <div class="rank-top3 ">
+                	<em class="num-rank3"></em>
+                                    <a href="javascript:;" class="avatar-r1"><img src="{$gifts_weekq3[2]['giftinfo']['giftIcon']}"><em></em></a>
+                    <p class="rank-gift"><a title="" href="javascript:;">{$gifts_weekq3[2]['giftinfo']['giftname']}<span class="cGray">{$gifts_weekq3[2]['total']}</span></a></p>
+                    <p><a giftid="86" data-period="1" href="javascript:;" class="icon-rank2 png24 js-giftrank"></a></p>
+                    <p class="rank-gift-line"><a class="js-box" href="/{$gifts_weekq3[2]['userinfo']['curroomnum']}">{$gifts_weekq3[2]['userinfo']['nickname']}</a></p>
+                    <p><em class="star star{$gifts_weekq3[2]['emceelevel'][0]['levelid']}" title=""></em></p></div></div>
+                <div class="fl rank-list rank-gift-list">
+                <foreach name="gifts_weekz6" item="zj">
+                	<p><em class="num-rank{$zj['xuhao']}"></em><span class="fl cDGray" title="">{$zj['giftinfo']['giftname']}<span class="cGray">{$zj['total']}</span></span><a href="javascript:;" giftid="" data-period="1" class="fl icon-rank3 png24 js-giftrank"></a><em title="" class="fr star star{$zj['emceelevel'][0]['levelid']}"></em><a href="/{$zj['userinfo']['curroomnum']}" class="fr js-box">{$zj['userinfo']['nickname']}</a></p>
+                </foreach>
+                </div>
+                <div class="fr rank-list rank-last rank-gift-list">
+                            <foreach name="gifts_weekh6" item="h6">
+                	<p><em class="num-rank{$h6['xuhao']}"></em><span class="fl cDGray" title="">{$h6['giftinfo']['giftname']}<span class="cGray">{$h6['total']}</span></span><a href="javascript:;" giftid="" data-period="1" class="fl icon-rank3 png24 js-giftrank"></a><em title="" class="fr star star{$h6['emceelevel'][0]['levelid']}"></em><a href="/{$h6['userinfo']['curroomnum']}" class="fr js-box">{$h6['userinfo']['nickname']}</a></p>
+                </foreach>
+
+                </div></div>
+          <!--end礼物周榜-->         
+            <!--礼物月榜-->
+		<div class="rank-mod-bd js-content" id="content4_3" style="display:none">
+        	<div class="fl rank-top rank-gift-top">
+            	<div class="rank-top3 rank-first">
+                	<em class="num-rank1"></em>
+                    <a href="javascript:;" class="avatar-r1"><img src="{$gifts_monthq3[0]['giftinfo']['giftIcon']}"><em></em></a>
+                    <p class="rank-gift"><a title="" href="javascript:;">{$gifts_monthq3[0]['giftinfo']['giftname']}<span class="cGray">{$gifts_monthq3[0]['total']}</span></a></p>
+                    <p><a giftid="86" data-period="1" href="javascript:;" class="icon-rank2 png24 js-giftrank"></a></p>
+                    <p class="rank-gift-line"><a class="js-box" href="/{$gifts_monthq3[0]['userinfo']['curroomnum']}">{$gifts_monthq3[0]['userinfo']['nickname']}</a></p>
+                    <p><em class="star star{$gifts_monthq3[0]['emceelevel'][0]['levelid']}" title=""></em></p></div>
+                <div class="rank-top3 ">
+                	<em class="num-rank2"></em>
+                                    <a href="javascript:;" class="avatar-r1"><img src="{$gifts_monthq3[1]['giftinfo']['giftIcon']}"><em></em></a>
+                    <p class="rank-gift"><a title="" href="javascript:;">{$gifts_monthq3[1]['giftinfo']['giftname']}<span class="cGray">{$gifts_monthq3[1]['total']}</span></a></p>
+                    <p><a giftid="86" data-period="1" href="javascript:;" class="icon-rank2 png24 js-giftrank"></a></p>
+                    <p class="rank-gift-line"><a class="js-box" href="/{$gifts_monthq3[1]['userinfo']['curroomnum']}">{$gifts_monthq3[1]['userinfo']['nickname']}</a></p>
+                    <p><em class="star star{$gifts_monthq3[1]['emceelevel'][0]['levelid']}" title=""></em></p></div>
+                <div class="rank-top3 ">
+                	<em class="num-rank3"></em>
+                                    <a href="javascript:;" class="avatar-r1"><img src="{$gifts_monthq3[2]['giftinfo']['giftIcon']}"><em></em></a>
+                    <p class="rank-gift"><a title="" href="javascript:;">{$gifts_monthq3[2]['giftinfo']['giftname']}<span class="cGray">{$gifts_monthq3[2]['total']}</span></a></p>
+                    <p><a giftid="86" data-period="1" href="javascript:;" class="icon-rank2 png24 js-giftrank"></a></p>
+                    <p class="rank-gift-line"><a class="js-box" href="/{$gifts_monthq3[2]['userinfo']['curroomnum']}">{$gifts_monthq3[2]['userinfo']['nickname']}</a></p>
+                    <p><em class="star star{$gifts_monthq3[2]['emceelevel'][0]['levelid']}" title=""></em></p></div></div>
+                <div class="fl rank-list rank-gift-list">
+                <foreach name="gifts_monthz6" item="zj">
+                	<p><em class="num-rank{$zj['xuhao']}"></em><span class="fl cDGray" title="">{$zj['giftinfo']['giftname']}<span class="cGray">{$zj['total']}</span></span><a href="javascript:;" giftid="" data-period="1" class="fl icon-rank3 png24 js-giftrank"></a><em title="" class="fr star star{$zj['emceelevel'][0]['levelid']}"></em><a href="/{$zj['userinfo']['curroomnum']}" class="fr js-box">{$zj['userinfo']['nickname']}</a></p>
+                </foreach>
+                </div>
+                <div class="fr rank-list rank-last rank-gift-list">
+                            <foreach name="gifts_monthh6" item="h6">
+                	<p><em class="num-rank{$h6['xuhao']}"></em><span class="fl cDGray" title="">{$h6['giftinfo']['giftname']}<span class="cGray">{$h6['total']}</span></span><a href="javascript:;" giftid="" data-period="1" class="fl icon-rank3 png24 js-giftrank"></a><em title="" class="fr star star{$h6['emceelevel'][0]['levelid']}"></em><a href="/{$h6['userinfo']['curroomnum']}" class="fr js-box">{$h6['userinfo']['nickname']}</a></p>
+                </foreach>
+
+                </div></div>
+          <!--end礼物月榜-->              
+                
+                
+	</div>
+	<!--<div class="gift-week-wrapper">
+		<div class="gift-week">
+         <div class="gift-week-hd">
+            <h2>本周礼物周星</h2><a class="png24 icon-help2" href="javascript:;"><div class="rank-help-layer"><em class="icon-rankcorner2 png24"></em><p>本周指定礼物主播及贡献用户排行情况</p></div></a>
+         </div>-->
+<!--数据库中暂无本周礼物纪录 词条作为实例 写死 后期可删除-->
+		<!--				<div class="gift-week-item">
+				<div class="gift-week-itemfl">
+		         <a href="#" class="avatar-week2" target="_blank"><img class="png24" src="/Tpl/Newtpl/Public/images/cake.png"><em></em></a>
+		         <em class="png24 icon-week"></em>
+		         <h5 title="生日快乐">生日快乐</h5>
+		         		         <p><em>3287</em>个</p>
+		         		      </div>
+		      <div class="gift-week-itemfr">
+		      		         	<span class="fl"><a class="js-box" userid="#" target="_blank">卿七七拔智齿回来了～</a><em class="png24 medal-anchor24"></em></span><a class="png24 icon-rank3 js-giftrank" href="javascript:;" giftid="24" data-method="period" data-type="0"></a><a class="js-box" userid="-4877096391441424462" href="javascript:;">月落星空～</a><em class="png24 icon-weekgx"></em>
+	         		         </div>
+			</div>-->
+		<!--实例结束-->	
+		<!--本周礼物执行循环-->
+		<!--<foreach name="gifts_week10" item="benweek">
+			<div class="gift-week-item">
+				<div class="gift-week-itemfl">
+		         <a href="#" class="avatar-week2" target="_blank"><img class="png24" src="{$benweek['giftinfo']['giftIcon']}"><em></em></a>
+		         <em class="png24 icon-week"></em>
+		         <h5 title="">{$benweek['giftinfo']['giftname']}</h5>
+		         		         <p><em>{$benweek['total']}</em>个</p>
+		         		      </div>
+		      <div class="gift-week-itemfr">
+		      		         	<span class="fl"><a class="js-box" userid="#" target="_blank">{$benweek['userinfo']['nickname']}</a><em class="star star{$benweek['emceelevel'][0]['levelid']}"></em></span><a class="png24 icon-rank3 js-giftrank" href="javascript:;" giftid="{$benweek.giftid}" data-method="period" data-type="0"></a><a class="js-box" userid="" href="{$benweek['fromeuser']['curroomnum']}">{$benweek['fromuser']['nickname']}</a><em class="png24 icon-weekgx"></em>
+	         		         </div>
+			</div>
+	</foreach>
+	<!--循环结束-->	
+			
+				
+				
+				
+				
+			
+				<!--	</div>
+		<div class="gift-week">
+			<div class="gift-week-hd">
+            <h2>上周礼物周星</h2><a class="png24 icon-help2" href="javascript:;"><div class="rank-help-layer"><em class="icon-rankcorner2 png24"></em><p>上周周星主播及用户排名和获奖情况</p></div></a>
+			</div>
+			<!--数据库中暂无本周礼物纪录 词条作为实例 写死 后期可删除-->
+						<!--<div class="gift-week-item">
+				<div class="gift-week-itemfl">
+		         <a href="#" class="avatar-week2" target="_blank"><img class="png24" src="/Tpl/Newtpl/Public/images/cheers48.png"><em></em></a>
+		         <em class="png24 icon-week"></em>
+               <h5 title="爱情交杯">爱情交杯</h5>
+		         		         <p><em>88668</em>个</p>
+		         		      </div>
+		      <div class="gift-week-itemfr">
+		      		         	<span class="fl"><a class="js-box" userid="-4413335922575614784" href="#" target="_blank">♥静静♥  Muse</a><em class="png24 medal-anchor27"></em></span><a class="png24 icon-rank3 js-giftrank" href="javascript:;" giftid="195" data-method="period" data-type="1"></a><a class="js-box" userid="-5451071298144670320" href="javascript:;">静静的大芋头</a><em class="png24 icon-weekgx"></em>
+	         		         </div>
+			</div>
+					
+		<!--实例结束-->		
+
+	<!--上周礼物执行循环-->
+		<!--<foreach name="shangzhougifts" item="shangweek">
+			<div class="gift-week-item">
+				<div class="gift-week-itemfl">
+		         <a href="#" class="avatar-week2" target="_blank"><img class="png24" src="{$shangweek['giftinfo']['giftIcon']}"><em></em></a>
+		         <em class="png24 icon-week"></em>
+		         <h5 title="">{$shangweek['giftinfo']['giftname']}</h5>
+		         		         <p><em>{$shangweek['total']}</em>个</p>
+		         		      </div>
+		      <div class="gift-week-itemfr">
+		      		         	<span class="fl"><a class="js-box" userid="#" target="_blank">{$shangweek['userinfo']['nickname']}</a><em class="star star{$shangweek['emceelevel'][0]['levelid']}"></em></span><a class="png24 icon-rank3 js-giftrank" href="javascript:;" giftid="{$shangweek.giftid}" data-method="period" data-type="0"></a><a class="js-box" userid="" href="{$shangweek['fromeuser']['curroomnum']}">{$shangweek['fromuser']['nickname']}</a><em class="png24 icon-weekgx"></em>
+	         		         </div>
+			</div>
+	</foreach>
+	<!--循环结束-->	
+
+
+			<!--		</div>
+	</div>
+	-->
+
+</div>
+<include file="Public:footer" />
+
+
+
+</body></html>

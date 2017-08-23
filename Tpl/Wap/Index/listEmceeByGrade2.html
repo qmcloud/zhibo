@@ -1,0 +1,30 @@
+
+
+	   	  <div class="model modlist2" >
+	   	  
+	   	  	<h2 class="rtitle"><?php if($_GET['sid']!=0){ ?>{$sortinfo['parentid']|getSortname} <span>>></span>&nbsp;<?php } ?><?php if($sortinfo){echo $sortinfo['sortname'];}else{echo '新人';} ?></h2>
+	   	  
+	   	  
+	   	  <ul class="sdes">
+	   	 
+	   			<volist name='users' id='vo' key='k'>
+				<?php
+				$emceelevel = getEmceelevel($vo['earnbean']);
+				?>
+				<li>
+				<a href="{$vo['curroomnum']}" title="{$vo['nickname']}" target="_blank"><img src="{$vo['snap']}" onerror="this.src='__PUBLIC__/wap/images/default.gif'" /></a>
+				
+				
+						
+						<cite><?php if($vo['virtualguest'] > 0){echo ($vo['online'] + $vo['virtualguest'] + $virtualcount);}else{echo $vo['online'];} ?>人观看</cite>
+				
+				
+				<div class="text">
+				<p><span class="star star{$emceelevel[0]['levelid']}"></span><a href="{$vo['curroomnum']}" title="{$vo['nickname']}">{$vo['nickname']}</a></p>
+				<p>开播时间：<?php echo date('H:i:s',$vo['starttime']) ?></p>
+				</div>
+				</li>	  	
+				</volist>
+				
+		  </ul>
+		  </div>

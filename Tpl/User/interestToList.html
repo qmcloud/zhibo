@@ -1,0 +1,179 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的偶像-管理中心-{$sitename}</title>
+<link rel="stylesheet" href="__PUBLIC__/css/20120825/common.css" type="text/css" />
+<script language="javascript" src="__PUBLIC__/js/20120825/jquery.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/common.js"></script>
+</head>
+<body>
+
+<include file="Public:header" />
+<div class="wrap">
+	<div class="usercenter">
+		
+
+
+
+
+
+<div class="utitle">
+			<h2><a href="__URL__/" title="管理中心">我的管理中心</a></h2>
+			<div class="utab">
+				<a href="__URL__/myfavor/" title="收藏"><span>收藏</span></a>
+				<a href="__URL__/interestToList/" title="偶像"><span>偶像</span></a>
+				<a href="__URL__/myNos/" title="靓号"><span>靓号</span></a>
+				<a href="__URL__/toolinuse/" title="道具"><span>道具</span></a>
+				<!--<a href="__URL__/wishing_wishing/" title="许愿"><span>许愿</span></a>//-->
+				<a href="__URL__/showadmin/" title="房管"><span>房管</span></a>
+				<!--<a href="__URL__/familyIJoin/" title="家族"><span>家族</span></a>//-->
+                <a href="__URL__/interestByList/" title="粉丝"><span>粉丝</span></a>
+                <a href="__URL__/info_edit/" title="个人设置"><span>个人设置</span></a>
+				<a href="__URL__/getConsume/" title="账单"><span>账单</span></a>
+				<!--<a href="__URL__/bl_list/" title="黑名单"><span>黑名单</span></a>//-->
+			</div>
+			<div class="umyhelp">
+				<a href="/{$_SESSION['roomnum']}" title="我的直播"><span>我的直播</span></a> 
+                <a href="__URL__/charge/" title="充值"><span>充值</span></a> 
+                <a href="__URL__/exchange/" title="兑换"><span>兑换</span></a>
+                <a href="__URL__/settlement/" title="结算"><span>结算</span></a>
+			</div>
+</div>
+
+<script language="javascript">
+$(function(){
+   var sm = $('.utab a,.umyhelp a').setMyTab();
+ }
+)
+</script>
+		
+		<div class="attention">
+			<div class="my-attention">
+				<h2><strong>我关注的人</strong> ({$count})  </h2>
+				<div class="att_box">
+						<volist name="attentions" id="vo">
+						<dl>
+							<volist name="vo['voo']" id="sub">
+							<dt><a href="/{$sub['curroomnum']}" title="{$sub['nickname']}" target="_blank"><img width="60"  height="60" src="{$ucurl}avatar.php?uid={$sub['ucuid']}&size=middle"/></a></dt>
+							<dd class="tt"><a href="/{$sub['curroomnum']}" title="{$sub['nickname']}" target="_blank">{$sub['nickname']}</a></dd>
+							<dd class="bt">
+									<?php
+									$myattention = D("Attention")->where('uid='.$sub['id'].' and attuid='.$_SESSION['uid'])->order('id asc')->select();
+									if(!$myattention){
+									?>
+									<span class="st2" state="2" uid="{$sub['id']}">- 取消关注</span>
+									<?php
+									}
+									else{
+									?>
+									<span class="st3" state="3" uid="{$sub['id']}">互相关注|取消</span>
+									<?php
+									}
+									?>
+							</dd>
+							</volist>
+						</dl>
+						</volist>
+				</div>
+				
+                <form name="interToFrm" id="interToFrm" method="get" action="__URL__/interestToList/">
+				   
+
+
+
+	<div class="page">
+			{$page}
+		
+			
+			
+		
+		
+		
+		<input type="hidden" id="p" name="p" value="1" />
+	</div>					
+		
+
+<script language="javascript">
+function scrollPage(step){
+	//document.getElementById("pageindex").value = step;
+ 	//document.forms["interToFrm"].submit();
+	$('#p').val(step);
+	$('#interToFrm').submit();
+}
+</script>
+                </form>
+			</div>
+			<div class="my-peng">
+				<div class="mptitle">我捧的人<span>TOP5</span></div>
+                <div class="index"><span class="pm">排名</span><span class="wp">我捧的人</span><span class="wdgxz">我的贡献值</span></div>
+                <ul class="list">
+						<volist name="mypengusers" id="vo" key="k">
+						<li>
+							<volist name="vo['voo']" id="sub">
+							<?php
+							$richlevel = getRichlevel($sub['spendcoin']);
+							?>
+							<em>{$k}</em>
+							<a href="/{$sub['curroomnum']}" title="{$sub['nickname']}" target="_blank"><img width="60" height="60" src="{$ucurl}avatar.php?uid={$sub['ucuid']}&size=middle"/></a>
+							<div class="tt">
+								<span class="cracy cra{$richlevel[0]['levelid']}"></span>
+								<p><a href="/{$sub['curroomnum']}" title="{$sub['nickname']}" target="_blank">{$sub['nickname']}</a></p>
+							</div>
+							<span class="gxz">{$vo['total']}</span>
+							</volist>
+						</li>
+						</volist>
+                </ul>
+			</div>
+            <div class="clear"></div>
+		</div>
+	</div>
+</div>
+<script language="javascript">
+	(function($){
+	    $('.att_box .bt span').click(function(){
+	    	var that=$(this);
+			var intState=that.attr('state');			
+			var upurl;
+			//关注1，取消2
+			if(intState == '1'){
+				upurl = "__URL__/interest/";
+			}else{
+				upurl = "__URL__/cancelInterest/";
+			}
+			
+			var intUid=$(this).attr('uid');
+			
+			$.ajax({
+				type:"GET",
+				url: upurl,
+				data:{
+					uid:intUid,
+					t:Math.random()
+				},
+				success:function(response){
+					//取消成功
+					if(response != 0){
+						if(intState == '1'){
+							that.attr("state",2);
+							that.attr("class","st2");
+							that.text("- 取消关注");
+						}else{
+							that.attr("state",1);
+							that.attr("class","st1");
+							that.text("+ 关注");
+						}
+					}
+				}
+			});
+		})
+		
+	})(jQuery);
+</script>
+<literal><script language="javascript">window.onload=function(){$(".my-peng .list li").OverChange();}</script></literal>
+<include file="Public:footer" />
+
+</body>
+</html>

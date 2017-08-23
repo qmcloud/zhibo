@@ -1,0 +1,2669 @@
+﻿<tagLib name="html" />
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<meta property="qc:admins" content="2750151677611255646" />
+
+	<head>
+		<script language="javascript" src="__PUBLIC__/js/20120825/jquery.js"></script>
+		<script language="javascript" src="__PUBLIC__/js/20120825/jquery.lazyload.min.js"></script>
+		<script language="javascript" src="__PUBLIC__/js/20120825/blocksit.min.js"></script>
+		<script language="javascript" src="__PUBLIC__/js/20120825/jquery.SuperSlide.2.1.1.js"></script>
+		<script language="javascript" src="__PUBLIC__/js/20120825/common.js"></script>
+		<script language="javascript" src="__PUBLIC__/js/20120825/wishing.js"></script>
+		<script language="javascript" src="__PUBLIC__/js/20120825/jquery.cookie.js"></script>
+
+		<script>
+			var _hmt = _hmt || [];
+			
+			(function() {
+			
+			  var hm = document.createElement("script");
+			
+			  hm.src = "//hm.baidu.com/hm.js?81b01f6de94b8bbab31cb76d67ef3200";
+			
+			  var s = document.getElementsByTagName("script")[0]; 
+			
+			  s.parentNode.insertBefore(hm, s);
+			
+			})();
+			var datalist;
+			var gsid;
+			var num = 0;
+			var more_s;
+			function getcon_init(sid)
+			{
+				
+				$.cookie("csid2015",sid,
+				{
+					path:"/",
+				})
+				
+				var setmap1;
+				setmap1 = $.cookie("setmap1");
+				
+				var order;
+				order = $.cookie("order2015");
+				
+				var province = $.cookie("province");
+				gsid = sid;
+
+				//导航栏高亮
+				$("#itemul a").css({
+					color:"#333",
+					"font-size":"16px"
+				})
+				$("#item"+sid).css({
+					color:"#f44103",
+					"font-size":"23px"
+				})
+				//$("#conlist").html("<br /><br /><br />加载中...")
+				$(function()
+				{
+					$.get("__URL__/listEmceeByGrade2",{sid:sid,province:province},function(data,t){
+						$("#conlist").html(data);
+						})
+				});
+			}
+			function getcon(sid)
+			{
+				getcon_init(sid);
+				//存cooike
+				$.cookie("csid2015",sid,
+				{
+					path:"/AAA/",
+				})
+				
+				var setmap1;
+				setmap1 = $.cookie("setmap1");
+				
+				var order;
+				order = $.cookie("order2015");
+				
+				var selectpro;
+				selectpro = $.cookie("province");
+				
+				if(sid!=gsid)
+				{
+					num = 0;
+					$("#conlist").html("");
+				}
+					gsid = sid;
+
+					//导航栏高亮
+					$("#itemul a").css({
+						color:"#333",
+						"font-size":"16px"
+					})
+					$("#item"+sid).css({
+						color:"#f44103",
+						"font-size":"23px"
+					})
+					//$("#conlist").html("<br /><br /><br />加载中...")
+					$(function()
+					{
+						$.get("__URL__/listEmceeByGrade2",{sid:sid,num:num,order:order,setmap1:setmap1,province:province},function(data,t){
+							//$("#conlist").html(data);
+							datalist = data;
+	
+							})
+					});
+					
+			}
+			
+			$(function(){
+			//获取分类列表
+		
+				//if(datalist!=null)
+				//{
+					//alert(datalist);
+					$(window).scroll(function(){
+				
+							// 当滚动到最底部以上50像素时， 加载新内容
+						if ($(document).height() - $(this).scrollTop() - $(this).height()<50){
+							num = num+10;
+							
+							//alert(datalist+'----');
+							//alert("saaaaaa");
+							if(datalist!='')
+							{
+								getcon(gsid);
+
+								$('#conlist').append(datalist);
+								$('#container').BlocksIt({
+									numOfCol:5,
+									offsetX: 8,
+									offsetY: 8
+								});
+								$("img.lazy").lazyload();
+							}
+							else
+							{
+								if(more_s!=1)
+								{
+									$('#conlist').append("没有更多内容了。");
+									more_s=1;
+								}
+							}
+
+				
+						}
+					});
+				//}
+				
+				//window resize
+				var currentWidth = 1100;
+				$(window).resize(function() {
+					var winWidth = $(window).width();
+					var conWidth;
+					if(winWidth < 660) {
+						conWidth = 440;
+						col = 2
+					} else if(winWidth < 880) {
+						conWidth = 660;
+						col = 3
+					} else if(winWidth < 1100) {
+						conWidth = 880;
+						col = 4;
+					} else {
+						conWidth = 1100;
+						col = 5;
+					}
+					
+					if(conWidth != currentWidth) {
+						currentWidth = conWidth;
+						$('#container').width(conWidth);
+						$('#container').BlocksIt({
+							numOfCol: col,
+							offsetX: 8,
+							offsetY: 8
+						});
+					}
+				});
+			});
+			$(function()
+			{
+				$("#selectpro ul li a").bind("click",e_selectpro);
+			})
+			
+			function e_selectpro()
+			{
+				var t =  $(this).text();
+				$.cookie("province",t,
+				{
+					path:"/",
+				})
+				num = 0;
+				getcon_init($.cookie("csid2015"))
+
+				getcon($.cookie("csid2015"));
+			}
+	
+		</script>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<meta name="google-site-verification" content="0aZ4Gsm8rh_g0ZvQDu4zck_ZbI9R4U2Dkdn18lmt8XU" />
+
+		<title>{$sitename}</title>
+
+		<meta name="keywords" content="{$metakeyword}" />
+
+		<meta name="description" content="{$metadesp}" />
+
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/20120825/icon_font_MIN_0.02.css">
+		<link rel="stylesheet" href="__PUBLIC__/css/20120825/common.css" type="text/css" />
+		<link rel="stylesheet" href="/Tpl/Newtpl/Public/css/home.css" type="text/css" />
+		
+
+		<script language="javascript">
+			function killerrors() { 
+				return true; 
+			} 
+		
+		
+		
+		
+		
+		
+		
+			window.onerror = killerrors; 
+		
+		
+		
+		
+		
+		
+		
+			$(document).ready(function(){
+		
+		
+		
+				$('.hide').live('click', function() {
+		
+				    $(this).siblings('ul').slideToggle('fast');
+		
+				});
+		
+		
+		
+				$("#loginDiv").load('__APP__/Show/show_indexLogin/',function (responseText, textStatus, XMLHttpRequest){this;});
+		
+		
+		
+		
+		
+				//申请家族未登录时返回首页弹出提示框
+		
+		
+		
+				var familyApply = "null";
+		
+		
+		
+		
+		
+		
+		
+				if(familyApply == "0"){
+		
+		
+		
+		
+		
+		
+		
+					window.location.href = "javascript:UAC.openUAC(0)";
+		
+		
+		
+				}
+		
+		
+		
+				<volist name='usersorts' id='vo' key='k'>
+		
+		
+		
+		
+		
+		
+		
+				<volist name="vo['voo']" id="sub" key='kk'>
+		
+		
+		
+		
+		
+		
+		
+				$("#grade{$k}{$kk}").html('正在载入主播，请稍候...');
+		
+		
+		
+		
+		
+		
+		
+				$("#grade{$k}{$kk}").load('__URL__/listIndexEmcee_majorType/sid/{$sub['id']}',function (responseText, textStatus, XMLHttpRequest){this;});
+		
+		
+		
+				</volist>
+		
+		
+		
+		
+		
+		
+		
+				</volist>
+		
+		
+		
+		
+		
+		
+		
+				$("#grade0").html('正在载入主播，请稍候...');
+		
+		
+		
+		
+		
+		
+		
+				$("#grade0").load('__URL__/listIndexEmcee_majorType/sid/0',function (responseText, textStatus, XMLHttpRequest){this;});
+		
+		
+		
+		
+		
+		
+		
+				var adindex=$cookie.getCookie("fav_cookie");
+		
+		
+		
+		
+		
+		
+		
+				if(adindex=="1"){
+		
+		
+		
+		
+		
+		
+		
+					$('#floatLayerFavDiv').hide();
+		
+		
+		
+		
+		
+		
+		
+				}else{
+		
+		
+		
+		
+		
+		
+		
+					$('#floatLayerFavDiv').show();
+		
+		
+		
+		
+		
+		
+		
+					var fav=$('.collect_wrap .a1');
+		
+		
+		
+		
+		
+		
+		
+					if(Sys.chrome){
+		
+		
+		
+		
+		
+		
+		
+						fav.eq(1).show();
+		
+		
+		
+		
+		
+		
+		
+						fav.eq(0).hide();
+		
+		
+		
+		
+		
+		
+		
+					}else{
+		
+		
+		
+		
+		
+		
+		
+						fav.eq(0).show();
+		
+		
+		
+		
+		
+		
+		
+						fav.eq(1).hide();
+		
+		
+		
+		
+		
+		
+		
+					}
+		
+		
+		
+		
+		
+		
+		
+				};	
+		
+		
+		
+				//验证是否登陆打开登陆页面
+		
+		
+		
+				FirstOpenUAC();
+		
+		
+		
+			});
+		
+		
+		
+		
+		
+			function FirstOpenUAC(){
+		
+		
+		
+		        $.ajax({
+		
+		
+		
+		
+		
+		            data:"t="+Math.random(),
+		
+		
+		
+		
+		
+		
+		
+		            type:'get',
+		
+		
+		
+		
+		
+		
+		
+		            async:false,
+		
+		
+		
+		            success: function(data){
+		
+		
+		
+		                if(data=='0'){
+		
+		
+		
+		               	setTimeout(function(){window.location.href = "javascript:UAC.openUAC(0)";},0);
+		
+		
+		
+		                }
+		
+		
+		
+		           }
+		
+		        });
+		
+			}
+		</script>
+
+		<script language="javascript">
+			var size = 0;
+			
+			
+			
+				size = 15;
+			
+			
+			
+			var firstIndex = 0;
+			
+			
+			
+			
+			
+			
+			
+			var lastIndex =0;
+			
+			
+			
+			
+			
+			if(size>=2){
+			
+			
+			
+				firstIndex = 0;
+			
+			
+			
+				lastIndex = size-1;
+			
+			}
+			
+			
+			
+			var emcList;
+			
+			
+			
+				emcList = eval([]);
+			
+			
+			
+			function changeEmcee(id){
+			
+			
+			
+				if(emcList!=""){
+			
+			
+			
+					var content; 
+			
+			
+			
+					if(id=="emcee_1"){
+			
+			
+			
+						var pic;
+			
+			
+			
+						if(++firstIndex>size-1){
+			
+			
+			
+							firstIndex=0;	
+			
+						}
+			
+			
+			
+						if(firstIndex==lastIndex){
+			
+			
+			
+							if(++firstIndex>size-1){
+			
+			
+			
+								firstIndex=0;
+			
+							}
+			
+						}
+			
+			
+			
+			
+			
+			
+			
+						if(emcList[firstIndex].coverPic==""||emcList[firstIndex].coverPic==null){
+			
+			
+			
+			
+			
+			
+			
+							pic = emcList[firstIndex].icon;
+			
+						}else{
+			
+			
+			
+			
+			
+			
+			
+							pic = emcList[firstIndex].coverPic;
+			
+						}
+			
+			
+			
+			
+			
+			
+			
+						if(emcList[firstIndex].personNumber==null){
+			
+			
+			
+			
+			
+			
+			
+							emcList[firstIndex].personNumber = 0;
+			
+						}
+			
+			
+			
+			
+			
+			
+			
+						content = $('<a href="/'+ emcList[firstIndex].emceeNo +'"   target="_blank"><img src="'+ pic+'" /></a>'+
+			
+			
+			
+			
+			
+			
+			
+									'<div class="bigbg"></div>'+
+			
+			
+			
+			
+			
+			
+			
+									'<span class="rechange" onclick="changeEmcee(&#039;' + id + '&#039;);">换一换</span>'+
+			
+			
+			
+			
+			
+			
+			
+									'<div class="text">'+
+			
+			
+			
+			
+			
+			
+			
+										'<p><span>'+ emcList[firstIndex].personNumber +'</span>人</p>'+
+			
+			
+			
+			
+			
+			
+			
+										'<a  href="/'+ emcList[firstIndex].emceeNo +'" title="'+emcList[firstIndex].nickName+'" target="_blank">'+emcList[firstIndex].nickName + '</a>'+
+			
+			
+			
+			
+			
+			
+			
+									'</div>');
+			
+			
+			
+			
+			
+			
+			
+						$("#"+id).html(content);
+			
+			
+			
+			
+			
+			
+			
+					}else{
+			
+			
+			
+			
+			
+			
+			
+						var pic;
+			
+			
+			
+			
+			
+			
+			
+						if(--lastIndex<0){
+			
+			
+			
+			
+			
+			
+			
+							lastIndex = size-1;
+			
+			
+			
+			
+			
+			
+			
+						}
+			
+			
+			
+			
+			
+			
+			
+						if(lastIndex==firstIndex){
+			
+			
+			
+			
+			
+			
+			
+							if(--lastIndex<0){
+			
+			
+			
+			
+			
+			
+			
+								lastIndex = size-1;
+			
+			
+			
+			
+			
+			
+			
+							}
+			
+			
+			
+			
+			
+			
+			
+						}
+			
+			
+			
+			
+			
+			
+			
+						if(emcList[lastIndex].coverPic==""||emcList[lastIndex].coverPic==null){
+			
+			
+			
+			
+			
+			
+			
+							pic = emcList[lastIndex].icon;
+			
+			
+			
+			
+			
+			
+			
+						}else{
+			
+			
+			
+			
+			
+			
+			
+							pic = emcList[lastIndex].coverPic;
+			
+			
+			
+			
+			
+			
+			
+						}
+			
+			
+			
+			
+			
+			
+			
+						if(emcList[lastIndex].personNumber==null){
+			
+			
+			
+			
+			
+			
+			
+							emcList[lastIndex].personNumber = 0;
+			
+			
+			
+			
+			
+			
+			
+						}
+			
+			
+			
+			
+			
+			
+			
+						content = $('<a href="/'+ emcList[lastIndex].emceeNo +'"  target="_blank"><img src="'+ pic +'" /></a>'+
+			
+			
+			
+			
+			
+			
+			
+									'<div class="bigbg"></div>'+
+			
+			
+			
+			
+			
+			
+			
+									'<span class="rechange" onclick="changeEmcee(&#039;' + id + '&#039;);">换一换</span>'+
+			
+			
+			
+			
+			
+			
+			
+									'<div class="text">'+
+			
+			
+			
+			
+			
+			
+			
+										'<p><span>'+ emcList[lastIndex].personNumber +'</span>人</p>'+
+			
+			
+			
+			
+			
+			
+			
+										'<a  href="/'+ emcList[lastIndex].emceeNo +'" title="'+ emcList[lastIndex].nickName +'" target="_blank">'+emcList[lastIndex].nickName + '</a>'+
+			
+			
+			
+			
+			
+			
+			
+									'</div>');
+			
+			
+			
+			
+			
+			
+			
+						$("#"+id).html(content);
+			
+			
+			
+			
+			
+			
+			
+					}
+			
+			
+			
+			
+			
+			
+			
+				}
+			
+			
+			
+			
+			
+			
+			
+			}
+		</script>
+
+	</head>
+
+	<!-- <body onload="onload_login();">  -->
+
+	<body>
+
+		<include file="Public:header" />
+
+		<div class="slidebar" id="focusImage">
+
+			<div class="slideimg"></div>
+
+			<div class="sildetab"></div>
+
+		</div>
+		</div>
+
+		<script type="text/javascript">
+			var FocusImages=new FocusImages({id:"#focusImage",imgW:"1180",imgH:"208",speed:"6000"},<volist name='rollpics' id='vo' key='k'>["{$vo['picpath']}","{$vo['linkurl']}","{$vo['title']}"]<?php if($k!=count($rollpics)){echo ',';} ?></volist>);
+	
+	
+	
+			   FocusImages.init();
+		</script>
+
+		<div style="width:1180px; margin:0 auto"></div>
+
+		<div class="wrap">
+
+			<!--body-left begin-->
+
+			<div class="category" id="emceecategories" style="display:none;">
+
+			</div>
+
+			<script language="javascript">
+				$(document).ready(function(){	
+			
+			
+			
+			
+			
+			
+			
+					$("#emceecategories").load('/index.php/Index/listEmceeCategoreis2/',function (responseText, textStatus, XMLHttpRequest){this;});					
+			
+			
+			
+			
+			
+			
+			
+				});
+			</script>
+
+			<!--body-left end-->
+
+			<div class="showbox" id="emceelist">
+				<!--
+	作者：voidcat@163.com
+	时间：2015-06-28
+	描述：小编推荐
+-->
+				<div class="model" id="grade99">
+					<h2 class="stitle">小编推荐</h2>
+					<ul class="sdes">
+						<volist name="recommend" id="vo" key="k">
+							<li id="emcee_{$k}">
+								<a href="/{$vo['curroomnum']}" target="_blank">
+									<img style="width:180px;height:120px" src="{$vo['bigpic']}" /> </a>
+								<div class="bigbg"></div> <span class="rechange" onClick="changeEmcee('emcee_{$k}');">换一换</span>
+								<p> <a href="/{$vo['curroomnum']}" title="{$vo['nickname']}" target="_blank">{$vo['nickname']}</a> </p>
+							</li>
+						</volist>
+					</ul>
+				</div>
+				<img src="/Tpl/Newtpl/Index/1.png" />
+				<div class="hot-anchor" id="hotAnchor" style="min-height: 600px;">
+					<div class="hot-anchor-hd js-bigTab">
+						<ul id="itemul"> <a style="font-size: 16px;text-decoration:none" id="item0" href="javascript:;" onclick="getcon(0)">新人</a> <i class="home-italic">|</i>
+							<volist name="usersorts" id="vo">
+								<volist name="vo.voo" id="vo2">
+									<li> <a id="item{$vo2.id}" style="font-size: 16px;text-decoration:none" href="javascript:;" onclick="getcon({$vo2.id})">{$vo2.sortname}</a> <i class="home-italic">|</i> </li>
+								</volist>
+							</volist>
+						</ul>
+					</div>
+					<div class="hot-anchor-tabWrapper">
+						<div class="hot-anchor-tab js-smallTab">
+							<a class="hot-anchor-tab1 cur js-tab" href="javascript:;" id="dclass" onclick="setorder('d')">默认</a>
+							<i class="hot-anchor-line1"></i>
+							<a class="hot-anchor-tab1 js-tab" href="javascript:;" id="numclass" onclick="setorder('num')">房间人数</a>
+							<a class="hot-anchor-tab2 js-area" href="javascript:;" onclick="setmap2('')">
+								<span>所有地区</span>
+								<em class="home-drop-down"></em>
+							</a>
+							<i class="hot-anchor-line2"></i>
+							<a class="hot-anchor-tab2 js-level" href="javascript:;" onclick="setmap1(0)"><span>所有等级</span><em class="home-drop-down"></em></a>
+						</div>
+						
+						<div class="hot-anchor-level js-levelSelect" style="display: none;z-index: 200;">
+							<a data-stype="" href="javascript:;" onclick="setmap1(0)">所有等级</a>
+
+							<volist name="emceelevel" id="vo">
+								<a href="javascript:;" onclick="setmap1({$vo.levelid})">{$vo.levelname}</a>
+							</volist>
+						</div>
+						
+						
+						
+						<div class="hot-anchor-area js-areaSelect" style="display:none;z-index:200;line-height: 26px;" id="selectpro">
+							<p class="js-tab" style="margin-bottom: 30px;"><a class="cur" id="hot" onclick="showprovince('hot')">热门省市</a><i>|</i><a href="javascript:void(0)" onclick="showprovince('abcfg')">ABCFG</a><i>|</i><a href="javascript:void(0)" onclick="showprovince('hjlnq')" >HJLNQ</a><i>|</i><a href="javascript:void(0)" onclick="showprovince('stxyz')">STXYZ</a>
+							</p>
+							<ul class="all-araa" id="Dshow">
+								<script>$("#selectpro ul li a").bind("click",e_selectpro);</script>
+								<li><a href="javascript:void(0)" data-stype="">所有地区</a><a href="javascript:void(0)" data-stype="province=19">广东</a><a href="javascript:void(0)" data-stype="province=23">四川</a><a href="javascript:void(0)" data-stype="province=9">上海</a>
+								</li>
+								<li><a href="javascript:void(0)" data-stype="province=8">黑龙江</a><a href="javascript:void(0)" data-stype="province=11">浙江</a><a href="javascript:void(0)" data-stype="province=1">北京</a><a href="javascript:void(0)" data-stype="province=10">江苏</a>
+								</li>
+								<li><a href="javascript:void(0)" data-stype="province=18">湖南</a><a href="javascript:void(0)" data-stype="province=22">重庆</a><a href="javascript:void(0)" data-stype="province=32">台湾</a>
+								</li>
+							</ul>
+							<ul style="display: none;" id="abcfg">
+							<script>$("#selectpro ul li a").bind("click",e_selectpro);</script>
+								<li><em>A</em><a href="javascript:void(0)" data-stype="province=12">安徽</a><a href="javascript:void(0)" data-stype="province=34">澳门</a>
+								</li>
+								<li><em>B</em><a href="javascript:void(0)" data-stype="province=1">北京</a>
+								</li>
+								<li><em>C</em><a href="javascript:void(0)" data-stype="province=22">重庆</a>
+								</li>
+								<li><em>F</em><a href="javascript:void(0)" data-stype="province=13">福建</a>
+								</li>
+								<li><em>G</em><a href="javascript:void(0)" data-stype="province=19">广东</a><a href="javascript:void(0)" data-stype="province=20">广西</a><a href="javascript:void(0)" data-stype="province=28">甘肃</a><a href="javascript:void(0)" data-stype="province=24">贵州</a>
+								</li>
+							</ul>
+							<ul style="display: none;" id="hjlnq">
+						<script>$("#selectpro ul li a").bind("click",e_selectpro);</script>
+								<li class="hot-area-special"><em>H</em><a href="javascript:void(0)" data-stype="province=8">黑龙江</a><a href="javascript:void(0)" data-stype="province=3">河北</a><a href="javascript:void(0)" data-stype="province=16">河南</a><a href="javascript:void(0)" data-stype="province=17">湖北</a><a href="javascript:void(0)" data-stype="province=18">湖南</a><a href="javascript:void(0)" data-stype="province=21">海南</a>
+								</li>
+								<li><em>J</em><a href="javascript:void(0)" data-stype="province=7">吉林</a><a href="javascript:void(0)" data-stype="province=10">江苏</a><a href="javascript:void(0)" data-stype="province=14">江西</a>
+								</li>
+								<li><em>L</em><a href="javascript:void(0)" data-stype="province=6">辽宁</a>
+								</li>
+								<li><em>N</em><a href="javascript:void(0)" data-stype="province=5">内蒙古</a><a href="javascript:void(0)" data-stype="province=30">宁夏</a>
+								</li>
+								<li><em>Q</em><a href="javascript:void(0)" data-stype="province=29">青海</a>
+								</li>
+							</ul>
+							<ul style="display: none;" id="stxyz">
+								<script>$("#selectpro ul li a").bind("click",e_selectpro);</script>
+								<li><em>S</em><a href="javascript:void(0)" data-stype="province=9">上海</a><a href="javascript:void(0)" data-stype="province=27">陕西</a><a href="javascript:void(0)" data-stype="province=15">山东</a><a href="javascript:void(0)" data-stype="province=4">山西</a><a href="javascript:void(0)" data-stype="province=23">四川</a>
+								</li>
+								<li><em>T</em><a href="javascript:void(0)" data-stype="province=2">天津</a><a href="javascript:void(0)" data-stype="province=32">台湾</a>
+								</li>
+								<li><em>X</em><a href="javascript:void(0)" data-stype="province=31">新疆</a><a href="javascript:void(0)" data-stype="province=26">西藏</a><a href="javascript:void(0)" data-stype="province=33">香港</a>
+								</li>
+								<li><em>Y</em><a href="javascript:void(0)" data-stype="province=25">云南</a>
+								</li>
+								<li><em>Z</em><a href="javascript:void(0)" data-stype="province=11">浙江</a>
+								</li>
+							</ul>
+						</div>
+						<script>
+							getcon_init(0)
+						</script>
+						<div id="conlist" style="clear: both;"> </div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="r_side">
+
+			<!--登录 begin-->
+
+			<div class="rcolumn" id="loginDiv" style="display:none">
+
+			</div>
+
+			<!--登录 end-->
+
+			<!--提示 begin-->
+			<img src="/Tpl/Newtpl/Index/2.png" />
+
+			<div class="p-Song" id="alertBox">
+
+				<div class="m-songt"><span class="s-close" id="close_msg"></span>
+
+					<h4>提示</h4>
+
+				</div>
+
+				<div class="m-songv">
+
+					<div class="promt-msg">
+
+						<p class="msg-text" id="msg_text"></p>
+
+						<div class="msg-btn" id="poptype1"><span class="play-btn" id="data-confirm">确定</span>
+						</div>
+
+						<div class="msg-btn" id="poptype2">
+
+							<span id="btnAgree" class="play-btn">同意</span>
+
+							<span id="btnDisgree" class="play-btn">取消</span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!--提示 end-->
+
+			<div id="sortslist">
+			</div>
+			<!--<div>
+    <p style="display: inline;color:#19A4ED;font-size: 21px;font-weight: bold;">粉丝群:</p>
+	<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=dd55aa4677b08132f7ca5d5314aef9897ddea495ba327da7fc98cbcdcc042ecc"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="爱悠悠主播u粉群" title="爱悠悠主播u粉群"></a>
+</div>
+-->
+
+			<!--秀场公告 begin-->
+
+			<!--
+	   <div class="rcolumn">
+
+
+
+	   	 <h2 class="rtitle"><img src="/Public/images/gg5.png" style="margin-top:5px;"> </h2>
+
+
+
+	 <div class="notics">
+
+
+
+					<volist name='announces' id='vo' key='k'>
+
+
+
+	   				<p>·<a href="__APP__/Ann/view/{$vo['id']}" target="_blank">{$vo['title']}</a></p>
+
+
+
+	   		   		</volist>
+
+
+
+	   
+
+
+
+		  </div>
+
+
+	   </div>
+-->
+
+			<!--秀场公告 end-->
+			<div class="ladyScroll">
+				<a class="prev" href="javascript:void(0)"></a>
+				<div class="scrollWrap">
+					<div class="dlList">
+						<dl>
+							<dt><a href="http://www.SuperSlide2.com"><img src="images/1.jpg"></a><span></span></dt>
+							<dd><a href="#">甜美展现得淋漓尽致</a>
+							</dd>
+						</dl>
+
+						<dl>
+							<dt><a href="http://www.SuperSlide2.com"><img src="images/2.jpg"></a><span></span></dt>
+							<dd><a href="#">回眸一笑让人着迷</a>
+							</dd>
+						</dl>
+
+						<dl>
+							<dt><a href="http://www.SuperSlide2.com"><img src="images/3.jpg"></a><span></span></dt>
+							<dd><a href="#">阔腿裤遮住小象腿</a>
+							</dd>
+						</dl>
+
+						<dl>
+							<dt><a href="http://www.SuperSlide2.com"><img src="images/4.jpg"></a><span></span></dt>
+							<dd><a href="#">小礼服可爱小女人</a>
+							</dd>
+						</dl>
+
+					</div>
+
+				</div>
+				<a class="next" href="javascript:void(0)"></a>
+			</div>
+			<script type="text/javascript">
+				jQuery(".ladyScroll").slide({ mainCell:".dlList", effect:"leftLoop",vis:1, autoPlay:true});
+			</script>
+			<!--精彩时间表-->
+
+			<div class="progNotice" id="progNotice" style="display:none;">
+
+				<h3><i></i>精彩节目时间表</h3>
+
+				<ul class="tab">
+
+					<li class="on first"><a>周六<br /><span>06-13</span></a>
+					</li>
+
+					<li><a>周日<br /><span>06-14</span></a>
+					</li>
+
+					<li><a>周一<br /><span>06-15</span></a>
+					</li>
+
+					<li><a>周二<br /><span>06-16</span></a>
+					</li>
+
+					<li class="last"><a>周三<br /><span>06-17</span></a>
+					</li>
+
+				</ul>
+
+				<dl class="con" style="display:block">
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi4.6rooms.com/live/2015/01/20/16/1013v1421741322239479123.jpg" src="http://vi4.6rooms.com/live/2015/01/20/16/1013v1421741322239479123.jpg" alt="六间房夜话" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="六间房夜话">六间房夜话</a><a href="#progNotice" class="prog_98 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>21:30</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi2.6rooms.com/live/2014/03/18/15/1013v1395126094590286213.jpg" src="http://vi2.6rooms.com/live/2014/03/18/15/1013v1395126094590286213.jpg" alt="天音唱团" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="天音唱团">天音唱团</a><a href="#progNotice" class="prog_86 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>18:00</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi4.6rooms.com/live/2015/01/04/11/1013v1420341844435033560.jpg" src="http://vi4.6rooms.com/live/2015/01/04/11/1013v1420341844435033560.jpg" alt="炫舞天团" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="炫舞天团">炫舞天团</a><a href="#progNotice" class="prog_133 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>20:00</dd>
+
+				</dl>
+
+				<dl class="con">
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi2.6rooms.com/live/2014/10/08/11/1013v1412738614897694178.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="MC争霸赛" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="MC争霸赛">MC争霸赛</a><a href="#progNotice" class="prog_18 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>21:00</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi2.6rooms.com/live/2014/03/18/15/1013v1395126094590286213.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="天音唱团" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="天音唱团">天音唱团</a><a href="#progNotice" class="prog_86 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>18:00</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi4.6rooms.com/live/2015/01/04/11/1013v1420341844435033560.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="炫舞天团" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="炫舞天团">炫舞天团</a><a href="#progNotice" class="prog_133 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>20:00</dd>
+
+				</dl>
+
+				<dl class="con">
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi3.6rooms.com/live/2014/10/08/11/1013v1412738723720432580.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="六间房气象站" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="六间房气象站">六间房气象站</a><a href="#progNotice" class="prog_42 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>19:15</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi1.6rooms.com/live/2014/10/08/11/1013v1412738477560868608.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="幸运新主播" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="幸运新主播">幸运新主播</a><a href="#progNotice" class="prog_3 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>20:00</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi2.6rooms.com/live/2014/03/18/15/1013v1395126094590286213.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="天音唱团" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="天音唱团">天音唱团</a><a href="#progNotice" class="prog_86 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>18:00</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi4.6rooms.com/live/2015/01/04/11/1013v1420341844435033560.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="炫舞天团" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="炫舞天团">炫舞天团</a><a href="#progNotice" class="prog_133 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>20:00</dd>
+
+				</dl>
+
+				<dl class="con">
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi1.6rooms.com/live/2014/10/08/11/1013v1412738643868582931.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="一唱到底" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="一唱到底">一唱到底</a><a href="#progNotice" class="prog_22 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>20:00</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi1.6rooms.com/live/2014/10/08/11/1013v1412738477560868608.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="幸运新主播" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="幸运新主播">幸运新主播</a><a href="#progNotice" class="prog_3 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>15:00</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi2.6rooms.com/live/2014/03/18/15/1013v1395126094590286213.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="天音唱团" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="天音唱团">天音唱团</a><a href="#progNotice" class="prog_86 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>18:00</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi4.6rooms.com/live/2015/01/04/11/1013v1420341844435033560.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="炫舞天团" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="炫舞天团">炫舞天团</a><a href="#progNotice" class="prog_133 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>20:00</dd>
+
+				</dl>
+
+				<dl class="con">
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi3.6rooms.com/live/2014/10/08/11/1013v1412738686867274978.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="超级达人秀" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="超级达人秀">超级达人秀</a><a href="#progNotice" class="prog_25 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>20:00</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi1.6rooms.com/live/2014/10/08/11/1013v1412738477560868608.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="幸运新主播" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="幸运新主播">幸运新主播</a><a href="#progNotice" class="prog_3 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>15:00</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi2.6rooms.com/live/2014/03/18/15/1013v1395126094590286213.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="天音唱团" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="天音唱团">天音唱团</a><a href="#progNotice" class="prog_86 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>18:00</dd>
+
+					<dt class="pic"><a href="#" target="_blank"><img src3="http://vi4.6rooms.com/live/2015/01/04/11/1013v1420341844435033560.jpg" src="http://vr1.6rooms.com/imges/pixel.gif" alt="炫舞天团" /></a></dt>
+
+					<dd class="title"><a href="#" target="_blank" title="炫舞天团">炫舞天团</a><a href="#progNotice" class="prog_133 state"><span class="btn1">预定</span><span class="btn2">已定</span><span class="btn3">取消</span></a>
+					</dd>
+
+					<dd class="info"><span>开播</span>20:00</dd>
+
+				</dl>
+
+			</div>
+
+			<script>
+				$love_ids = [25592641,31489796,17599968,38491407,41491125,43784405,24412432,28462842,30433831,40823343,37227940,53132155,25206732,39321199,21009984,52171237,50974636,42609959,47868641,56552252,"42909366","21110423","59804302","51100633","54763157","40612337","47139694","26660036"];
+				
+				if (location.hash=='#f14'){
+				
+				
+				
+				  location.href='http://v.6.cn/help.php'
+				
+				
+				
+				}
+				
+				
+				
+				
+				
+				
+				
+				var myPanelAfor_guest;
+				
+				
+				
+				$LAB.script(JSF.login).wait(function(){
+				
+				
+				
+				  Login.write();
+				
+				
+				
+				  if(_puser.uid){
+				
+				
+				
+					document.getElementById('for_user').style.display='block';
+				
+				
+				
+				  }else{
+				
+				
+				
+					document.getElementById('for_guest').style.display='block';
+				
+				
+				
+					document.getElementById('guest_tab').style.display='block';
+				
+				
+				
+				  }
+				
+				
+				
+				})
+				
+				
+				
+				.script(JSF.z).wait(function(){
+				
+				
+				
+				    new ControlCenter({centerBtn:'#myAccountTool'});
+				
+				
+				
+				})
+				
+				
+				
+				.script(JSF.index).wait(function(){
+				
+				
+				
+				  var $ = jQuery;
+				
+				
+				
+				  AddReady(function(){
+				
+				
+				
+				    IndexDef.init();
+				
+				
+				
+					Lives.init();
+				
+				
+				
+				
+				
+				
+				
+				    setTimeout(function(){
+				
+				
+				
+						  myTrack.init();
+				
+				
+				
+					  },3000) // 我的动态
+				
+				
+				
+				
+				
+				
+				
+				    RankTop.init(); //右侧排行榜
+				
+				
+				
+				    progNotice.init(); //精彩节目预告
+				
+				
+				
+				    forecast.init(); //嗨唱 预告
+				
+				
+				
+				
+				
+				
+				
+				  }); // add Ready
+				
+				
+				
+				    if($.browser.msie && $.browser.version=='6.0') {
+				
+				
+				
+				      $LAB.script(JSF.png).wait(function(){
+				
+				
+				
+				        DD_belatedPNG.fix('.showWall_box .toggleBox .pushBtn a, .header .logo img');
+				
+				
+				
+				      });
+				
+				
+				
+				    }
+				
+				
+				
+				  })
+				
+				
+				
+				.script(JSF.swf).wait()
+				
+				
+				
+				.script(JSF.im);
+			</script>
+
+			<!--精彩时间表 end-->
+
+			<!--明星排行榜 begin-->
+
+			<div class="rcolumn">
+
+				<div class="listtip">
+
+					<h2 class="rtitle">明星榜</h2>
+					<div class="star_tab">
+
+						<a class="on" id="lm1_1" onMouseOver="turn(1,4,1);"><span class="no">日</span></a>
+						<i class="home-italicS"></i>
+
+						<a id="lm1_2" onMouseOver="turn(2,4,1);"><span>周</span><i class="home-italicS"></i></a>
+						<i class="home-italicS"></i>
+
+						<a id="lm1_3" onMouseOver="turn(3,4,1);"><span>月</span><i class="home-italicS"></i></a>
+						<i class="home-italicS"></i>
+
+						<a id="lm1_4" onMouseOver="turn(4,4,1);"><span>超级</span></a>
+
+					</div>
+					<div class="clear"></div>
+
+					<ol class="star_view" id="content1_1">
+
+						<volist name='emceeRank_day' id='vo' key='k'>
+
+							<?php $userinfo=D ( "Member")->find($vo['uid']); $emceelevel = getEmceelevel($userinfo['earnbean']); ?>
+
+							<li>
+								<if condition="$k eq 6"></if><em>{$k}</em>
+								<a href="{$userinfo['curroomnum']}" title="{$userinfo['nickname']}" target="_blank">
+									<img src="{$userinfo['bigpic']}" title="点击进入">{$userinfo['nickname']}</a><span class="star star{$emceelevel[0]['levelid']}"></span>
+							</li>
+
+						</volist>
+
+					</ol>
+
+					<ol class="star_view" id="content1_2" style="display:none;">
+
+						<volist name='emceeRank_week' id='vo' key='k'>
+
+							<?php $userinfo=D ( "Member")->find($vo['uid']); $emceelevel = getEmceelevel($userinfo['earnbean']); ?>
+
+							<li>
+								<if condition="$k eq 6"></if><em>{$k}</em>
+								<a href="{$userinfo['curroomnum']}" title="{$userinfo['nickname']}" target="_blank">
+									<img src="{$userinfo['bigpic']}" title="点击进入">{$userinfo['nickname']}</a><span class="star star{$emceelevel[0]['levelid']}"></span>
+							</li>
+
+						</volist>
+
+					</ol>
+
+					<ol class="star_view" id="content1_3" style="display:none;">
+
+						<volist name='emceeRank_month' id='vo' key='k'>
+
+							<?php $userinfo=D ( "Member")->find($vo['uid']); $emceelevel = getEmceelevel($userinfo['earnbean']); ?>
+
+							<li>
+								<if condition="$k eq 6"></if><em>{$k}</em>
+								<a href="{$userinfo['curroomnum']}" title="{$userinfo['nickname']}" target="_blank">
+									<img src="{$userinfo['bigpic']}" title="点击进入">{$userinfo['nickname']}</a><span class="star star{$emceelevel[0]['levelid']}"></span>
+							</li>
+
+						</volist>
+
+					</ol>
+
+					<ol class="star_view" id="content1_4" style="display:none;">
+
+						<volist name='emceeRank_all' id='vo' key='k'>
+
+							<?php $userinfo=D ( "Member")->find($vo['uid']); $emceelevel = getEmceelevel($userinfo['earnbean']); ?>
+
+							<li>
+								<if condition="$k eq 6"></if><em>{$k}</em>
+								<a href="{$userinfo['curroomnum']}" title="{$userinfo['nickname']}" target="_blank">
+									<img src="{$userinfo['bigpic']}" title="点击进入">{$userinfo['nickname']}</a><span class="star star{$emceelevel[0]['levelid']}"></span>
+							</li>
+
+						</volist>
+
+					</ol>
+
+				</div>
+
+			</div>
+
+			<!--明星排行榜 end-->
+
+			<!--富翁排行榜 begin-->
+
+			<div class="rcolumn">
+
+				<h2 class="rtitle">富豪榜</h2>
+
+				<div class="listtip">
+
+					<div class="star_tab">
+
+						<a class="on" id="lm2_1" onMouseOver="turn(1,4,2);"><span class="no">日榜</span></a>
+						<i class="home-italicS"></i>
+						<a id="lm2_2" onMouseOver="turn(2,4,2);"><span>周</span></a>
+						<i class="home-italicS"></i>
+						<a id="lm2_3" onMouseOver="turn(3,4,2);"><span>月</span></a>
+						<i class="home-italicS"></i>
+						<a id="lm2_4" onMouseOver="turn(4,4,2);"><span>超级</span></a>
+
+						</ul>
+
+						<ol class="star_view" id="content2_1">
+
+							<volist name='richRank_day' id='vo' key='k'>
+
+								<?php $userinfo=D ( "Member")->find($vo['uid']); $richlevel = getRichlevel($userinfo['spendcoin']); ?>
+
+								<li>
+									<if condition="$k eq 6"></if><em>{$k}</em>
+									<a href="{$userinfo['curroomnum']}" title="{$userinfo['nickname']}" target="_blank">
+										<img src="{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle" />{$userinfo['nickname']}</a><span class="cracy cra{$richlevel[0]['levelid']}"></span>
+								</li>
+
+							</volist>
+
+						</ol>
+
+						<ol class="star_view" id="content2_2" style="display:none;">
+
+							<volist name='richRank_week' id='vo' key='k'>
+
+								<?php $userinfo=D ( "Member")->find($vo['uid']); $richlevel = getRichlevel($userinfo['spendcoin']); ?>
+
+								<li>
+									<if condition="$k eq 6"></if><em>{$k}</em>
+									<a href="{$userinfo['curroomnum']}" title="{$userinfo['nickname']}" target="_blank">
+										<img src="{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle" />{$userinfo['nickname']}</a><span class="cracy cra{$richlevel[0]['levelid']}"></span>
+								</li>
+
+							</volist>
+
+						</ol>
+
+						<ol class="star_view" id="content2_3" style="display:none;">
+
+							<volist name='richRank_month' id='vo' key='k'>
+
+								<?php $userinfo=D ( "Member")->find($vo['uid']); $richlevel = getRichlevel($userinfo['spendcoin']); ?>
+
+								<li>
+									<if condition="$k eq 6"></if><em>{$k}</em>
+									<a href="{$userinfo['curroomnum']}" title="{$userinfo['nickname']}" target="_blank">
+										<img src="{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle" />{$userinfo['nickname']}</a><span class="cracy cra{$richlevel[0]['levelid']}"></span>
+								</li>
+
+							</volist>
+
+						</ol>
+
+						<ol class="star_view" id="content2_4" style="display:none;">
+
+							<volist name='richRank_all' id='vo' key='k'>
+
+								<?php $userinfo=D ( "Member")->find($vo['uid']); $richlevel = getRichlevel($userinfo['spendcoin']); ?>
+
+								<li>
+									<if condition="$k eq 6"></if><em>{$k}</em>
+									<a href="{$userinfo['curroomnum']}" title="{$userinfo['nickname']}" target="_blank">
+										<img src="{$ucurl}avatar.php?uid={$userinfo['ucuid']}&size=middle" />{$userinfo['nickname']}</a><span class="cracy cra{$richlevel[0]['levelid']}"></span>
+								</li>
+
+							</volist>
+
+						</ol>
+
+					</div>
+
+				</div>
+
+				<!--富翁排行榜 end-->
+
+				<!--结束-->
+			</div>
+			<div class="conR-item home-news home-notice">
+				<div class="conR-hd">
+					<h2>公告</h2>
+				</div>
+				<div class="home-news-bd">
+					<ul>
+						<volist name="announce" id="vo">
+							<li><em></em><a href="http://www.bobo.com/15/0507/03/AOVUKMC9003500FP.html#operate" title="{$vo.title}" target="_blank">{$vo.title}</a>
+							</li>
+						</volist>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<include file="Public:footer" />
+
+	</body>
+
+</html>
+
+<script>
+	function code_login(){
+	
+	
+	
+	
+	
+	
+	
+			document.getElementById('img_authCode1').src='__APP__/Base/verify/v/'+Math.random();
+	
+	
+	
+	
+	
+	
+	
+			document.getElementById('img_authCode1').style.display="block";
+	
+	
+
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var isMouseOver = false;
+	
+	
+	
+	
+	
+	
+	
+	function code_login2(){
+	
+	
+	
+	
+	
+	
+	
+	      if(isMouseOver != true) {
+	
+	
+	
+	
+	
+	
+	
+			document.getElementById('img_authCode1').src='__APP__/Base/verify/v/'+Math.random();
+	
+	
+	
+	
+	
+	
+	
+			document.getElementById('img_authCode1').style.display="block";
+	
+	
+	
+	
+	
+	
+	
+			isMouseOver = true;
+	
+	
+	
+	
+	
+	
+	
+	      }
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function onload_login(){
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			document.getElementById('img_authCode1').src='__APP__/Base/verify/v/'+Math.random();
+	
+	
+	
+	
+	
+	
+	
+			document.getElementById('img_authCode1').style.display="block";
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function login(){  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		document.getElementById("username").value = document.getElementById("username").value.trim();
+	
+	
+	
+	
+	
+	
+	
+		document.getElementById("password").value = document.getElementById("password").value.trim();
+	
+	
+	
+	
+	
+	
+	
+		document.getElementById("login_validateCode").value = document.getElementById("login_validateCode").value.trim();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		var userName = document.getElementById("username").value;
+	
+	
+	
+	
+	
+	
+	
+		var passwd   = document.getElementById("password").value;
+	
+	
+	
+	
+	
+	
+	
+		var vc=document.getElementById("login_validateCode").value;
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+		if(userName==""){ 
+	
+	
+	
+	
+	
+	
+	
+			document.getElementById("username").focus();
+	
+	
+	
+	
+	
+	
+	
+			return;
+	
+	
+	
+	
+	
+	
+	
+		}
+	
+	
+	
+	
+	
+	
+	
+		if(passwd==""){ 
+	
+	
+	
+	
+	
+	
+	
+			document.getElementById("password").focus();
+	
+	
+	
+	
+	
+	
+	
+			return;
+	
+	
+	
+	
+	
+	
+	
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		if(vc==""){ 
+	
+	
+	
+	
+	
+	
+	
+			document.getElementById("login_validateCode").focus();
+	
+	
+	
+	
+	
+	
+	
+			return;
+	
+	
+	
+	
+	
+	
+	
+		}
+	
+	
+	
+	
+	
+	
+	
+		 $.ajax({
+	
+	
+	
+	
+	
+	
+	
+				contentType:"application/x-www-form-urlencoded:charset=UTF-8",
+	
+	
+	
+	
+	
+	
+	
+				url:'__APP__/Passport/dologin/',
+	
+	
+	
+	
+	
+	
+	
+				data:'userName='+userName+'&password='+passwd+'&validateCode='+encodeURIComponent(vc),
+	
+	
+	
+	
+	
+	
+	
+				type:'get',
+	
+	
+	
+	
+	
+	
+	
+				async:false,
+	
+	
+	
+	
+	
+	
+	
+				success: function(data){
+	
+	
+	
+	
+	
+	
+	
+					var json = eval("(" + data + ")");
+	
+	
+	
+	
+	
+	
+	
+					if(json.code=="000000"){
+	
+	
+	
+	
+	
+	
+	
+						window.location.reload();
+	
+	
+	
+	
+	
+	
+	
+					}else if(json.code=="001001"){
+	
+	
+	
+	
+	
+	
+	
+						alert("验证码错误");
+	
+	
+	
+	
+	
+	
+	
+						code_login();
+	
+	
+	
+	
+	
+	
+	
+					}else{
+	
+	
+	
+	
+	
+	
+	
+						alert("用户名不存在或密码错误");
+	
+	
+	
+	
+	
+	
+	
+						code_login();
+	
+	
+	
+	
+	
+	
+	
+					}
+	
+	
+	
+	
+	
+	
+	
+			    }
+	
+	
+	
+	
+	
+	
+	
+			});
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		/*
+	
+	
+	
+	
+	
+	
+	
+	    $.post('loginAct.do?m=login&rand='+Math.random(),{username:userName,password:passwd,verify:vc},function(data){	
+	
+	
+	
+	
+	
+	
+	
+				if(data=="000000"){
+	
+	
+	
+	
+	
+	
+	
+					window.location.reload();
+	
+	
+	
+	
+	
+	
+	
+				}else if(data=="00000011"){
+	
+	
+	
+	
+	
+	
+	
+					alert("验证码错误");
+	
+	
+	
+	
+	
+	
+	
+					code_login();
+	
+	
+	
+	
+	
+	
+	
+				}else{
+	
+	
+	
+	
+	
+	
+	
+					alert("用户名不存在或密码错误");
+	
+	
+	
+	
+	
+	
+	
+					code_login();
+	
+	
+	
+	
+	
+	
+	
+				}
+	
+	
+	
+	
+	
+	
+	
+	 		}
+	
+	
+	
+	
+	
+	
+	
+	 	)
+	
+	
+	
+	
+	
+	
+	
+	 	*/	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	String.prototype.trim = function() {
+	
+	
+	
+	
+	
+	
+	
+	  return this.replace(/(^\s*)|\r\n|(\s*$)/g, ""); 
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+		function switchLayer(divDisplay,divNone){
+	
+	
+	
+	
+	
+	
+	
+			if(divDisplay !=""){
+	
+	
+	
+	
+	
+	
+	
+				$("#"+divDisplay).show();
+	
+	
+	
+	
+	
+	
+	
+			}
+	
+	
+	
+	
+	
+	
+	
+			if(divNone !=""){
+	
+	
+	
+	
+	
+	
+	
+				$("#"+divNone).hide();
+	
+	
+	
+	
+	
+	
+	
+			}
+	
+	
+	
+	
+	
+	
+	
+		}
+	
+	
+	
+	
+	function setorder(order)
+	{
+		//alert("aa");
+		$.cookie("order2015",order,
+		{
+			path:"/",
+		});
+		if(order=="d")
+		{
+			$("#dclass").css(
+			{
+				color:"#f44103",
+				background:"#f8f8f8"
+			}
+			);
+			
+			$("#numclass").css("background","#ffffff");
+			$("#numclass").css("color","#333333");
+		}
+		else
+		{
+		
+			$("#numclass").css(
+			{
+				color:"#f44103",
+				background:"#f8f8f8"
+			}
+			)
+			$("#dclass").css("background","#ffffff");
+			$("#dclass").css("color","#333333");
+			/*			
+			$("#dclass").css(
+			{
+				color:"#999",
+				background:"#fff"
+			}*/
+		}
+		$("#conlist").html("");
+		getcon_init($.cookie("csid2015"))
+		num = 0;
+		getcon($.cookie("csid2015"));
+	}
+	
+	function setmap1(map)
+	{
+		$("#conlist").html("");
+		getcon_init($.cookie("csid2015"))
+		num = 0;
+		$.cookie("setmap1",map,
+		{
+			path:"/",
+		})
+		getcon($.cookie("csid2015"));
+	}
+		
+	
+	function setmap2(map)
+	{
+		getcon_init($.cookie("csid2015"))
+		$.cookie("setmap",map,
+		{
+			path:"/",
+		})
+	}
+	
+	
+	
+	
+	
+		function sendEmail(){
+	
+	
+	
+	
+	
+	
+	
+			var emailAddress = $("#emailAddress").val();
+	
+	
+	
+	
+	
+	
+	
+			firstApplyByEmail.emailCheck(emailAddress);
+	
+	
+	
+	
+	
+	
+	
+		}
+		function showprovince(str)
+		{
+			$("#Dshow").html($("#"+str).html());
+		}
+		
+</script>
+<script>
+$(document).ready(function(e) {
+    $(".js-area,.js-areaSelect").hover(
+		function(){
+			$(".js-areaSelect").show();
+			},
+		function(){
+			$(".js-areaSelect").hide();
+			}
+	);
+	$(".js-level,.js-levelSelect").hover(
+		function(){
+			$(".js-levelSelect").show();
+			},
+		function(){
+			$(".js-levelSelect").hide();
+			}
+	);
+	$(".js-play").hover(
+		function(){
+			$(this).addClass("hover");
+			},
+		function(){
+			$(this).removeClass("hover");
+			}
+	);
+	
+});
+
+
+</script>
+
+
+<script language="javascript" charset="utf-8" data-main="page/home" src="/Tpl/Newtpl/Public/js/home.js"></script>

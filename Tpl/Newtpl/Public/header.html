@@ -1,0 +1,567 @@
+<!--nav begin-->
+
+
+<script> 
+
+
+
+try { document.domain = '{$domainroot}'; }
+
+
+
+catch(e){}
+
+
+
+</script>
+
+
+
+<script language="javascript" type="text/javascript" src="__PUBLIC__/js/logon-2.0.js" charset="utf-8"></script>
+
+
+
+<script>
+
+
+UAC.showUserInfo = function(data) {if(data.isLogin == "1"){window.location.reload();}}
+
+</script>
+
+<!--鎻愮ず鏂囦欢
+<div id="ad"> 
+   <img id="adcon" src="/Public/images/ad1.jpg"/ height="689" width="1100"> 
+</div>
+<script type="text/javascript">
+	
+	//鎻愮ず鍥剧墖鐨刯s浠ｇ爜
+	oAd     = document.getElementById('ad');
+	oAdcon  = document.getElementById('adcon');
+
+	h = 0;
+	step = 5;
+	maxH = oAdcon.height;
+	function adDown(){
+
+		oAd.style.height = h +'px';
+	    oAd.style.display = 'block';
+		if(h<maxH){
+			h+=step;
+			setTimeout(adDown,1);
+			}else{			
+				setTimeout(adUp,3000);
+				}
+	}
+	function adUp(){
+		if(h>0){
+			h-=step;
+			oAd.style.height = h +'px';
+			setTimeout(adUp,1);
+			}
+		}
+	setTimeout(adDown,3000);
+</script>
+-->
+<div class="headjoy">
+
+  	<div class="joytip">
+
+	<div class="vlogo"><a href="/" title="" target="_blank"><img src="{$sitelogo}" style="height:65px;width:auto;" /></a></div>
+ 
+<div class="vtab">
+
+
+
+			<a href="/" title="首页" <if condition = "$_GET['_URL_'][0] eq ''">class="on"</if>>首页</a>
+
+
+			<a href="/index.php/order/" title="排行榜" <if condition = "$_GET['_URL_'][0] eq 'order'">class="on"</if>>排行榜</a>
+
+
+
+			<a href="/index.php/User/toolItem/" title="商城" <if condition = "$_GET['_URL_'][0] eq 'toolItem'">class="on"</if>>商城</a>
+			<a href="/index.php/Activity/" title="活动" <if condition = "$_GET['_URL_'][0] eq 'Activity'">class="on"</if>>活动</a>
+ 
+			<a href="/index.php/Jiazu/" title="家族" <if condition = "$_GET['_URL_'][0] eq 'Jiazu'">class="on"</if>>家族</a>
+
+			<a href="/index.php/emceeno/" title="靓号" <if condition = "$_GET['_URL_'][0] eq 'emceeno'">class="on"<else />class="tabno"</if>">靓号</a>
+
+
+
+
+
+
+
+		</div>
+	
+		<div style="position:relative; right:270px; top:13px;" >
+         <form id="globalsearchform" method="get" action="search/index.php" style="width:150px" >
+            <input  type="text"  id="roomnum" name="roomnum"  placeholder="输入要查询的房间号或主播id" value="" class="input" style="border: 1px solid #acacac;border-radius: 14px;position:absolute; right:71px; top:15px;" />
+            <a href="javascript:;" class="png24 btn-search" id="searchBtn" style="position:absolute; right:52px; top:15px;" onclick="searchroom();"></a>
+            <div class="search-input" id="searchTips" style="position:absolute;top:0;left:0"></div>
+			
+			</form>
+        </div>
+
+
+		
+		
+		
+		
+		
+		
+		
+ <!--<p class="app-list" style="left:1000px">
+           <a class="png24 home-phone" href="/special/android/?f=bobohome" target="_blank" data-keyfrom="down"><span>APP涓嬭浇<em class="png24 home-app-dot"></em></span></a>
+    		
+            	</p>-->
+
+
+	  <div class="others"  style="margin-right:10px">
+      </div>
+
+
+
+<!--/**/-->
+
+	  <literal>
+
+
+
+	  <script language="javascript" type="text/javascript">
+
+
+
+	  	$(function(){
+
+
+
+			setTimeout(function(){ 
+
+
+
+				$.get("/index.php/Show/show_headerInfo/t/"+Math.random(),function(data){ $('.others').html(data);});
+
+
+
+			}, 1000);
+
+
+
+			setTimeout(function(){ 
+
+
+
+				$.get("/index.php/Show/show_headerInfo2/t/"+Math.random(),function(data){ $('.setting').html(data);});
+
+
+
+			}, 1500);
+
+
+
+		});
+
+
+
+		
+
+
+
+		//鍔犺浇绯荤粺绱ф�娑堟伅鍏憡
+
+
+
+		$(document).ready(function(){	
+
+
+
+			getemergencyNotice(this);
+
+
+
+		});
+
+
+
+	  </script>
+
+
+
+	  </literal>
+
+
+
+	</div>
+
+
+
+	
+
+
+
+
+
+
+
+	<script type="text/javascript">
+
+
+
+	
+
+
+
+		var globalObj = "";
+
+
+
+		function getemergencyNotice(obj){
+
+
+
+		globalObj = obj;
+
+
+
+		
+
+
+
+			$.ajax({
+
+
+
+				type:"post",
+
+
+
+				url:"/index.php/Show/show_getEmergencyNotice/",
+
+
+
+				data:{},
+
+
+
+				success:function(data){
+
+
+
+				 var data = evalJSON(data);
+
+
+
+				  if(data.code==0){
+
+
+
+						dynamicNotice(obj,data.info);
+
+
+
+				  }
+
+
+
+				}
+
+
+
+			});
+
+
+
+		}
+
+
+
+		
+
+
+
+		// 鑷姩婊氬姩 
+
+
+
+		function dynamicNotice(obj,msg) {
+
+
+
+			if (msg == "" || msg == null) {
+
+
+
+				//瀹氭椂浠庢湇鍔″櫒鎷挎秷鎭�
+
+
+
+				setTimeout(function() {
+
+
+
+					getemergencyNotice(globalObj);
+
+
+
+				}, 5*60*1000);
+
+
+
+			} else {
+
+
+
+				$('#moveNotices').text(msg);
+
+
+
+				$('#noticeBody').fadeIn();
+
+
+
+				$("#headshow").css('margin','20px auto');
+
+
+
+			}
+
+
+
+		}
+
+
+
+	
+
+
+
+		function closeNotice() {
+
+
+
+			$('#noticeBody').fadeOut();
+
+
+
+			$("#headshow").css('margin','0 auto');
+
+
+
+	
+
+
+
+			//瀹氭椂浠庢湇鍔″櫒鎷挎秷鎭�
+
+
+
+			setTimeout(function() {
+
+
+
+				getemergencyNotice(globalObj);
+
+
+
+			},5*60*1000);
+
+
+
+		}
+
+
+
+		
+
+
+
+	</script> 
+
+
+
+
+
+
+
+
+
+
+	<style type="text/css"> 
+
+
+
+		div#b,div#d,div#bb { white-space:nowrap; } 
+
+
+
+	</style> 
+
+
+
+	
+
+
+
+	<div id="noticeBody" class="noticeBody">
+
+
+
+		<div id="noticeLine" class="noticeLine">
+
+
+
+			<div class="noticeText">
+
+
+
+				<marquee id="moveNotices" scrollamount="3" direction="left" onmouseover= "this.stop();" onmouseout= "this.start();"></marquee>
+
+
+
+			</div>
+
+
+
+			<div class="noticeClose">
+
+
+
+				<a id="closebutton" onclick="closeNotice();">
+
+
+
+					<img width="12" height="12" src="__PUBLIC__/images/close.png" />
+
+
+
+				</a>
+
+
+
+			</div>
+
+
+
+		</div>
+
+
+
+	</div>
+
+
+
+
+
+
+
+	
+
+
+
+</div>
+
+
+
+<script>
+function  searchroom(){
+
+
+   var roomnum = $("#roomnum").val();
+
+   
+		$.ajax({
+		 
+			type: "post",
+			dataType: "json",
+			url: "/index.php/Index/searchroom/roomnum/" + roomnum,
+			success: function(data) {
+
+				if (data == '0') {
+					alert("抱歉，暂时没有找到")
+				} else {
+					window.location.href = "/" + roomnum;
+				}
+			},
+			complete: function(XMLHttpRequest, textStatus) {
+				//alert('complete');											
+			},
+			error: function() {
+				//inner.innerHTML='<font color=green>鍑洪敊鍟�绋嶅悗鍐嶈瘯</font>';	
+			}
+		});
+
+}
+
+
+</script>
+
+
+
+
+
+
+
+<!--<div class="headshow" id="headshow">
+
+
+
+	<div class="showtip">
+
+
+
+		<div class="vlogo"><a href="/" title="" target="_blank"><img src="{$sitelogo}" style="height:75px;width:auto;" /></a></div>
+
+
+
+		<div class="vtab">
+
+
+
+			<a href="/" title="棣栭〉" <if condition = "$_GET['_URL_'][0] eq ''">class="on"</if>>棣栭〉</a>
+
+
+
+			<a href="/index.php/findEmcees/" title="鍙戠幇" <if condition = "$_GET['_URL_'][0] eq 'findEmcees'">class="on"</if>>鍙戠幇</a>
+
+
+
+			<a href="/index.php/order/" title="鎺掕姒� <if condition = "$_GET['_URL_'][0] eq 'order'">class="on"</if>>鎺掕姒�/a>
+
+
+
+			<a href="/index.php/wishWall/" title="璁告効澧� <if condition = "$_GET['_URL_'][0] eq 'wishWall'">class="on"</if>>璁告効澧�/a>
+
+
+
+			<a href="/index.php/emceeno/" title="闈撳彿" <if condition = "$_GET['_URL_'][0] eq 'emceeno'">class="on"<else />class="tabno"</if>">闈撳彿</a>
+
+
+
+            <a href="/index.php/User/toolItem/" title="閬撳叿" <if condition = "$_GET['_URL_'][0] eq 'emceeno'">class="on"<else />class="tabno"</if>">閬撳叿</a>
+
+
+
+		</div>
+
+
+
+  <form id="form1" action="" method="post" class="search_fx">
+          <input class="input_fx" name="" id="liveStudio" type="text" pro-msg="璇疯緭鍏ユ埧闂村彿鐩磋揪..." value="璇疯緭鍏ユ埧闂村彿鐩磋揪..." />
+          <input class="button_fx" name=""  type="image" src="/Public/images/qw.gif" onClick="gotoLiveStudio();" />
+        <input type="hidden" name="__hash__" value="12bb863150858908334be992bced48eb_bcea99a5a7e741ec0290eb1eb6971261" />
+		<input type="hidden" name="__hash__" value="30940f52ed03c0e041f16212cfadd8df_de5dfb405c80fc5fc53911c306e2ad7b" />
+		</form>
+		
+
+
+
+	</div>
+
+
+
+</div>
+-->
+
+
+<!--nav end-->

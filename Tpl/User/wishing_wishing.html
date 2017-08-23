@@ -1,0 +1,248 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的许愿 - 管理中心 - {$sitename}</title>
+<link rel="stylesheet" href="__PUBLIC__/css/20120825/common.css" type="text/css" />
+<script language="javascript" src="__PUBLIC__/js/20120825/jquery.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/common.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/stringprototype.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/date.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/calendar.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/wishing.js"></script>
+<script language="javascript">
+
+</script>
+</head>
+<body>
+<include file="Public:header" />
+<div class="wrap">
+	<div class="usercenter">
+    	
+
+
+
+
+
+<div class="utitle">
+			<h2><a href="__URL__/" title="管理中心">我的管理中心</a></h2>
+			<div class="utab">
+				<a href="__URL__/myfavor/" title="收藏"><span>收藏</span></a>
+				<a href="__URL__/interestToList/" title="偶像"><span>偶像</span></a>
+				<a href="__URL__/myNos/" title="靓号"><span>靓号</span></a>
+				<a href="__URL__/toolinuse/" title="道具"><span>道具</span></a>
+				<!--<a href="__URL__/wishing_wishing/" title="许愿"><span>许愿</span></a>//-->
+				<a href="__URL__/showadmin/" title="房管"><span>房管</span></a>
+				<!--<a href="__URL__/familyIJoin/" title="家族"><span>家族</span></a>//-->
+                <a href="__URL__/interestByList/" title="粉丝"><span>粉丝</span></a>
+                <a href="__URL__/info_edit/" title="个人设置"><span>个人设置</span></a>
+				<a href="__URL__/getConsume/" title="账单"><span>账单</span></a>
+				<!--<a href="__URL__/bl_list/" title="黑名单"><span>黑名单</span></a>//-->
+			</div>
+			<div class="umyhelp">
+				<a href="/{$_SESSION['roomnum']}" title="我的直播"><span>我的直播</span></a> 
+                <a href="__URL__/charge/" title="充值"><span>充值</span></a> 
+                <a href="__URL__/exchange/" title="兑换"><span>兑换</span></a>
+                <a href="__URL__/settlement/" title="结算"><span>结算</span></a>
+			</div>
+</div>
+
+<script language="javascript">
+$(function(){
+   var sm = $('.utab a,.umyhelp a').setMyTab();
+ }
+)
+</script>
+        <div class="wish-modle">
+			<div class="calender">
+				<div class="wtitle">
+					
+						<a id="makeWishing"  href="javascript:void(0);" onclick="$.JShowTip({centerTip:$('#giveBox')});">+我要许愿</a>
+					
+					<div></div>
+					
+					<h3>许愿日历</h3>
+				</div>
+				<div class="winfo" id="calendar">					
+					
+				</div>
+
+			</div>
+			<div class="wish-slide">
+				<div class="wtitle">
+					<div class="control">
+						<span id="play_pre">上一个</span><span id="play_next">下一个</span>
+					</div>
+					<p>本月总共许了<strong id="wishT"></strong>个愿望，己实现<strong id="successT"></strong>个。许愿列表如下：</p>
+				</div>
+				<div class="mywish-list">
+					<div class="mywish-info" id="mywish-list">
+						 <div style="overflow:hidden;" id="mywish-list-o">
+
+					     </div>	
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+    </div>
+</div>
+<div id="wishLayer" class="wishLayer" style="display:none;">
+	<s></s>
+	<span></span>
+	<p></p>
+</div>
+<!--提示 begin-->
+	<div class="p-Song" id="alertBox">
+	  <div class="m-songt"><span class="s-close" id="close_msg"></span>
+	    <h4>提示</h4>
+	  </div>
+	  <div class="m-songv">
+	    <div class="promt-msg">
+	      <p class="msg-text" id="msg_text"></p>
+	      <div class="msg-btn" id="poptype1"><span class="play-btn" id="data-confirm">确定</span></div>
+		  <div class="msg-btn" id="poptype2">
+		  	 <span id="btnAgree" class="play-btn">同意</span>
+			 <span id="btnDisgree" class="play-btn">取消</span>
+		  </div>
+	    </div>
+	  </div>
+	</div>
+<!--提示 end-->
+<!--我的愿望提示层2 begin-->
+<div id="giveBox" class="poptip wishpop" style="display:none;">
+	<div class="pop-t">
+		<span class="close"></span>
+		<ul>
+			<li class="on" id="lm2_1" onclick="turn(1,3,2);">收到礼物</li><li id="lm2_2" onclick="turn(2,3,2);">疯狂热捧</li><!-- <li id="lm2_3" onclick="turn(3,3,2);">自定义</li> -->
+		</ul>
+	</div>	
+	<div class="pop-v mywishv" id="content2_1">
+		<div class="wantgift">
+			<span>我想要</span><input type="text" id="wishGiftNum" name="gift-num" class="giftnum" /><span>个</span><div class="gift-title" onclick="$('#wish-gift-tip').fadeIn();"><div id="wishGiftName" class="gift-name">礼物</div><div class="choose"></div></div><span class="sendBtn fl" onclick="save($('#wishGiftNum').val(),$('#wishGiftId').html(),1)">确定</span>
+		</div>
+		<div id="wishGiftId" style="display:none;" ></div>
+		<div class="gift-tip giftmodel" id="wish-gift-tip" style="display:none;">
+			<div class="gift-tab">
+				<ul>
+					<volist name="gifts" id="vo" key="k">
+					<li <if condition="$k eq 1">class="on"</if> id="lm1_{$k}" onclick="turn({$k},{$gifts|count},1);">{$vo['sortname']}</li>
+					</volist>
+				</ul>
+			</div>
+			<div class="gift-v">
+					<volist name="gifts" id="vo" key="k">
+					<ul id="content1_{$k}" <if condition="$k neq 1">style='display:none;'</if>>
+						<volist name="vo['voo']" id="sub">
+						<li onclick="WishGiftCtrl.choiceGift({$sub['id']},'{$sub['giftname']}');">
+							<img src="{$sub['giftIcon']}" width="42" height="42"/>
+							<span>{$sub['giftname']}</span>
+							<div class="h_dou">{$sub['needcoin']}个秀币</div>
+						</li>
+						</volist>
+					</ul>
+					</volist>
+			</div>
+		</div>
+	</div>
+	<div class="pop-v mywishv" style="display:none;"  id="content2_2">
+		<div class="wantgift">
+			<span>我希望今天收到</span><input type="text" id="warm" name="gift-num" class="giftnum" /><span>人热捧</span><span class="sendBtn fl"  onclick="save($('#warm').val(),null,2);">确定</span>
+		</div>
+	</div>
+	<div class="pop-v mywishv" style="display:none;"  id="content2_3">
+		<div class="wantgift">
+			<textarea id="customWish" class="custom-txt" onchange="if(value.length>100) value=value.substr(0,100);" ></textarea>
+			<span class="sendBtn" onclick="save(null,null,3)">确定</span>
+		</div>
+	</div>
+
+</div>
+<!--我的愿望提示层2 end-->
+
+<script language="javascript">
+	var iDate=new Date();
+	var iYear=iDate.getFullYear();
+	var iMonth=iDate.getMonth();
+	var obj_wish=new calendar();
+	obj_wish.init(iYear,iMonth);
+	function preMonth(){
+		obj_wish.clearInterval();
+		if(--iMonth>=0){
+			obj_wish.init(iYear,iMonth);
+		}else{
+			--iYear;
+			iMonth=11;
+			obj_wish.init(iYear,iMonth);
+		}
+	}
+	
+	function nextMonth(){
+		obj_wish.clearInterval();
+		if(++iMonth<=11){
+			obj_wish.init(iYear,iMonth);
+		}else{
+			++iYear;
+			iMonth = 0;
+			obj_wish.init(iYear,iMonth);
+		}
+	}
+
+    function save(num,giftId,type){
+    	var re=/^[\d]+$/;
+    	var p;
+		if(type==3){
+			p = 'type_' + type + '_custom_' + encodeURIComponent($("#customWish").val()) + '_r_' + Math.random() + '.htm';
+		}else{
+			if(re.test(num)&&parseInt(num)>0){
+				if(giftId!=""){
+					p = 'num_'+ num + '_type_' + type + '_giftId_' + giftId + '_r_' + Math.random() + '.htm';
+				}else{
+					p = 'num_' + num + '_type_' + type +'_r_' + Math.random() + '.htm';
+				}
+			}else{
+				$(document).trigger('close.JShowTip');		
+				_alert("数量不正确，请重新输入",5);
+				return false;
+			}
+			if(type==1&&giftId==""){
+				$(document).trigger('close.JShowTip');	
+				_alert("请选择礼物",5);
+				return false;
+			}
+		}
+    	 $.ajax({
+    		 type:'post',
+    		 url:'wishing_save_' + p,
+	         //url:'/wishing.do',
+	         //data:p,
+	        // dataType:'text',
+	        // async: false,
+	         success:function(data) {
+	        	 if(data=="ERROR"){
+						alert("获取失败");
+				 }else{
+				 	 var json = eval("(" + data + ")");
+		    		 	if(json.wishedFlag==1){;
+		    		 		_alert("许愿成功!",3);
+		    		 		initFlag = false;
+		    		 		obj_wish.clearInterval();
+		    		 		obj_wish.init(null,null);
+		    		 		$("<a href='#' class='dis'>+我要许愿</a>").insertBefore("#makeWishing");
+		    		 		$("#makeWishing").hide();
+		    		 	}else{
+		    		 		_alert("许愿不成功！您的秀币余额不足"+ json.price,5);
+		    		 	}
+				 }
+	         }
+	     });
+    	$(document).trigger('close.JShowTip');		
+
+    }
+	
+</script>
+<script>HtmlMove("mywish-list","witem","scrollTop","play_pre","play_next");</script>
+<include file="Public:footer" />
+</body>
+</html>

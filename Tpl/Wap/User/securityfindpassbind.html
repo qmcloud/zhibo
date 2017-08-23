@@ -1,0 +1,121 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>充值中心-安全设置-支付密码</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/wap/charge/css/main.css" />
+<script type="text/javascript" src="__PUBLIC__/wap/charge/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/wap/charge/js/sitejavascript.js"></script>
+</head>
+<body>
+<include file="Public:charge_header" />
+<div class="main clear">
+	<!--充值中心左侧导航 begin-->
+	
+
+<div class="main_left">
+<dl>
+	<dt><a href="__URL__/charge/">充值中心首页</a></dt>
+    <dd ><a href="__URL__/userbalance/">账户余额</a></dd>
+    <dd ><a href="__URL__/chargelist/">充值记录</a></dd>
+    <dd class="on"><a href="__URL__/securityset/">安全设置</a></dd>
+    <dd ><a href="__URL__/helplist/">客服帮助</a></dd>
+</dl>
+</div>
+    <!--充值中心左侧导航 end-->
+    <div class="main_right getbackpassword">
+    	<h3><a href="充值中心-安全设置.html">安全设置</a> > 找回支付密码</h3>
+        <div class="safe_alert"><p>若您没有设置密保问题也没有绑定邮箱，则系统不能为您找回密码!请拨打以下电话，我们会人工为您修改：<strong>010-85545445</strong>。</p></div>
+      
+        <table class="emainset">
+          <tr>
+            <td class="col01">请选择找回方式：</td>
+            <td class="col02">
+            	<label class="emailbt"><input id="CheckEmail" name="CheckEmail" type="radio" class="rec_direct" value="单选" onclick="showfindpass(1)"/><em class="inputcheckbox"> 通过邮箱找回</em></label>
+                <label class="questionbt"><input id="CheckQA" name="CheckQA" type="radio" class="rec_direct" value="单选" onclick="showfindpass(2)"/><em class="inputcheckbox"> 通过密保问题找回</em></label>
+            </td>
+          </tr>
+          
+          <tbody id="Email_Panel" style="display:none">
+          
+			
+	          <tr>
+	            <td>&nbsp;</td>
+	            <td class="col02">请先绑定邮箱</td>
+	          </tr>
+			
+          </tbody>
+
+		  <!--
+          <tbody id="Email_Panel" style="display:none">
+          
+          <form id="fpostemail" action="securityfindpassemail.do" method="post">
+	         <tr>
+	            <td class="col01">安全邮箱：</td>
+	            <td class="col02">一封包含"重新设置密码" 链接的email将发送到 altheran@126.com 。</td>
+	          </tr>
+	          <tr>
+	            <td class="col01">新支付密码：</td>
+	            <td class="col02"><input class="input pwinput" id="c_ChargePassEmail" name="c_ChargePassEmail" type="password" /></td>
+	          </tr>
+	          <tr>
+	            <td class="col01">确认新支付密码：</td>
+	            <td class="col02"><input class="input pwinput" id="c_CheckChargePassEmail" name="c_CheckChargePassEmail" type="password" /></td>
+	          </tr>
+	          <tr>
+	            <td>&nbsp;</td>
+	            <td class="col02"><a href="javascript:securityfindpassemail_submit()">发送</a></td>
+	          </tr>
+	      </form>
+	      
+			
+          </tbody>
+		  //-->
+          
+          <tbody id="QA_Panel" style="display:none">
+          
+			
+	          <tr>
+	            <td>&nbsp;</td>
+	            <td class="col02">请先设置密保问题</td>
+	          </tr>
+			
+          </tbody>
+
+		  <!--
+          <tbody id="QA_Panel" style="display:none">
+          
+          <form id="fpostqa" action="securityfindpassqa.do" method="post">
+	         <tr>
+	            <td class="col01">安全问题：</td>
+	            <td class="col02">母亲出生的城市
+	            <input type="hidden" id="c_ResetPassQuestion" name="c_ResetPassQuestion" value="1"/>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td class="col01">答案：</td>
+	            <td class="col02"><input class="input" id="c_ResetPassAnswer" name="c_ResetPassAnswer" type="text" /></td>
+	          </tr>
+	          <tr>
+	            <td class="col01">新支付密码：</td>
+	            <td class="col02"><input class="input pwinput" id="c_ChargePassQA" name="c_ChargePassQA" type="password" /></td>
+	          </tr>
+	          <tr>
+	            <td class="col01">确认新支付密码：</td>
+	            <td class="col02"><input class="input pwinput" id="c_CheckChargePassQA" name="c_CheckChargePassQA" type="password" /></td>
+	          </tr>
+	          <tr>
+	            <td>&nbsp;</td>
+	            <td class="col02"><a href="javascript:securityfindpassqa_submit()">设置</a></td>
+	          </tr>
+	      </form>
+		  //-->
+       	</table>
+    </div>
+</div>
+<include file="Public:charge_footer" />
+
+<script>showfindpass(0);</script>
+</body>
+</html>

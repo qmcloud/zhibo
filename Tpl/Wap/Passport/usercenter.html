@@ -1,0 +1,243 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xn="http:///www.renren.com/2009/xnml">
+<head>
+<title>{$sitename}</title>
+<meta http-equiv="Pragma" contect="no-cache"/>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="__PUBLIC__/wap/css/usercenter/joylogin100726.css" type="text/css" media="screen" />
+<script language="javascript" src="__PUBLIC__/wap/js/20120825/jquery.js"></script>
+<script language="javascript" src="__PUBLIC__/wap/js/usercenter.js?t=03215462655"></script>
+<script type="text/javascript">
+document.domain = '{$domainroot}';
+document.onkeydown = function(){
+	if(window.event && window.event.keyCode == 13){
+		var type = $("#switch_type").val();
+		if(type == "0"){
+			login();
+		}else{
+			reg();
+		}
+	}
+}
+
+var cl=false;
+function code_login()
+{
+	if(cl!=true)
+	{
+		document.getElementById('img_authCode1').src='__APP__/Base/verify/v/'+Math.random();
+		cl=true;
+	}
+}
+var cr=false;
+function code_reg()
+{
+	if(cr!=true)
+	{
+		document.getElementById('img_authCode').src='__APP__/Base/verify/v/'+Math.random();
+		cr=true;
+	}
+}
+
+
+//imageCode_getImgage.htm
+</script>
+<style type="text/css">
+.thyh{display:block;}
+
+.thyh a{color:#004a99;}
+
+.thyh a:hover{color:#004a99;}
+
+.yzmhyh{float:left;width:60px;}
+
+.tzddl{padding-top:5px;}
+
+.njmlma2{width:50px;height:22px;}
+
+.jmllogin1 .jmlbtn1 .jmllogin3 .jmlbtn1{height:28px;padding-top:0;}
+
+.jmllogin3 ul li span.jmlma1{width:59px;height:24px;padding:4px 0 0 4px;margin:0;background:none;}
+
+.jmllogin3 ul li span.jmlma1 input{width:57px;height:20px;border:1px solid #B4B4B4;margin:0;background:none repeat scroll 0 0 #FFFFFF;}
+
+.jmllogin3 ul li .jmlma2{top:3px;}
+
+.jmllogin3 ul li .thyh{line-height:18px;}
+
+.jmllogin3 ul li .thyh a{padding-left:5px;}
+
+.login_bodya{ background:url(__PUBLIC__/wap/images/login_bj.gif) no-repeat top; width:448px; height:320px;}
+.joymodlogin .jmltitle1 {
+ PADDING-LEFT: 24px; padding-top:20px; WIDTH: 388px; BACKGROUND: url(__PUBLIC__/wap/images/usercenter/joylogin10072603.jpg) repeat-x 0px 20px;HEIGHT: 29px; margin-left:15px;}
+.jmpic{ padding:0 auto;}
+.joymodlogin .jmltitle1 SPAN {
+	TEXT-ALIGN: center; LINE-HEIGHT: 29px; WIDTH: 69px; BACKGROUND: url(__PUBLIC__/wap/images/usercenter/joylogin10072602-1.jpg) no-repeat -71px -247px; FLOAT: left; FONT-SIZE: 14px; CURSOR: pointer; MARGIN-RIGHT: 2px;}
+.joymodlogin .jmltitle1 SPAN.cur {
+	BACKGROUND-POSITION: 0px -247px}
+.joymodlogin .goodtip {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 110px; PADDING-RIGHT: 0px; PADDING-TOP: 13px}
+.joymodlogin .jmlnana {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 24px; PADDING-RIGHT: 0px; PADDING-TOP: 10px}
+.joymodlogin .jmlnana SPAN {
+	PADDING-RIGHT: 4px; FONT-WEIGHT: bold}
+.joymodlogin .jmllive {
+	MARGIN: 10px auto 0px; PADDING-LEFT: 24px; WIDTH: 388px; BACKGROUND: url(__PUBLIC__/wap/images/usercenter/joylogin10072603.jpg) repeat-x; HEIGHT: 29px}
+.joymodlogin .jmllive SPAN.cur {
+	BACKGROUND-POSITION: 0px 0px}
+.joymodlogin .jmllive SPAN EM {
+	PADDING-RIGHT: 3px; COLOR: #333; FONT-SIZE: 14px; FONT-WEIGHT: bold}
+.jmllogin1 UL {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 50px; WIDTH: 390px; PADDING-RIGHT: 0px; FLOAT: left; overflow:hidden; height:140px; PADDING-TOP: 5px}
+.jmllogin1 UL LI {
+	PADDING-BOTTOM: 10px; LINE-HEIGHT: 22px; HEIGHT: 22px}
+.jmllogin1 UL LI INPUT {
+	BORDER-BOTTOM: #b4b4b4 1px solid; BORDER-LEFT: #b4b4b4 1px solid; WIDTH: 175px; BACKGROUND: #fff; HEIGHT: 20px; BORDER-TOP: #b4b4b4 1px solid; BORDER-RIGHT: #b4b4b4 1px solid}
+.jmllogin1 UL LI LABEL {
+	TEXT-ALIGN: right; WIDTH: 50px; FLOAT: left; MARGIN-RIGHT: 9px}
+.jmllogin1 UL LI EM {
+	PADDING-LEFT: 9px}
+.jmllogin1 UL LI EM A {
+	COLOR: #004a99; TEXT-DECORATION: underline}
+.jmllogin1 UL LI EM A:hover {
+	COLOR: #004a99}
+.jmllogin1 UL LI.spe1 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 60px; COLOR: #ff0101; _padding-left: 62px}
+.jmllogin1 .jmlbtn1 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 109px; WIDTH: 252px; PADDING-RIGHT: 0px; FLOAT: left; HEIGHT: 25px; PADDING-TOP: 5px; _height: 21px}
+.jmllogin1 .jmlbtn1 INPUT {
+	MARGIN: 0px 5px 0px 0px; FLOAT: left}
+.jmllogin1 .jmlbtn2 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 109px; WIDTH: 249px; PADDING-RIGHT: 0px; FLOAT: left; HEIGHT: 37px; PADDING-TOP: 0px; _padding: 2px 0 0 112px}
+.jmllogin1 .jmlbtn2 INPUT {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 84px; BACKGROUND: url(__PUBLIC__/wap/images/usercenter/joylogin10072602-1.jpg) no-repeat; HEIGHT: 24px; FONT-SIZE: 14px; VERTICAL-ALIGN: middle; BORDER-TOP: 0px; CURSOR: pointer; FONT-WEIGHT: bold; MARGIN-RIGHT: 10px; BORDER-RIGHT: 0px; PADDING-TOP: 0px}
+.jmllogin1 .jmlren1 {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 20px; MARGIN: 0px auto; PADDING-LEFT: 30px; WIDTH: 415px; PADDING-RIGHT: 0px; HEIGHT: 29px; CLEAR: both; PADDING-TOP: 0px}
+.jmllogin1 .jmlren1 IMG {FLOAT: left; MARGIN-RIGHT: 5px}
+.jmllogin1 .jmlren1 SPAN {WIDTH: 145px; FLOAT: left}
+.jmllogin1 .jmlren1 A {COLOR: #004a99}
+.jmllogin1 .jmlren1 A:hover {COLOR: #004a99}
+
+
+</style>
+
+</head>
+
+<body onload="init();">
+<!-- 登录层 -->
+<div class="joymodlogin" style="height:380px;">
+	<h3><em id="div_title">用户登录</em><span title="关闭"><a href="javascript:parent.UAC.closeUAC();">关闭</a></span></h3>
+	<div class="login_bodya">
+	<div class="jmltitle1" style="position:relative">
+		<span id="btn_login" class="cur" onclick="switchDiv(0);">登录</span>
+		<span id="btn_reg" onclick="switchDiv(1);">注册</span>
+		<img style=" position:absolute; top:9px; right:0;" src="__PUBLIC__/wap/images/login1liwu.gif" width="245" height="39">
+	</div>
+	<input type="hidden" id="switch_type" value="0"/>
+	<p id="id_googtip" class="goodtip">{$sitename}注册用户请直接登录</p>
+	<div class="jmllogin1" id="div_login" style="display:">
+		<ul>
+			<li class="spe1"><span id="login_info"></span></li>			
+			<li><label>用户名</label><input type="text" id="userName" /></li>    
+			<li><label>密码</label><input type="password" id="password" /><em><a href="__URL__/findBackPwdPage/" target="_self">忘记密码？</a></em></li>
+			<li id="li_code"  class="nli_code">
+			<label>验证码</label>
+			<div class="yzmhyh">
+			<span class="jmlma1"><input style="width:57px;" type="text" id="login_validateCode" maxlength="4" onclick="javascript:code_login();" onfocus="javascript:code_login();" onmouseover="javascript:code_login();" onblur="validateRegInfo('code');" /></span>			
+			<em class="thyh"><a onclick="document.getElementById('img_authCode1').src='__APP__/Base/verify/v/'+Math.random();" style="cursor:pointer;">换一换？</a></em>
+			</div>
+			<img id="img_authCode1" class="jmlma2 njmlma2" src="__PUBLIC__/wap/images/102914847.jpg" />		
+			</li>     
+		</ul>
+		<div class="jmlbtn1"><input type="checkbox" id="autoLogin" checked /><span>下次自动登录</span></div>
+		<div class="jmlbtn2"><input type="button" id="btn_login" value="登录" onclick="login();" /></div>
+		<div class="jmlren1" >
+			<table style="width:400px">
+
+			</table>
+		</div>
+	</div>
+	<div class="jmllogin3" id="div_reg" style="display:none">
+		<ul style="heighet:180px;padding-bottom: 15px;">   
+			<li id="li_userName"><label>用户名</label><span><input type="text" id="reg_userName" onfocus="showRegInfo('name');" onblur="validateRegInfo('name');" /></span>
+				<input type="hidden" id="id_isExist" value=""/>
+				<div class="jmlfalsebox">
+					<samp id="name_con01" class="jmlicon01" style="display:none"></samp>
+					<samp id="name_con02" class="jmlicon02" style="display:none"></samp>
+					<samp id="name_empty" class="jmlicon_empty" style="display:none"></samp> 
+					<div id="name_false" class="jmlfalse" style="display:none"> 
+						<div class="jmlfalsecon">·6~18个字符，包括数字、字母、下划线。<br />·字母开头，数字和字母结尾，不区分大小写。</div> 
+					</div>
+					<div id="name_false2" class="jmlfalse" style="display:none"> 
+						<div class="jmlfalsecon">用户名已存在</div> 
+					</div>	
+				</div>
+			</li>    
+			<li id="li_pwd"><label>登录密码</label><span><input type="password" id="reg_password" onfocus="showRegInfo('pwd');" onblur="validateRegInfo('pwd');" /></span>
+				<div class="jmlfalsebox">
+					<samp id="pwd_con01" class="jmlicon01" style="display:none"></samp>
+					<samp id="pwd_con02" class="jmlicon02" style="display:none"></samp>
+					<samp id="pwd_empty" class="jmlicon_empty" style="display:none"></samp>
+					<div id="pwd_false" class="jmlfalse" style="display:none"> 
+						<div class="jmlfalsecon">6-16个字符(字母、数字)区分大小写</div> 
+					</div>	
+				</div>
+			</li>    
+			<li id="li_pwd2"><label>确认密码</label><span><input type="password" id="reg_password2" onfocus="showRegInfo('pwd2');" onblur="validateRegInfo('pwd2');" /></span>
+				<div class="jmlfalsebox">
+					<samp id="pwd2_con01" class="jmlicon01" style="display:none"></samp>
+					<samp id="pwd2_con02" class="jmlicon02" style="display:none"></samp>
+					<samp id="pwd2_empty" class="jmlicon_empty" style="display:none"></samp>
+					<div id="pwd2_false" class="jmlfalse" style="display:none"> 
+						<div class="jmlfalsecon">请再输入一遍密码</div> 
+					</div>	
+				</div>
+			</li>  
+			<li id="li_email"><label>邮箱</label><span><input type="text" id="reg_email" onfocus="showRegInfo('email');" onblur="validateRegInfo('email');" /></span>
+				<input type="hidden" id="id_isExist2" value=""/>
+				<div class="jmlfalsebox">
+					<samp id="email_con01" class="jmlicon01" style="display:none"></samp>
+					<samp id="email_con02" class="jmlicon02" style="display:none"></samp>
+					<samp id="email_empty" class="jmlicon_empty" style="display:none"></samp> 
+					<div id="email_false" class="jmlfalse" style="display:none"> 
+						<div class="jmlfalsecon">·请填写邮箱。</div> 
+					</div>
+					<div id="email_false2" class="jmlfalse" style="display:none"> 
+						<div class="jmlfalsecon">邮箱已存在</div> 
+					</div>	
+				</div>
+			</li>
+			<li id="li_code" class="nli_code"><label>验证码</label>
+			<div class="yzmhyh" >
+			<span class="jmlma1"><input style="width:50px;" type="text" id="reg_validateCode" maxlength="4" onclick="javascript:code_reg()" onmouseover="javascript:code_reg()" onfocus="showRegInfo('code');javascript:code_reg()" onblur="validateRegInfo('code');" /></span>			
+			<em><a onclick="switchAuthCode();return false;" style="cursor:pointer;">换一换？</a></em>
+			</div>
+			<img id="img_authCode" class="jmlma2 njmlma2" src="__PUBLIC__/wap/images/102914847.jpg"  />
+				<div class="jmlfalsebox jmlkuan3">
+					<samp id="code_con01" class="jmlicon01" style="display:none"></samp>
+					<samp id="code_con02" class="jmlicon02" style="display:none"></samp>
+					<samp id="code_empty" class="jmlicon_empty" style="display:none"></samp>
+					<div id="code_false" class="jmlfalse" style="display:none"> 
+						<div class="jmlfalsecon" id="vcode_text">请输入验证码</div> 
+					</div>	
+				</div>
+			</li>    
+		</ul>
+		<div class="jmlbtn1" style="padding-top: "><input type="checkbox" id="id_protocol" checked/><span>我已阅读并接受<a href="#" target="_blank">《{$sitename}免责条款》</a></span>
+			<div id="div_protocol" class="jmlfalsebox jmlkuan" style="display:none"> 
+				<samp class="jmlicon01"></samp> 
+				<div class="jmlfalse"> 
+					<div class="jmlfalsecon">请接受免费条款</div> 
+				</div>	
+			</div>
+		</div>
+		<div class="jmlbtn3"><input type="button" id="btn_reg" value="完成注册" onclick="reg();"/></div>
+	</div>
+	</div>
+</div>
+
+</body>
+</html>

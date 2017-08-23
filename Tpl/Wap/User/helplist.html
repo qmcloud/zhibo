@@ -1,0 +1,51 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>充值中心-客服帮助</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/wap/charge/css/main.css" />
+<script type="text/javascript" src="__PUBLIC__/wap/charge/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/wap/charge/js/sitejavascript.js"></script>
+</head>
+<body>
+<include file="Public:charge_header" />
+<div class="main clear">
+	<!--充值中心左侧导航 begin-->
+	
+
+<div class="main_left">
+<dl>
+	<dt><a href="__URL__/charge/">充值中心首页</a></dt>
+    <dd ><a href="__URL__/userbalance/">账户余额</a></dd>
+    <dd ><a href="__URL__/chargelist/">充值记录</a></dd>
+    <!--
+    <dd ><a href="__URL__/securityset/">安全设置</a></dd>
+	//-->
+    <dd class="on"><a href="__URL__/helplist/">客服帮助</a></dd>
+</dl>
+</div>
+    <!--充值中心左侧导航 end-->
+    <div class="main_right clear">
+    	<h3>客服帮助</h3>
+        <div class="help_l">
+        	<h2>常见问题</h2>
+        	
+
+			<ul>
+  
+            	<li><a href="__URL__/helpview/" title="&#20805;&#20540;&#27880;&#24847;&#20107;&#39033;">&#20805;&#20540;&#27880;&#24847;&#20107;&#39033;</a></li>
+
+			</ul>
+			共1条信息 共1页&nbsp;当前第<input name="PGPage" type="text" id="PGPage" value="1" size="5" maxlength="5">页&nbsp;<input name="PGSubmit" type="button" id="PGSubmit" value="GO" onclick="PGJump('helplist.do?Page=' + document.getElementById('PGPage').value,'1');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+        </div>
+   
+        </div>
+    </div>
+</div>
+<include file="Public:charge_footer" />
+</body>
+</html>

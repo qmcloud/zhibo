@@ -1,0 +1,128 @@
+<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>管理中心</title>
+<link rel="stylesheet" href="__PUBLIC__/css/20120825/common.css" type="text/css" />
+<script language="javascript" src="__PUBLIC__/js/20120825/jquery.js"></script>
+<script language="javascript" src="__PUBLIC__/js/20120825/common.js"></script>
+</head>
+<body>
+<include file="Public:header" />
+<div class="wrap">
+  <div class="usercenter">
+    
+
+
+
+
+
+<div class="utitle">
+			<h2><a href="__URL__/" title="管理中心">我的管理中心</a></h2>
+			<div class="utab">
+				<a href="__URL__/myfavor/" title="收藏"><span>收藏</span></a>
+				<a href="__URL__/interestToList/" title="偶像"><span>偶像</span></a>
+				<a href="__URL__/myNos/" title="靓号"><span>靓号</span></a>
+				<a href="__URL__/toolinuse/" title="道具"><span>道具</span></a>
+				<!--<a href="__URL__/wishing_wishing/" title="许愿"><span>许愿</span></a>//-->
+				<a href="__URL__/showadmin/" title="房管"><span>房管</span></a>
+				<!--<a href="__URL__/familyIJoin/" title="家族"><span>家族</span></a>//-->
+                <a href="__URL__/interestByList/" title="粉丝"><span>粉丝</span></a>
+                <a href="__URL__/info_edit/" title="个人设置"><span>个人设置</span></a>
+				<a href="__URL__/getConsume/" title="账单"><span>账单</span></a>
+				<!--<a href="__URL__/bl_list/" title="黑名单"><span>黑名单</span></a>//-->
+			</div>
+			<div class="umyhelp">
+				<a href="/{$_SESSION['roomnum']}" title="我的直播"><span>我的直播</span></a> 
+                <a href="__URL__/charge/" title="充值"><span>充值</span></a> 
+                <a href="__URL__/exchange/" title="兑换"><span>兑换</span></a>
+                <a href="__URL__/settlement/" title="结算"><span>结算</span></a>
+			</div>
+</div>
+
+<script language="javascript">
+$(function(){
+   var sm = $('.utab a,.umyhelp a').setMyTab();
+ }
+)
+</script>
+	<div class="user-manager">
+		<ul>
+			<li>
+				<a href="__URL__/myfavor/" title="我的收藏">
+					<em class="t1"></em>
+					<strong class="tle">我收藏的<br />直播房间</strong>
+				</a>
+			</li>
+			<li>
+				<a href="__URL__/interestToList/" title="我的偶像">
+					<em class="t2"></em>
+					<strong>我的偶像</strong>
+				</a>
+			</li>
+			<li>
+				<a href="__URL__/myNos/" title="我的靓号">
+					<em class="t3"></em>
+					<strong>我的靓号</strong>
+				</a>
+			</li>
+			<li>
+				<a href="__URL__/info_edit/" title="个人资料">
+					<em class="t4"></em>
+					<strong>我的个人资料</strong>
+				</a>
+			</li>
+			<li>
+				<a href="/{$_SESSION['roomnum']}" title="我的直播">
+					<em class="t5"></em>
+					<strong class="tle">我的<br />直播房间</strong>
+				</a>
+			</li>
+			<!--
+			<li>
+				<a href="__URL__/wishing_wishing/" title="我的许愿">
+					<em class="t6"></em>
+					<strong>我的许愿</strong>
+				</a>
+			</li>
+			//-->
+			<li>
+				<a href="__URL__/showadmin/" title="我的房管">
+					<em class="t7"></em>
+					<strong>我的房管</strong>
+				</a>
+			</li>
+          <if condition="$emceeagent=='y'">
+			<li>
+				<a href="__URL__/myfamily/" title="我的家族">
+					<em class="t8"></em>
+					<strong>我的家族</strong>
+				</a>
+			</li>          
+          </if>
+			<li>
+				<a href="__URL__/interestByList/" title="我的粉丝">
+					<em class="t9"></em>
+					<strong>我的粉丝</strong>
+				</a>
+			</li>
+			<li>
+				<a href="__URL__/toolinuse/" title="我的道具">
+					<em class="t10"></em>
+					<strong>我的道具</strong>
+				</a>
+			</li>
+			<li>
+				<a href="__URL__/getConsume/" title="">
+					<em class="t12"></em>
+					<strong>我的帐单</strong>
+				</a>
+			</li>
+		</ul>
+	</div>
+  </div>
+</div>
+<include file="Public:footer" />
+</body>
+</html>

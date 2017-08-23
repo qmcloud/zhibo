@@ -1,0 +1,181 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xn="http:///www.renren.com/2009/xnml">
+<head>
+<title>{$sitename}</title>
+<meta http-equiv="Pragma" contect="no-cache"/>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="__PUBLIC__/css/usercenter/joylogin100726.css" type="text/css" media="screen" />
+<script language="javascript" src="__PUBLIC__/js/20120825/jquery.js"></script>
+<script language="javascript" src="__PUBLIC__/js/usercenter.js?t=03215462655"></script>
+<script type="text/javascript">
+document.domain = '{$domainroot}';
+document.onkeydown = function(){
+	if(window.event && window.event.keyCode == 13){
+		var type = $("#switch_type").val();
+		if(type == "0"){
+			 ;
+		}else{
+			reg();
+		}
+	}
+}
+
+var cl=false;
+function code_login()
+{
+	if(cl!=true)
+	{
+		document.getElementById('img_authCode1').src='__APP__/Base/verify/v/'+Math.random();
+		cl=true;
+	}
+}
+var cr=false;
+function code_reg()
+{
+	if(cr!=true)
+	{
+		document.getElementById('img_authCode').src='__APP__/Base/verify/v/'+Math.random();
+		cr=true;
+	}
+}
+
+    var childWindow;
+    function toLogin()
+    {
+        childWindow = window.open("../../../Connect2.0/example/oauth/index.php","TencentLogin","width=450,height=320,menubar=0,scrollbars=1, resizable=1,status=1,titlebar=0,toolbar=0,location=1");
+    } 
+    
+    function closeChildWindow()
+    {
+        childWindow.close();
+    }
+
+//imageCode_getImgage.htm
+</script>
+<style type="text/css">
+.thyh{display:block; }
+
+.thyh a{color:#004a99; line-height:22px;}
+
+.thyh a:hover{color:#004a99; line-height:22px;}
+
+.yzmhyh{float:left;width:60px;  }
+.yzmhyh:focus{
+	border: 1px solid #FF50A5;
+box-shadow: 0px 0px 5px 1px rgba(251, 40, 142, 0.25);}	
+
+.tzddl{padding-top:5px;}
+
+.njmlma2{width:50px;height:22px;  padding-left:5px; float:left;}
+
+.jmllogin1 .jmlbtn1 .jmllogin3 .jmlbtn1{height:28px;padding-top:0;}
+
+.jmllogin3 ul li span.jmlma1{width:59px;height:24px;padding:4px 0 0 4px;margin:0;background:none;}
+
+.jmllogin3 ul li span.jmlma1 input{width:57px;height:20px;border:1px solid #B4B4B4;margin:0;background:none repeat scroll 0 0 #FFFFFF;}
+
+.jmllogin3 ul li .jmlma2{top:3px;}
+
+.jmllogin3 ul li .thyh{line-height:18px;}
+ .thyh{line-height:18px; float:left; padding-left:5px;}
+.jmllogin3 ul li .thyh a{padding-left:5px;}
+
+.login_bodya{ width:502px; height:320px; float:left; }
+ .jmltitle1 {
+ PADDING-LEFT: 24px; padding-top:20px; WIDTH: 388px; BACKGROUND: url(__PUBLIC__/images/usercenter/joylogin10072603.jpg) repeat-x 0px 20px;HEIGHT: 29px; margin-left:15px;}
+.jmpic{ padding:0 auto;}
+.jmltitle1 SPAN {
+	TEXT-ALIGN: center; LINE-HEIGHT: 29px; WIDTH: 69px; BACKGROUND: url(__PUBLIC__/images/usercenter/joylogin10072602-1.png) no-repeat -71px -247px; FLOAT: left; FONT-SIZE: 14px; CURSOR: pointer; MARGIN-RIGHT: 2px;}
+.jmltitle1 SPAN.cur {
+	BACKGROUND-POSITION: 0px -247px}
+.goodtip {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 20px; PADDING-RIGHT: 0px; PADDING-TOP: 13px}
+.jmlnana {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 24px; PADDING-RIGHT: 0px; PADDING-TOP: 10px}
+.jmlnana SPAN {
+	PADDING-RIGHT: 4px; FONT-WEIGHT: bold}
+.jmllive {
+	MARGIN: 10px auto 0px; PADDING-LEFT: 24px; WIDTH: 388px; BACKGROUND: url(__PUBLIC__/images/usercenter/joylogin10072603.jpg) repeat-x; HEIGHT: 29px}
+.jmllive SPAN.cur {
+	BACKGROUND-POSITION: 0px 0px}
+.jmllive SPAN EM {
+	PADDING-RIGHT: 3px; COLOR: #333; FONT-SIZE: 14px; FONT-WEIGHT: bold}
+.jmllogin1 UL {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 15px; WIDTH: 300px; PADDING-RIGHT: 0px; FLOAT: left; overflow:hidden;  PADDING-TOP: 5px}
+.jmllogin1 UL LI {
+	PADDING-BOTTOM: 10px; LINE-HEIGHT: 22px; HEIGHT: 22px}
+.jmllogin1 UL LI INPUT {
+	border:1px #bebebe solid; border-radius:3px; WIDTH: 175px;  HEIGHT: 27px;}
+.jmllogin1 UL LI INPUT:focus{
+	border: 1px solid #FF50A5;
+box-shadow: 0px 0px 5px 1px rgba(251, 40, 142, 0.25);}	
+	
+.jmllogin1 UL LI LABEL {
+	TEXT-ALIGN: right; WIDTH: 50px; FLOAT: left; MARGIN-RIGHT: 9px}
+.jmllogin1 UL LI EM {
+	PADDING-LEFT: 9px}
+.jmllogin1 UL LI EM A {
+	COLOR: #004a99; TEXT-DECORATION: underline}
+.jmllogin1 UL LI EM A:hover {
+	COLOR: #004a99}
+.jmllogin1 UL LI.spe1 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 60px; COLOR: #ff0101; _padding-left: 62px}
+.jmlbtn1 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 50px; WIDTH: 252px; PADDING-RIGHT: 0px; FLOAT: left; HEIGHT: 25px; PADDING-TOP: 5px; _height: 21px}
+.jmllogin1 .jmlbtn1 INPUT {
+	MARGIN: 0px 5px 0px 0px; FLOAT: left}
+.jmllogin1 .jmlbtn2 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 45px; WIDTH: 249px; PADDING-RIGHT: 0px; FLOAT: left; HEIGHT: 37px; PADDING-TOP: 0px; _padding: 2px 0 0 112px}
+.jmllogin1 .jmlbtn2 INPUT {
+	margin-top:10px;
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 185px;  HEIGHT: 37px; FONT-SIZE: 14px; VERTICAL-ALIGN: middle; BORDER-TOP: 0px; CURSOR: pointer; FONT-WEIGHT: bold; MARGIN-RIGHT: 10px; BORDER-RIGHT: 0px; PADDING-TOP: 0px}
+.jmllogin1 .jmlren1 {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 20px; MARGIN: 0px auto; PADDING-LEFT: 30px; WIDTH: 415px; PADDING-RIGHT: 0px; HEIGHT: 29px; CLEAR: both; PADDING-TOP: 0px}
+.jmllogin1 .jmlren1 IMG {FLOAT: left; MARGIN-RIGHT: 5px}
+.jmllogin1 .jmlren1 SPAN {WIDTH: 145px; FLOAT: left}
+.jmllogin1 .jmlren1 A {COLOR: #004a99}
+.jmllogin1 .jmlren1 A:hover {COLOR: #004a99}
+
+
+
+.loginLayer{width:775px;border:0 none}.loginLayer .dialogLayer-hd{position:relative;padding:0;height:135px;background:url("http://img1.cache.netease.com/bobo/image/login-bg20150604.jpg") 0 0 no-repeat}.loginLayer .dialogLayer-hd .receive-now{position:absolute;top:52px;right:66px;display:block;width:145px;height:39px}.loginLayer .dialogLayer-bd{*height:220px;padding:25px 52px 65px}.loginLayer h2{height:20px;line-height:20px;font-size:20px;font-family:Microsoft YaHei}.login-area{float:left;position:relative;width:308px;padding-right:55px;border-right:1px solid #e3e3e3}.login-area .login-mail,.login-area .login-pwd{width:288px;height:20px;line-height:20px;padding:7px 10px 9px;margin-top:18px;border:0 none;color:#7c7c7c;border-top:1px solid #d5d5d5;background:#f6f6f6;font-size:14px}.login-area .login-item{position:relative}.login-area .login-default-text{position:absolute;top:25px;left:11px;color:#BBB;font-size:14px;cursor:text}.login-area .login-check{margin-top:10px;text-align:left}.login-area .login-check input{position:relative;/*top:3px;*/margin-right:5px}.login-area .login-btn{outline:none;cursor:pointer;display:block;width:308px;height:38px;margin-top:25px;color:#fff;font:18px/38px Microsoft YaHei;text-align:center;text-decoration:none !important;background:url(http://img1.cache.netease.com/bobo/image/rep.png) 0 -80px repeat-x;border:none}.login-area .login-btn:hover,.login-area .login-btn:active{background-position:0 -40px}.login-area .login-error-tip{position:absolute;top:0;left:0;width:308px;height:25px;line-height:25px;color:#ef6433;background:#fff}.login-area .login-error-tip .icon-error{margin-bottom:-2px;margin-right:6px}.no-account{float:right;width:250px;padding-left:52px}.no-account p{margin:-5px 0 12px;*margin:-2px 0 8px}.no-account .no-account-login{position:relative;display:block;width:165px;height:39px;line-height:39px;padding-left:85px;text-decoration:none !important;background:#ebebeb;border-width:1px;border-style:solid;border-color:#ebebeb #eaeaea #ececec;background-image:url(http://img1.cache.netease.com/bobo/image/rep.png);background-repeat:repeat-x;border-radius:2px}.no-account .no-account-login:hover,.no-account .no-account-login:active{color:#fff}.no-account .regist-ntes{border-color:#e5e5e5 #e4e4e4 #e6e6e6;margin-bottom:43px;background-position:0 -200px}.no-account .regist-ntes:hover,.no-account .regist-ntes:active{border-color:#c74747 #c54141 #ca5151;background-position:0 0}.no-account .qq-login,.no-account .sina-login{color:#7c7c7c;background-position:0 -240px}.no-account .qq-login:hover,.no-account .qq-login:active{border-color:#3c9de9 #369ae8 #47a3ea;background-position:0 -160px}.no-account .sina-login:hover,.no-account .sina-login:active{border-color:#e6a020 #e59d19 #e7a52d;background-position:0 -120px}.no-account .icon-ntes{position:absolute;top:12px;left:58px}.no-account .icon-qq{position:absolute;top:9px;left:65px}.no-account .icon-sina{position:absolute;top:10px;left:63px}.loginLayer-info h2{margin-bottom:40px}.loginLayer-info p{margin-bottom:15px}.loginLayer-info label{float:left;position:relative;width:53px;padding-left:16px}.loginLayer-info label em{position:absolute;top:50%;left:0;width:2px;height:2px;font-size:0;line-height:0;background:#333}.loginLayer-info .login-nickname,.loginLayer-info select{height:22px;line-height:22px;padding-left:8px;border:0 none;color:#7c7c7c;border-top:1px solid #d5d5d5;background:#f6f6f6}.loginLayer-info select{margin-right:8px}.loginLayer-info .login-select-year{width:80px}.loginLayer-info .login-select-date{width:50px}.loginLayer-info .login-select-place{width:115px}.loginLayer-info .login-select-city{width:80px}.loginLayer-info .loginLayer-info-confirm{margin-top:20px;margin-left:70px}.loginLayer-info .nickname-error-tip{color:#ef6433;margin-left:8px}.loginLayer-info .nickname-error-tip .icon-error{margin-bottom:-2px;margin-right:5px}.ntes-regist{display:block;width:302px;height:84px;color:#fff;font:bold 16px/84px Microsoft YaHei;text-align:center;margin:16px 0 8px;text-decoration:none !important;background:url(http://img1.cache.netease.com/bobo/image/rep.png) 0 -280px repeat-x}.ntes-regist:hover,.ntes-regist:active{background-position:0 -365px}.domainSelector{width:306px;border:1px solid #e4e4e4}.domainSelector .title{background:none repeat scroll 0 0 #F6F6F6;padding:3px 0 3px 2px;text-align:left}.cardLayer{position:absolute;left:100px;top:500px;*width:364px;font-family:Microsoft YaHei;border:2px solid #f4f4f4;z-index:1010}.cardLayer .cardLayer-inner{position:relative;background:#fff;border:1px solid #e1e1e1}.cardLayer .cardLayer-inner .icon-card-left{position:absolute;left:-11px;top:30px}.cardLayer .cardLayer-inner .icon-card-right{position:absolute;top:30px;right:-11px}.cardLayer .cardLayer-inner .icon-card-top{position:absolute;top:-10px;left:42px}.cardLayer .cardLayer-inner .icon-card-bottom{position:absolute;bottom:-14px;_bottom:-16px;left:42px}.cardLayer .cardLayer-state{width:360px;height:210px;line-height:210px;text-align:center;font-size:30px}.cardLayer-hd .cardLayer-user{position:relative;padding:15px 15px 0}.cardLayer-hd .avatar-m{margin-right:15px;margin-bottom:10px;margin-top:5px}.cardLayer-hd .card-family{position:absolute;top:20px;right:39px}.cardLayer-hd .card-wealth{position:absolute;top:20px;right:14px}.cardLayer-hd h5{color:#5a5a5a;font-size:14px}.cardLayer-hd h5 em{margin-bottom:-3px;margin-left:5px}.cardLayer-hd .card-list em,.cardLayer-hd .card-list img{margin-right:3px}.cardLayer-hd p{color:#999;margin-top:5px}.cardLayer-hd i{position:relative;top:-1px;color:#ccc;margin:0 12px}.cardLayer-hd .icon-personal{margin-left:-5px;margin-right:5px;margin-bottom:-1px;*margin-left:-8px;*margin-right:8px;*margin-bottom:3px;_margin-bottom:-1px}.cardLayer-hd .cardLayer-info{margin:3px 8px 0;padding:0 15px 5px;border-top:1px solid #e7e7e7}.cardLayer-bd{_position:relative;min-width:340px;_width:340px;_width:auto;height:30px;line-height:30px;padding:8px 10px 8px 14px;font-size:14px;text-align:right;background:#f6f6f6}.cardLayer-bd a{color:#ed5c1c;margin-right:18px}.cardLayer-bd .card-follow-info{float:left;margin-right:8px;_position:relative;_padding-top:7px}.cardLayer-bd .card-followed{float:left;_position:relative;color:#999;margin-right:0}.cardLayer-bd .orange-btn{width:90px;padding:0;color:#fff;margin:0;background:#ed5c1c}.cardLayer-bd .orange-btn:hover,.cardLayer-bd .orange-btn:active{background:#e70000}.cardLayer-bd .icon-add,.cardLayer-bd .icon-rightG,.cardLayer-bd .icon-mailB{margin-bottom:-3px;margin-right:5px}.container{padding-bottom:100px}.footer{margin-top:0}.rank-mod{margin-bottom:40px}.rank-mod-hd{position:relative;height:40px;line-height:40px;margin-bottom:10px}.rank-mod-hd h2{display:inline;font:24px Microsoft YaHei;margin-right:18px}.rank-mod-hd .rank-gift-tab{position:absolute;top:5px;right:0;line-height:29px;color:#a6a6a6;font-family:Microsoft YaHei}.rank-mod-hd .rank-gift-tab a{display:inline-block;width:29px;height:29px;line-height:29px;margin-left:1px;color:#a6a6a6;text-align:center;background:#f3f3f3}.rank-mod-hd .rank-gift-tab .cur{color:#fff;background:#999;text-decoration:none}.rank-mod-bd{height:272px}.rank-top{margin-right:30px}.rank-top3{position:relative;float:left;width:113px;height:272px;margin-right:1px;text-align:center;font-family:Microsoft YaHei;background:#f3f3f3}.rank-top3 p{margin:5px 0;overflow:hidden}.rank-top3 .avatar-r1{margin:32px auto -4px}.rank-top3 .avatar-r2{margin:35px auto 0}.rank-top3 .icon-radio{position:absolute;top:65px;right:24px}.rank-top3 .rank-star{position:absolute;top:155px;left:0;width:113px;color:#999;text-align:center}.rank-top3 .num-rank1,.rank-top3 .num-rank2,.rank-top3 .num-rank3{position:absolute;bottom:30px;left:35px}.rank-top3 .rank-gift{height:21px;margin-bottom:25px;overflow:hidden}.rank-first{background:#ffece5}.rank-list{width:285px}.rank-list p{color:#1d0545;height:22px;line-height:22px;margin-bottom:27px}.rank-list a{color:#1d0545}.rank-list .num-rank4{float:left;margin-right:10px;margin-top:3px}.rank-list .num-rank5{float:left;margin-right:10px;margin-top:3px}.rank-list .num-rank6{float:left;margin-right:10px;margin-top:3px}.rank-list .num-rank7{float:left;margin-right:10px;margin-top:3px}.rank-list .num-rank8{float:left;margin-right:10px;margin-top:3px}.rank-list .num-rank9{float:left;margin-right:10px;margin-top:3px}.rank-list .num-rank10{float:left;margin-right:10px;margin-top:3px}.rank-list .num-rank11{float:left;margin-right:10px;margin-top:3px}.rank-list .num-rank12{float:left;margin-right:10px;margin-top:3px}.rank-list .num-rank13{float:left;margin-right:10px;margin-top:3px}.rank-list .num-rank14{float:left;margin-right:10px;margin-top:3px}.rank-list .num-rank15{float:left;margin-right:10px;margin-top:3px}.rank-list .rank-list-fl{float:left;margin-right:10px}.rank-list .rank-fans{color:#999;margin-left:10px}.rank-list .rank-award{float:left;width:15px;height:15px;margin-top:4px;margin-right:10px}.rank-list .medal-wealth0{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth1{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth2{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth3{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth4{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth5{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth6{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth7{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth8{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth9{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth10{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth11{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth12{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth13{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth14{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth15{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth16{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth17{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth18{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth19{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth20{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth21{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth22{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth23{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth24{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth25{margin-top:-6px;_margin-top:0}.rank-list .medal-wealth26{margin-top:-6px;_margin-top:0}.rank-wealth-list p{_margin-bottom:10px;_overflow:visible}.rank-gift-top .num-rank1,.rank-gift-top .num-rank2,.rank-gift-top .num-rank3{bottom:205px}.rank-gift-top .avatar-r1{margin-top:78px}.rank-gift-top .avatar-r2{margin-top:82px}.rank-gift-top .rank-gift{margin-bottom:5px}.rank-gift-top .rank-gift-line{padding-top:8px;margin:18px 0 -4px;border-top:1px solid #fff}.rank-gift-top .rank-gift-layer{top:198px;left:25px}.rank-gift-list a{color:#999}.rank-gift-list .icon-rank3{position:relative;left:6px;top:3px}.rank-gift-list .medal-anchor0{margin-left:8px}.rank-gift-list .medal-anchor1{margin-left:8px}.rank-gift-list .medal-anchor2{margin-left:8px}.rank-gift-list .medal-anchor3{margin-left:8px}.rank-gift-list .medal-anchor4{margin-left:8px}.rank-gift-list .medal-anchor5{margin-left:8px}.rank-gift-list .medal-anchor6{margin-left:8px}.rank-gift-list .medal-anchor7{margin-left:8px}.rank-gift-list .medal-anchor8{margin-left:8px}.rank-gift-list .medal-anchor9{margin-left:8px}.rank-gift-list .medal-anchor10{margin-left:8px}.rank-gift-list .medal-anchor11{margin-left:8px}.rank-gift-list .medal-anchor12{margin-left:8px}.rank-gift-list .medal-anchor13{margin-left:8px}.rank-gift-list .medal-anchor14{margin-left:8px}.rank-gift-list .medal-anchor15{margin-left:8px}.rank-gift-list .medal-anchor16{margin-left:8px}.rank-gift-list .medal-anchor17{margin-left:8px}.rank-gift-list .medal-anchor18{margin-left:8px}.rank-gift-list .medal-anchor19{margin-left:8px}.rank-gift-list .medal-anchor20{margin-left:8px}.rank-gift-list .medal-anchor21{margin-left:8px}.rank-gift-list .medal-anchor22{margin-left:8px}.rank-gift-list .medal-anchor23{margin-left:8px}.rank-gift-list .medal-anchor24{margin-left:8px}.rank-gift-list .medal-anchor25{margin-left:8px}.rank-gift-list .medal-anchor26{margin-left:8px}.rank-gift-list .medal-anchor27{margin-left:8px}.rank-gift-list .medal-anchor28{margin-left:8px}.rank-gift-list .medal-anchor29{margin-left:8px}.rank-gift-list .medal-anchor30{margin-left:8px}.rank-gift-layer{position:absolute;width:285px;text-align:left;font-family:Microsoft YaHei;background:#fefdec;border:1px solid #ffbd30;box-shadow:2px 2px #ebebeb;z-index:99}.rank-gift-layer .icon-rankcorner{position:relative;top:-6px;left:22px;line-height:0}.rank-gift-layer ul{padding-left:6px;padding-right:5px;margin-top:-7px}.rank-gift-layer li{color:#f68c2e;height:38px;line-height:38px;_height:28px;_padding-top:10px;padding-left:9px;padding-right:6px;text-align:left;background:url("http://img1.cache.netease.com/bobo/image/rank-dot.png") left bottom repeat-x}.rank-gift-layer .noBorder{background:none}.rank-gift-layer span{display:block;*height:28px;*line-height:28px}.rank-gift-layer i{color:#f54e13;margin-right:7px}.rank-gift-layer a{color:#f68c2e;margin-right:4px}.rank-gift-layer .rank-gift-medal{margin-bottom:-3px}.rank-gift-layer .rank-gift-num{float:right;display:block;line-height:32px;*margin-top:-5px;_margin-top:-10px}.rank-gift-layer .rank-gift-num em{font-size:18px;font-family:Georgia;margin-right:2px}.rank-last{height:272px;padding-left:30px;background:url(http://img1.cache.netease.com/bobo/image/dotted.png) 0 0 repeat-y}.gift-week-wrapper{width:1100px;margin-top:75px}.gift-week-wrapper .gift-week{float:left;width:475px;margin-right:50px}.gift-week-hd{position:relative;height:50px;padding-bottom:10px}.gift-week-hd h2{height:50px;font:24px/50px Microsoft YaHei}.gift-week-hd .icon-help2{position:absolute;top:8px;left:145px;display:inline-block}.gift-week-hd .icon-help2 .rank-help-layer{visibility:hidden;position:absolute;top:25px;left:-21px;width:210px;height:35px;text-align:center;font-family:Microsoft YaHei;background:#FFF0E8;border:1px solid #FDB08E;box-shadow:2px 2px #EBEBEB;z-index:99}.gift-week-hd .icon-help2 .rank-help-layer .icon-rankcorner2{position:relative;top:-6px;left:-75px;line-height:0;font-size:0}.gift-week-hd .icon-help2 .rank-help-layer p{color:#F77656}.gift-week-hd .icon-help2:hover{text-decoration:none}.gift-week-hd .icon-help2:hover .rank-help-layer{visibility:visible}.gift-week-item{height:95px;padding:5px 5px 5px 0;margin-bottom:16px;background:#fff6f3;border:1px solid #fddccd}.gift-week-item .gift-week-itemfl{position:relative;float:left;width:85px;height:95px;margin-right:16px;color:#6e6e6e;text-align:center;border-right:1px solid #fddccd}.gift-week-item .gift-week-itemfl .avatar-week2{margin:-2px auto 0}.gift-week-item .gift-week-itemfl .icon-week{position:absolute;top:0;right:6px}.gift-week-item .gift-week-itemfl p{color:#f6821b}.gift-week-item .gift-week-itemfl p em{font:18px Georgia}.gift-week-item .gift-week-itemfr{padding-top:36px;text-align:right}.gift-week-item .gift-week-itemfr .png24{margin-bottom:-4px;margin-right:4px}.gift-week-item .gift-week-itemfr a{margin-right:4px}
+
+</style>
+
+</head>
+
+<body onload="init();">
+<!-- 登录层 -->
+ 
+<div class="joymodlogin" style="height:320px; border-radius:8px; width:680px;padding-top:180px; padding-left:50px; padding-right:50px">
+	<div class="dialogLayer-hd2"><a class="png24 js-close btn-login-close" href="javascript:parent.UAC.closeUAC();" title="关闭"></a><a class="receive-now" href="http://www.bobo.com/special/pcjf/" target="_blank"></a></div><div class="dialogLayer-bd clearfix js-bd">
+	
+	
+	
+	
+<div class="login-area"><h2>海量直播，线上娱乐</h2><p class="login-error-tip js-errorTip" style="display: none;"><em class="png24 icon-error"></em><span></span></p><p class="login-item"><input class="login-mail" name="userName" id="userName" autocomplete="off" placeholder="帐号" type="text"><label style="display: none;" class="login-default-text js-defaultText">帐号  </label></p><p class="login-item"><input class="login-pwd" name="password" id="password" placeholder="密码" type="password"><label style="display: none;" class="login-default-text js-defaultText">密码</label></p>
+
+			<div style="float:left">
+			<input class="login-mail"  placeholder="验证码" style="width:120px" type="text" id="login_validateCode" maxlength="4" onclick="javascript:code_login();" onfocus="javascript:code_login();" onmouseover="javascript:code_login();" onblur="validateRegInfo('code');" />		
+			<a onclick="document.getElementById('img_authCode1').src='__APP__/Base/verify/v/'+Math.random();" style="cursor:pointer;">换一换？</a>
+			</div>
+			<img style="padding:20px" id="img_authCode1" class="jmlma2 njmlma2" src="__PUBLIC__/images/102914847.jpg" />
+	
+	
+	<p class="login-check" style="clear:both"><label class="fl"><input value="1" name="savelogin" checked="checked" type="checkbox" id="autoLogin">下次自动登录</label><a href="http://reg.163.com/RecoverPasswd1.shtml" style="float:right; color:#e75f30">忘记密码</a></p><input name="url" value="http://www.bobo.com/rank" type="hidden"><input value="bobo" name="product" type="hidden"><input value="bobo.com,163.com" name="domains" type="hidden"><input name="type" value="1" type="hidden">
+	<p style="margin:3px;color:#ff0000" id="login_info"></p>
+	<p><button class="login-btn" type="submit" id="btn_login"  onclick="login();" >登录</button></p></div>
+	
+	
+
+	
+	 
+	<div class="no-account"><p>已有账号？</p><p><a class="regist-ntes no-account-login" href="usercenter" data-keyfrom="navi.login163"><em class="png24 icon-ntes"></em>点击登录</a></p><p>或者用社交账号登录</p><p><a class="qq-login no-account-login" href="http://reg.163.com/outerLogin/oauth2/connect.do?target=1&amp;domains=bobo.com,163.com&amp;product=bobo&amp;url=http://www.bobo.com/rank&amp;url2=http://www.bobo.com/rank" data-keyfrom="navi.loginqq"><em class="png24 icon-qq"></em>使用腾讯QQ登录</a></p><p><a class="sina-login no-account-login" href="http://reg.163.com/outerLogin/oauth2/connect.do?target=3&amp;domains=bobo.com,163.com&amp;product=bobo&amp;url=http://www.bobo.com/rank&amp;url2=http://www.bobo.com/rank" data-keyfrom="navi.loginsina"><em class="png24 icon-sina"></em>使用新浪微博登录</a></p></div></div></div><div style="display: none; position: fixed; left: 616px; top: 445px; width: 306px;" class="domainSelector" id="passportusernamelist1"><div style="padding:0px;"><table width="100%" cellpadding="0" cellspacing="0"><tbody><tr><td class="title" style="title">请选择或继续输入...</td></tr><tr><td></td><td></td></tr></tbody></table></div><div style="display: none;"></div><div id="passport_111"></div>
+	<div class="dialogLayer-hd"><a class="png24 js-close btn-login-close" href="javascript:;" title="关闭"></a><a class="receive-now" href="http://www.bobo.com/special/pcjf/" target="_blank"></a></div><div class="dialogLayer-bd clearfix js-bd"><form action="https://reg.163.com/logins.jsp" method="POST" id="minLoginForm" name="loginform" target="_self"><div class="login-area"><h2>海量直播，线上娱乐</h2><p class="login-error-tip js-errorTip" style="display: none;"><em class="png24 icon-error"></em><span></span></p><p class="login-item"><input class="login-mail" name="username" id="poplayer_username" autocomplete="off" placeholder="帐号" type="text"><label style="display: none;" class="login-default-text js-defaultText">帐号 </label></p><p class="login-item"><input class="login-pwd" name="password" id="poplayer_passport" placeholder="密码" type="password"><label style="display: none;" class="login-default-text js-defaultText">密码</label></p><p class="login-check"><label class="fl"><input value="1" name="savelogin" checked="checked" type="checkbox">下次自动登录</label><a href="http://reg.163.com/RecoverPasswd1.shtml" style="float:right; color:#e75f30">忘记密码</a></p><input name="url" value="http://www.bobo.com/rank" type="hidden"><input value="bobo" name="product" type="hidden"><input value="bobo.com,163.com" name="domains" type="hidden"><input name="type" value="1" type="hidden"><p><button class="login-btn" type="submit" href="javascript:;">登录</button></p></div></form><div class="no-account"><p>已有账号？</p><p><a class="regist-ntes no-account-login" href="http://reg.163.com/reg/reg.jsp?product=bobo&amp;url=http://www.bobo.com/rank&amp;loginurl=http://www.bobo.com/rank" data-keyfrom="navi.login163"><em class="png24 icon-ntes"></em>注册秀场账号</a></p><p>或者用社交账号登录</p><p><a class="qq-login no-account-login" href="http://reg.163.com/outerLogin/oauth2/connect.do?target=1&amp;domains=bobo.com,163.com&amp;product=bobo&amp;url=http://www.bobo.com/rank&amp;url2=http://www.bobo.com/rank" data-keyfrom="navi.loginqq"><em class="png24 icon-qq"></em>使用腾讯QQ登录</a></p><p><a class="sina-login no-account-login" href="http://reg.163.com/outerLogin/oauth2/connect.do?target=3&amp;domains=bobo.com,163.com&amp;product=bobo&amp;url=http://www.bobo.com/rank&amp;url2=http://www.bobo.com/rank" data-keyfrom="navi.loginsina"><em class="png24 icon-sina"></em>使用新浪微博登录</a></p></div></div></div><div style="display: none; position: fixed; left: 616px; top: 445px; width: 306px;" class="domainSelector" id="passportusernamelist1"><div style="padding:0px;"><table width="100%" cellpadding="0" cellspacing="0"><tbody><tr><td class="title" style="title">请选择或继续输入...</td></tr><tr><td></td><td></td></tr></tbody></table></div><div style="display: none;"></div><div id="passport_111"></div>
+</div>
+
+</body>
+</html>

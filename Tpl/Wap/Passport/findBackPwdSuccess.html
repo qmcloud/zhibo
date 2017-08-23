@@ -1,0 +1,49 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$sitename}</title>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="__PUBLIC__/wap/css/usercenter/joylogin100726.css" type="text/css" media="screen" />
+<script language="javascript" src="__PUBLIC__/wap/js/20120825/jquery.js"></script>
+<script language="javascript" src="__PUBLIC__/wap/js/usercenter.js?t=03215462655"></script>
+<script type="text/javascript">
+document.domain = '{$domainroot}';
+function reSendMail(){
+	var name = $("#id_userName").val();
+	var email = $("#id_email").val();
+	$.ajax({
+		url : '__URL__/findBackPwd/userName/'+name+'/email/'+email+'/rand/'+Math.random(),
+		success : function(data){
+			alert("密码找回邮件重发成功");
+		}		
+	})
+}
+</script>
+</head>
+<body>
+<!-- 找回密码成功 -->
+<div class="joymodlogin jmlloginbox1"> 
+	<h3><em>密码找回</em><span title="关闭"><a href="javascript:parent.UAC.closeUAC();">关闭</a></span></h3> 
+	<div class="jmllogin2"> 
+		<div class="jmlmail1"> 
+			<div class="jmlmailtip"><em></em>密码找回邮件发送成功！</div> 
+			<p><span>没有收到邮件？</span></p> 
+			<p>·如果超过10分钟仍然未收到找回邮件，请您：<a href="javascript:reSendMail();">重发邮件</a>
+			<input id="id_userName" type="hidden" value="{$_GET['userName']}"/>
+			<input id="id_email" type="hidden" value="{$_GET['email']}"/>
+			</p> 
+			<p>·找回密码邮件或被误认为垃圾邮件放到垃圾箱了。</p> 
+		</div> 
+		<div class="jmltip"> 
+			<span>友情提示</span> 
+			<p>请您填写注册时所留的邮箱，如有不明白，请联系客服。</p> 
+		</div> 
+	</div> 
+</div>
+</body>
+</html>

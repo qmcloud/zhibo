@@ -1,0 +1,353 @@
+﻿<tagLib name="html" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的道具-管理中心-{$sitename}</title>
+<link rel="stylesheet" href="__PUBLIC__/wap/css/20120825/common.css" type="text/css" />
+<script language="javascript" src="__PUBLIC__/wap/js/20120825/jquery.js"></script>
+<script language="javascript" src="__PUBLIC__/wap/js/20120825/common.js"></script>
+
+</head>
+<body>
+<div class="headhead"></div>
+<include file="Public:header1" />
+
+<div class="wrap">
+	<div class="usercenter">
+    	
+
+
+
+
+
+<div class="utitle">
+			<h2><a href="__URL__/" title="管理中心">管理中心导航</a></h2>
+			<div class="utab">
+				<a href="__URL__/myfavor/" title="收藏"><span>收藏</span></a>
+				<a href="__URL__/interestToList/" title="偶像"><span>偶像</span></a>
+				<a href="__URL__/myNos/" title="靓号"><span>靓号</span></a>
+				<a href="__URL__/toolinuse/" title="道具"><span>道具</span></a>
+				<!--<a href="__URL__/wishing_wishing/" title="许愿"><span>许愿</span></a>//-->
+				<a href="__URL__/showadmin/" title="房管"><span>房管</span></a>
+				<!--<a href="__URL__/familyIJoin/" title="家族"><span>家族</span></a>//-->
+                <a href="__URL__/interestByList/" title="粉丝"><span>粉丝</span></a>
+                <a href="__URL__/info_edit/" title="个人设置"><span>个人设置</span></a>
+				<a href="__URL__/getConsume/" title="账单"><span>我的账单</span></a>
+				<!--<a href="__URL__/bl_list/" title="黑名单"><span>黑名单</span></a>//-->
+			</div>
+			<div class="umyhelp">
+<?php if($userinfo['sign']=="y"){?>
+				<a href="/{$_SESSION['roomnum']}" title="我的直播"><span>我的直播</span></a> 
+<?php } ?>
+                <a href="__URL__/charge/" title="充值"><span>充值</span></a> 
+<?php if($userinfo['sign']=="y"){?>
+                
+<?php } ?>
+<?php if($userinfo['sign']=="y"){?>
+                <a href="__URL__/settlement/" title="结算"><span>结算</span></a>
+<?php } ?>
+			</div>
+</div>
+
+<script language="javascript">
+$(function(){
+   var sm = $('.utab a,.umyhelp a').setMyTab();
+ }
+)
+</script>
+        <div class="usercenter_con">
+            <div class="djsc_top">
+                <h4>我的道具</h4>
+                <span><a href="__URL__/toolItem/" class="djbuy">购买道具</a></span>
+            </div>
+            <div class="djsc_list">
+                <table border="0">
+                  <tr>
+                    <th scope="col">道具</th>
+                    <th scope="col">威力</th>
+                    <th scope="col">有效期</th>
+                  </tr>
+                  <?php
+				  if($userinfo['vip'] == '1' and $userinfo['vipexpire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>至尊VIP<span class='props vip1'></span></td>
+		                    <td>
+		                    	<ul>
+									<li>名称前"<span class="props vip1"></span>"紫色标识</li><li>防止被踢</li><li>防止被禁言</li><li>可以进入满员房间</li>
+		                        </ul>
+		                    </td>
+							<td><?php echo date('Y-m-d H:i:s',$userinfo['vipexpire']); ?></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+				  <?php
+				  if($userinfo['vip'] == '2' and $userinfo['vipexpire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>VIP<span class='props vip2'></span></td>
+		                    <td>
+		                    	<ul>
+									<li>名称前"<span class="props vip2"></span>"标识</li><li>除房主以外，防止被踢</li><li>除房主以外，防止被禁言</li><li>可以进入满员房间</li><li>房间排位直接升至10富上面</li>
+		                        </ul>
+		                    </td>
+							<td><?php echo date('Y-m-d H:i:s',$userinfo['vipexpire']); ?></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+				  <?php
+				  if($userinfo['goldkey'] == 'y' and $userinfo['gkexpire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>金钥匙<span class='props vip4'></span></td>
+		                    <td>
+		                    	<ul>
+									可以进入满员房间
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['gkexpire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+				  <?php
+				  if($userinfo['atwill'] == 'y' and $userinfo['awexpire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>随意说<span class='props vip900'></span></td>
+		                    <td>
+		                    	<ul>
+									每日免费发布100条广播
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['awexpire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+<!--新道具显示-->
+<?php include '/lib/action/daojuset.php'; ?>
+				  <?php
+				  if($userinfo['Daoju1'] == 'y' and $userinfo['Daoju1expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[1]}<span class='props vip900' style="background:url('{$daojuicon[1]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[1]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju1expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+				  <?php
+				  if($userinfo['Daoju2'] == 'y' and $userinfo['Daoju2expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[2]}<span class='props vip900' style="background:url('{$daojuicon[2]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[2]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju2expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+				  <?php
+				  if($userinfo['Daoju3'] == 'y' and $userinfo['Daoju3expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[3]}<span class='props vip900' style="background:url('{$daojuicon[3]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[3]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju3expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+				  <?php
+				  if($userinfo['Daoju4'] == 'y' and $userinfo['Daoju4expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[4]}<span class='props vip900' style="background:url('{$daojuicon[4]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[4]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju4expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+				  <?php
+				  if($userinfo['Daoju5'] == 'y' and $userinfo['Daoju5expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[5]}<span class='props vip900' style="background:url('{$daojuicon[5]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[5]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju5expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+				  <?php
+				  if($userinfo['Daoju6'] == 'y' and $userinfo['Daoju6expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[6]}<span class='props vip900' style="background:url('{$daojuicon[6]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[6]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju6expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+				  <?php
+				  if($userinfo['Daoju7'] == 'y' and $userinfo['Daoju7expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[7]}<span class='props vip900' style="background:url('{$daojuicon[7]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[7]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju7expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+				  <?php
+				  if($userinfo['Daoju8'] == 'y' and $userinfo['Daoju8expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[8]}<span class='props vip900' style="background:url('{$daojuicon[8]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[8]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju8expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+ <?php
+				  if($userinfo['Daoju9'] == 'y' and $userinfo['Daoju9expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[9]}<span class='props vip900' style="background:url('{$daojuicon[9]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[9]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju1expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+ <?php
+				  if($userinfo['Daoju10'] == 'y' and $userinfo['Daoju10expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[10]}<span class='props vip900' style="background:url('{$daojuicon[10]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[10]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju1expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+ <?php
+				  if($userinfo['Daoju11'] == 'y' and $userinfo['Daoju11expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[11]}<span class='props vip900' style="background:url('{$daojuicon[11]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[11]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju1expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+ <?php
+				  if($userinfo['Daoju12'] == 'y' and $userinfo['Daoju12expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[12]}<span class='props vip900' style="background:url('{$daojuicon[12]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[12]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju1expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+ <?php
+				  if($userinfo['Daoju13'] == 'y' and $userinfo['Daoju13expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[13]}<span class='props vip900' style="background:url('{$daojuicon[13]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[13]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju1expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+ <?php
+				  if($userinfo['Daoju14'] == 'y' and $userinfo['Daoju14expire'] > time()){
+				  ?>
+					 <tr>
+		                    <td>{$daojuname[14]}<span class='props vip900' style="background:url('{$daojuicon[14]}');background-position:center center;background-size:100% 100%;"></span></td>
+		                    <td>
+		                    	<ul>
+									{$daojucon[14]}
+		                        </ul>
+		                    </td>
+							<td><span><?php echo date('Y-m-d H:i:s',$userinfo['Daoju1expire']); ?></span></td>
+					 </tr>
+				  <?php
+				  }
+				  ?>
+<!--新道具结束-->
+                </table>
+            </div>
+		</div>
+    </div>
+    
+</div>
+<include file="Public:footer" />
+
+</body>
+</html>
