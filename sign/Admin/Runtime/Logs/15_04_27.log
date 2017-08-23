@@ -1,0 +1,600 @@
+[ 2015-04-27T10:06:48+08:00 ] 60.180.196.43 /sign/admin.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.015625s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:06:50+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:11:21+08:00 ] 60.180.196.43 /sign/admin.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.015625s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:11:22+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:13:28+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:13:29+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:13:30+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.015625s ]
+INFO: [ route_check ] --END-- [ RunTime:0.015625s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:13:30+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:13:31+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:13:31+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:13:32+08:00 ] 60.180.196.43 /sign/admin.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:13:34+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:14:31+08:00 ] 60.180.196.43 /sign/admin.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:14:32+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:14:32+08:00 ] 60.180.196.43 /sign/admin.php/Login/index.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:14:32+08:00 ] 60.180.196.43 /sign/admin.php/Login/verify.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:14:44+08:00 ] 60.180.196.43 /sign/admin.php/Login/login.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hx_admin` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_admin` WHERE ( `name` = 'admin' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant md5 - assumed 'md5' C:\WWW\sign\Admin\Lib\Action\LoginAction.class.php 第 22 行.
+NOTIC: [8] Undefined index: loginip C:\WWW\sign\Admin\Lib\Action\LoginAction.class.php 第 29 行.
+
+[ 2015-04-27T10:14:44+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hx_attendance` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `team` = '' ) ORDER BY id DESC LIMIT 0,2   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:14:46+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hx_attendance` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `team` = '早班' ) ORDER BY id DESC LIMIT 0,2   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:14:48+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hx_attendance` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `team` = '早班' ) ORDER BY id DESC LIMIT 0,2   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:16:17+08:00 ] 60.180.196.43 /sign/admin.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:16:18+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hx_attendance` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `team` = '早班' ) ORDER BY id DESC LIMIT 0,10   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:16:25+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E4%B8%AD%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hx_attendance` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `team` = '中班' ) ORDER BY id DESC LIMIT 0,10   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:16:26+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%99%9A%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.015625s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hx_attendance` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `team` = '晚班' ) ORDER BY id DESC LIMIT 0,10   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015626s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015626s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:16:27+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hx_attendance` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `team` = '早班' ) ORDER BY id DESC LIMIT 0,10   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:16:30+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD/p/2.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hx_attendance` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `team` = '早班' ) ORDER BY id DESC LIMIT 10,10   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:16:33+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD/p/1.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hx_attendance` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `team` = '早班' ) ORDER BY id DESC LIMIT 0,10   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:16:43+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD/p/2.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.015626s ]
+INFO: [ route_check ] --END-- [ RunTime:0.015626s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hx_attendance` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `team` = '早班' ) ORDER BY id DESC LIMIT 10,10   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:16:47+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD/p/1.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hx_attendance` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `team` = '早班' ) ORDER BY id DESC LIMIT 0,10   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015626s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015626s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:18:00+08:00 ] 60.180.196.43 /sign/admin.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.015625s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T10:18:02+08:00 ] 60.180.196.43 /sign/admin.php/MsgManage/index/team/%E6%97%A9%E7%8F%AD.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hx_attendance` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `team` = '早班' ) ORDER BY id DESC LIMIT 0,5   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: qmtime C:\WWW\sign\Admin\Lib\Action\MsgManageAction.class.php 第 19 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+NOTIC: [8] Undefined index: isLat1e C:\WWW\sign\Admin\Runtime\Cache\5323c3dae696ad7df5e6298279602b05.php 第 14 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.015625s ]
+INFO: [ view_end ] --END-- [ RunTime:0.015625s ]
+

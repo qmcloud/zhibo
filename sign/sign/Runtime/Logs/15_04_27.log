@@ -1,0 +1,270 @@
+[ 2015-04-27T09:47:25+08:00 ] 60.180.196.43 /sign/index.php/Index/show.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.015625s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `username` = '龙能�\�' )  [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant id - assumed 'id' C:\WWW\sign\sign\Runtime\Cache\bb179fbd8c8ae9f139daf56e800fd753.php 第 22 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' C:\WWW\sign\sign\Runtime\Cache\bb179fbd8c8ae9f139daf56e800fd753.php 第 22 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T09:47:25+08:00 ] 60.180.196.43 /sign/index.php/Index/Js/jquery-1.7.2.min.js
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Js
+
+[ 2015-04-27T09:47:25+08:00 ] 60.180.196.43 /sign/index.php/Index/Js/index.js
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Js
+
+[ 2015-04-27T09:47:25+08:00 ] 60.180.196.43 /sign/index.php/Index/Css/index.css
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Css
+
+[ 2015-04-27T09:47:25+08:00 ] 60.180.196.43 /sign/index.php/Index/Css/public.css
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Css
+
+[ 2015-04-27T09:47:27+08:00 ] 60.180.196.43 /sign/index.php/Index/show.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `username` = '龙能�\�' )  [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant id - assumed 'id' C:\WWW\sign\sign\Runtime\Cache\bb179fbd8c8ae9f139daf56e800fd753.php 第 22 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' C:\WWW\sign\sign\Runtime\Cache\bb179fbd8c8ae9f139daf56e800fd753.php 第 22 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015626s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015626s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T09:47:27+08:00 ] 60.180.196.43 /sign/index.php/Index/Js/index.js
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Js
+
+[ 2015-04-27T09:47:27+08:00 ] 60.180.196.43 /sign/index.php/Index/Css/index.css
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Css
+
+[ 2015-04-27T09:47:27+08:00 ] 60.180.196.43 /sign/index.php/Index/Js/jquery-1.7.2.min.js
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.015626s ]
+INFO: [ route_check ] --END-- [ RunTime:0.015626s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Js
+
+[ 2015-04-27T09:47:27+08:00 ] 60.180.196.43 /sign/index.php/Index/Css/public.css
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Css
+
+[ 2015-04-27T09:47:27+08:00 ] 60.180.196.43 /sign/index.php/Index/Css/index.css
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Css
+
+[ 2015-04-27T09:47:33+08:00 ] 60.180.196.43 /sign/index.php/Index/show.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.015626s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `username` = '龙能�\�' )  [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant id - assumed 'id' C:\WWW\sign\sign\Runtime\Cache\bb179fbd8c8ae9f139daf56e800fd753.php 第 22 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' C:\WWW\sign\sign\Runtime\Cache\bb179fbd8c8ae9f139daf56e800fd753.php 第 22 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015626s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015626s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T09:47:33+08:00 ] 60.180.196.43 /sign/index.php/Index/Js/jquery-1.7.2.min.js
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Js
+
+[ 2015-04-27T09:47:33+08:00 ] 60.180.196.43 /sign/index.php/Index/Js/index.js
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Js
+
+[ 2015-04-27T09:47:33+08:00 ] 60.180.196.43 /sign/index.php/Index/Css/public.css
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Css
+
+[ 2015-04-27T09:47:33+08:00 ] 60.180.196.43 /sign/index.php/Index/Css/index.css
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Css
+
+[ 2015-04-27T09:49:41+08:00 ] 60.180.196.43 /sign/index.php/Index/show.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+SQL: SHOW COLUMNS FROM `hx_attendance` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `hx_attendance` WHERE ( `username` = '龙能�\�' )  [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant id - assumed 'id' C:\WWW\sign\sign\Runtime\Cache\bb179fbd8c8ae9f139daf56e800fd753.php 第 22 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' C:\WWW\sign\sign\Runtime\Cache\bb179fbd8c8ae9f139daf56e800fd753.php 第 22 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-04-27T09:49:41+08:00 ] 60.180.196.43 /sign/index.php/Index/Js/jquery-1.7.2.min.js
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Js
+
+[ 2015-04-27T09:49:41+08:00 ] 60.180.196.43 /sign/index.php/Index/Js/index.js
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Js
+
+[ 2015-04-27T09:49:41+08:00 ] 60.180.196.43 /sign/index.php/Index/Css/public.css
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Css
+
+[ 2015-04-27T09:49:41+08:00 ] 60.180.196.43 /sign/index.php/Index/Css/index.css
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with that of Action::show() C:\WWW\sign\sign\Lib\Action\IndexAction.class.php 第 3 行.
+ERR: 非法操作:Css
+

@@ -1,0 +1,22 @@
+@import url("public.css");
+html{overflow-y: hidden;}
+#top{height:80px;background:url("../Images/logo.png") #F1F1F1 10px 10px no-repeat; 
+padding-left:300px;border-bottom: solid 2px #666;overflow: hidden; position: relative;}
+#top .menu{margin-top:38px;}
+#top .menu a{padding:6px 15px;background:#eee;font-size:15px;font-weight: bold;color:#43434F;
+	float:left;margin-right:10px; display:block; border:solid 1px #E3E3E3; border-radius: 3px;}
+#top .menu a:hover{background:#333;color:#fff; box-shadow:2px 3px 6px #ccc;}
+/***退出****/
+.exit{position: absolute;top:40px;right:20px;}
+.exit a{font-size:12px;color:#666;padding:3px 10px;border:solid 1px #E3E3E3; border-radius: 3px;}
+.exit a:hover{background: #999;color:#fff;}
+/**左侧**/
+#left{padding-top:20px;width:200px;float:left; overflow-x:hidden;
+	overflow-y:auto;border-right: solid 1px #dcdcdc; 
+background:#F1F1F1 10px 10px no-repeat; }
+#left dl{border-bottom:solid 1px #dcdcdc;padding-bottom: 15px;}
+#left dl dt{border-left: 8px solid #DD4B39;padding-left:10px; color:#DD4B39;margin-top:10px;}
+#left dl dd{margin-top:3px;}
+#left dl dd a{font-size:14px;padding:4px 0px;padding-left:18px;color:#43434F;display:block; }
+#left dl dd a:hover{background:#eee;}
+#right{float:left;overflow: hidden;}
