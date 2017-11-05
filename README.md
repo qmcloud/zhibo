@@ -1,7 +1,7 @@
 # php 直播平台 
 
-#演示地址：http://live.logde.cn/
-
+#演示内容： app端直播 web+app 观看 效果演示
+http://group.store.qq.com/qun/M5CXvbshIHEJdIzwzpGpEg!!/V3tordiEGzZ*llCWk8D/800?w5=1220&h5=640&rf=viewer_421
 #说明：
 
 基于云豹平台二次修改优化版，此版本部分代码已经监控并加密
