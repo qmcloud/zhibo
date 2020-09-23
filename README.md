@@ -1,7 +1,12 @@
 
 ## 架构简介
+
 技术群: ![Alt](https://img-blog.csdnimg.cn/20200623093238797.png)
-**GitHub**:https://github.com/DOUBLE-Baller/momo[点击跳转](https://github.com/DOUBLE-Baller/momo).
+
+**GitHub**:https://github.com/DOUBLE-Baller/momo
+
+**博客地址**：https://blog.csdn.net/u012115197/article/details/108738066
+
 
 	注：本教程适用于 Go 1.13 版本，因为 Go 1.11 才正式引入了 Go Module 作为包管理器。
 
