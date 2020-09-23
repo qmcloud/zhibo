@@ -1,4 +1,3 @@
-@[TOC](分布式直播系统架构)
 
 ## 架构简介
 技术群: ![Alt](https://img-blog.csdnimg.cn/20200623093238797.png)
